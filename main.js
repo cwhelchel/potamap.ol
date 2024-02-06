@@ -5,17 +5,9 @@ import OSM from 'ol/source/OSM';
 import GeoJSON from 'ol/format/GeoJSON'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector';
-import { Icon, Style } from 'ol/style.js';
 import Overlay from 'ol/Overlay.js';
+import PotaLayers from './layers.js'
 
-const iconStyle = new Style({
-  image: new Icon({
-    anchor: [0.5, 0.5],
-    anchorXUnits: 'fraction',
-    anchorYUnits: 'fraction',
-    src: 'data/img/yd.png',
-  }),
-});
 
 var gaDnrLayer = new VectorLayer({
   source: new VectorSource({
@@ -24,30 +16,33 @@ var gaDnrLayer = new VectorLayer({
   })
 })
 
-var gaPotaLayer = new VectorLayer({
+var gaNatLayer = new VectorLayer({
   source: new VectorSource({
     format: new GeoJSON(),
-    url: './data/parks-US-GA.geojson'
-  }),
-  style: iconStyle
-})
+    url: './data/geojsonOutput.json'
+  })
+});
 
-//gaPotaLayer.style = iconStyle
 
 const map = new Map({
   target: document.getElementById('map'),
-  layers: [
-    new TileLayer({
-      source: new OSM()
-    }),
-    gaDnrLayer,
-    gaPotaLayer
-  ],
+  layers:  [new TileLayer({source: new OSM()})],
   view: new View({
     center: [0, 0],
     zoom: 2
   })
 });
+
+
+// add our layers
+let currentLayer = 'US-GA';
+let potaLayers = new PotaLayers();
+let x = potaLayers.getLayers();
+
+map.addLayer(gaNatLayer);
+map.addLayer(gaDnrLayer);
+map.addLayer(potaLayers.getLayer(currentLayer));
+
 
 // add popup div as map overlay
 const element = document.getElementById('popup');
@@ -97,3 +92,39 @@ map.on('pointermove', function (e) {
 
 // Close the popup when the map is moved
 map.on('movestart', disposePopover);
+
+function applyMargins() {
+  $("#map .ol-zoom").css("margin-top", $("nav").outerHeight())
+  $("#map").css("margin-top", $("nav").outerHeight())
+}
+
+$(window).on("resize", applyMargins);
+
+applyMargins();
+
+function onLocationBtn(event) {
+
+};
+
+$('#locBtn').click(function() {
+  map.removeLayer(potaLayers.getLayer(currentLayer));
+  const inVal =  $('#locTxt').val();
+  currentLayer = inVal;
+  map.addLayer(potaLayers.getLayer(currentLayer));
+});
+
+$('input#checkGaDnr').change(function () {
+  if ($('input#checkGaDnr').is(':checked')) {
+    map.addLayer(gaDnrLayer);
+  } else {
+    map.removeLayer(gaDnrLayer);
+  }
+});
+
+$('input#checkGaNat').change(function () {
+  if ($('input#checkGaNat').is(':checked')) {
+    map.addLayer(gaNatLayer);
+  } else {
+    map.removeLayer(gaNatLayer);
+  }
+});
