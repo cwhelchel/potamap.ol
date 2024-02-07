@@ -6,7 +6,7 @@ import GeoJSON from 'ol/format/GeoJSON'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector';
 import Overlay from 'ol/Overlay.js';
-import PotaLayers from './layers.js'
+import PotaLayers from './PotaLayers.js'
 
 
 var gaDnrLayer = new VectorLayer({
