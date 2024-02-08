@@ -51,6 +51,10 @@
         .form-check {
             margin-left: 50px;
         }
+
+        .shapeProps {
+            font-size: 0.75em;
+        }
     </style>
     <title>Using OpenLayers with Vite</title>
 </head>
@@ -60,78 +64,80 @@
         <nav class="navbar navbar-expand-lg bg-light fixed-top" role="navigation">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">POTAMAP OpenLayers</a>
-                <div class="d-flex input-group w-auto">
+                <!-- <div class="d-flex input-group w-auto">
 
                     <input id="locTxt" class="form-control rounded" placeholder="Location ex: US-GA" />
                     <button id="locBtn" class="btn btn-default">Submit</button>
+                </div> -->
+                <div class="d-flex input-group w-auto">
+                    <select id="locSelect" class="form-select w-auto" aria-label="Location Selection">
+                        <option selected>Open this select menu</option>
+                        <option value="US-AK"> US-AK </option>
+                        <!-- <option value="US-KH8"> US-KH8 </option> 
+                        <option value="US-KP5"> US-KP5 </option>
+                        <option value="US-KH2"> US-KH2 </option> 
+                        <option value="US-KH3"> US-KH3 </option>
+                        <option value="US-KH5"> US-KH5 </option>
+                        <option value="US-KH7"> US-KH7 </option>
+                        <option value="US-KH4"> US-KH4 </option>
+                        <option value="US-KP1"> US-KP1 </option>
+                        <option value="US-KH5"> US-KH5 </option> -->
+                        <option value="US-AL"> US-AL </option>
+                        <option value="US-AZ"> US-AZ </option>
+                        <option value="US-AR"> US-AR </option>
+                        <option value="US-CA"> US-CA </option>
+                        <option value="US-CO"> US-CO </option>
+                        <option value="US-CT"> US-CT </option>
+                        <option value="US-DE"> US-DE </option>
+                        <option value="US-DC"> US-DC </option>
+                        <option value="US-FL"> US-FL </option>
+                        <option value="US-GA"> US-GA </option>
+                        <option value="US-HI"> US-HI </option>
+                        <option value="US-ID"> US-ID </option>
+                        <option value="US-IL"> US-IL </option>
+                        <option value="US-IN"> US-IN </option>
+                        <option value="US-IA"> US-IA </option>
+                        <option value="US-KH"> US-KH1 </option>
+                        <option value="US-KS"> US-KS </option>
+                        <option value="US-KP"> US-KP4 </option>
+                        <option value="US-KY"> US-KY </option>
+                        <option value="US-LA"> US-LA </option>
+                        <option value="US-ME"> US-ME </option>
+                        <option value="US-MD"> US-MD </option>
+                        <option value="US-MA"> US-MA </option>
+                        <option value="US-MI"> US-MI </option>
+                        <option value="US-MN"> US-MN </option>
+                        <option value="US-MS"> US-MS </option>
+                        <option value="US-MO"> US-MO </option>
+                        <option value="US-MT"> US-MT </option>
+                        <option value="US-NE"> US-NE </option>
+                        <option value="US-NV"> US-NV </option>
+                        <option value="US-NH"> US-NH </option>
+                        <option value="US-NJ"> US-NJ </option>
+                        <option value="US-NM"> US-NM </option>
+                        <option value="US-NY"> US-NY </option>
+                        <option value="US-NC"> US-NC </option>
+                        <option value="US-ND"> US-ND </option>
+                        <option value="US-OH"> US-OH </option>
+                        <option value="US-OK"> US-OK </option>
+                        <option value="US-OR"> US-OR </option>
+                        <option value="US-PA"> US-PA </option>
+                        <option value="US-RI"> US-RI </option>
+                        <option value="US-SC"> US-SC </option>
+                        <option value="US-SD"> US-SD </option>
+                        <option value="US-TN"> US-TN </option>
+                        <option value="US-TX"> US-TX </option>
+                        <option value="US-UT"> US-UT </option>
+                        <option value="US-VT"> US-VT </option>
+                        <option value="US-VA"> US-VA </option>
+                        <option value="US-WA"> US-WA </option>
+                        <option value="US-WV"> US-WV </option>
+                        <option value="US-WI"> US-WI </option>
+                        <option value="US-WY"> US-WY </option>
+                        <option value="US-VI"> US-VI </option>
+                        <option value="US-KH9"> US-KH9 </option>
+                    </select>
                 </div>
-                <select id="locSelect" class="form-select w-auto" aria-label="Location Selection">
-                    <option selected>Open this select menu</option>
-                    <option value="US-AK"> US-AK </option>
-                    <!-- <option value="US-KH8"> US-KH8 </option> -->
-                    <!-- <option value="US-KP5"> US-KP5 </option>
-                    <option value="US-KH2"> US-KH2 </option> -->
-                    <!-- <option value="US-KH3"> US-KH3 </option>
-                    <option value="US-KH5"> US-KH5 </option>
-                    <option value="US-KH7"> US-KH7 </option>
-                    <option value="US-KH4"> US-KH4 </option>
-                    <option value="US-KP1"> US-KP1 </option>
-                    <option value="US-KH5"> US-KH5 </option> -->
-                    <option value="US-AL"> US-AL </option>
-                    <option value="US-AZ"> US-AZ </option>
-                    <option value="US-AR"> US-AR </option>
-                    <option value="US-CA"> US-CA </option>
-                    <option value="US-CO"> US-CO </option>
-                    <option value="US-CT"> US-CT </option>
-                    <option value="US-DE"> US-DE </option>
-                    <option value="US-DC"> US-DC </option>
-                    <option value="US-FL"> US-FL </option>
-                    <option value="US-GA"> US-GA </option>
-                    <option value="US-HI"> US-HI </option>
-                    <option value="US-ID"> US-ID </option>
-                    <option value="US-IL"> US-IL </option>
-                    <option value="US-IN"> US-IN </option>
-                    <option value="US-IA"> US-IA </option>
-                    <option value="US-KH"> US-KH1 </option>
-                    <option value="US-KS"> US-KS </option>
-                    <option value="US-KP"> US-KP4 </option>
-                    <option value="US-KY"> US-KY </option>
-                    <option value="US-LA"> US-LA </option>
-                    <option value="US-ME"> US-ME </option>
-                    <option value="US-MD"> US-MD </option>
-                    <option value="US-MA"> US-MA </option>
-                    <option value="US-MI"> US-MI </option>
-                    <option value="US-MN"> US-MN </option>
-                    <option value="US-MS"> US-MS </option>
-                    <option value="US-MO"> US-MO </option>
-                    <option value="US-MT"> US-MT </option>
-                    <option value="US-NE"> US-NE </option>
-                    <option value="US-NV"> US-NV </option>
-                    <option value="US-NH"> US-NH </option>
-                    <option value="US-NJ"> US-NJ </option>
-                    <option value="US-NM"> US-NM </option>
-                    <option value="US-NY"> US-NY </option>
-                    <option value="US-NC"> US-NC </option>
-                    <option value="US-ND"> US-ND </option>
-                    <option value="US-OH"> US-OH </option>
-                    <option value="US-OK"> US-OK </option>
-                    <option value="US-OR"> US-OR </option>
-                    <option value="US-PA"> US-PA </option>
-                    <option value="US-RI"> US-RI </option>
-                    <option value="US-SC"> US-SC </option>
-                    <option value="US-SD"> US-SD </option>
-                    <option value="US-TN"> US-TN </option>
-                    <option value="US-TX"> US-TX </option>
-                    <option value="US-UT"> US-UT </option>
-                    <option value="US-VT"> US-VT </option>
-                    <option value="US-VA"> US-VA </option>
-                    <option value="US-WA"> US-WA </option>
-                    <option value="US-WV"> US-WV </option>
-                    <option value="US-WI"> US-WI </option>
-                    <option value="US-WY"> US-WY </option>
-                    <option value="US-VI"> US-VI </option>
-                    <option value="US-KH9"> US-KH9 </option>
-                </select>
             </div>
     </div>
     </nav>

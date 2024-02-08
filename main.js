@@ -10,18 +10,25 @@ import LayerGroup from 'ol/layer/Group'
 import VectorSource from 'ol/source/Vector';
 import Overlay from 'ol/Overlay.js';
 import LayerSwitcher from 'ol-layerswitcher';
-import {fromLonLat} from 'ol/proj.js';
+import { fromLonLat } from 'ol/proj.js';
 
 import initLayers from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 
 
+// create all our layers: boundary shapes and pota park markers. grouped into
+// layer groups for each location (US-GA, etc)
 let groups = initLayers();
 
 let allGroup = new LayerGroup({
     layers: [],
     title: 'All'
 });
+
+// add our created groups into a single top level group
+for (let i = 0; i < groups.length; i++) {
+    allGroup.getLayers().getArray().push(groups[i]);
+}
 
 const map = new Map({
     target: document.getElementById('map'),
@@ -34,10 +41,6 @@ const map = new Map({
     })
 });
 
-for (let i = 0; i < groups.length; i++) {
-    allGroup.getLayers().getArray().push(groups[i]);
-}
-
 // remove visibility of all groups in layerswitcher
 //for (let i = 0; i < groups.length; i++) {
 //allGroup.getLayers().getArray()[1].getLayersArray()[0].setProperties({ "visible": true });
@@ -48,11 +51,10 @@ for (let i = 0; i < groups.length; i++) {
 // allGroup.getLayers().getArray().push
 
 var layerSwitcher = new LayerSwitcher({
-    tipLabel: 'Poop', // Optional label for button
     startActive: true,
     activationMode: 'click',
-    groupSelectStyle: 'children', // Can be 'children' [default], 'group' or 'none'
-    reverse: true
+    groupSelectStyle: 'children',
+    reverse: false // this logic is backwards-af
 });
 
 map.addControl(layerSwitcher);
@@ -91,9 +93,29 @@ map.on('click', function (evt) {
     popover = new bootstrap.Popover(element, {
         placement: 'top',
         html: true,
-        content: feature.get('NAME') + ' - ' + feature.get('TITLE'),
+        content: getContent(),
     });
     popover.show();
+
+    function getContent() {
+        let name = feature.get('NAME'); // should ALWAYS be there 
+        let title = feature.get('TITLE'); // will be there for pota parks
+        let res = "";
+
+        // from a shapefile. use its properties as they provide way more info
+        if (title === undefined) {
+            let p = feature.getProperties();
+            for (var property in p) {
+                if (typeof(p[property]) == "string") {
+                    res += `${property} : ${p[property]} <br/>`;
+                }
+            }
+            res = `<span class="shapeProps">${res}</span>`
+        }
+        else
+            res = `${name} - ${title}`;
+        return res;
+    }
 });
 
 // change mouse cursor when over marker
@@ -116,73 +138,67 @@ $(window).on("resize", applyMargins);
 
 applyMargins();
 
-function fuckThatChicken(inVal) {
+function clearLocLayerGroups() {
+    for (let i = 0; i < groups.length; i++) {
+        groups[i].setProperties({ "visible": false });
+
+        // hide each sub layer
+        groups[i].getLayersArray().forEach(function (val, i, array) {
+            val.setProperties({ "visible": false });
+        });
+    }
+}
+
+function showLocLayerGroup(inVal) {
     let layers = allGroup.getLayers();
-    
+
+    clearLocLayerGroups();
 
     for (var groups in layers.getArray()) {
         var temp = layers.getArray()[groups];
         let properties = temp.getProperties();
         if (properties["title"] === inVal) {
-            temp.setProperties({ "visible": true });
-            for (let i = 0; i < temp.getLayersArray().length; i++) {
-                temp.getLayersArray()[i].setProperties({ "visible": true });
-            }
+            selectLayerGroup(temp);
 
-            layerSwitcher.renderPanel();
+            scrollToLayGroupInPanel(inVal);
 
-            var container = $("div.panel"); // hope there's only one
-            var element = $("label:contains('" + inVal + "')");
-
-            container.scrollTop(
-                element.offset().top - container.offset().top + container.scrollTop()
-            );
-
-            let lat = StaticData.data[inVal].lat;
-            let lon = StaticData.data[inVal].lon;
-            let zoom = StaticData.data[inVal].zoom;
-            map.getView().animate({zoom: zoom, center: fromLonLat([lon, lat])});
+            zoomToLocation(inVal);
         }
     }
 }
 
-$('#locBtn').click(function () {
-    const inVal = $('#locTxt').val();
-
-    fuckThatChicken(inVal);
-
-    // this works earlier.
-    // allGroup.getLayers().getArray()[1].getLayersArray()[0].setProperties({"visible": true});
-
-    // let layers = allGroup.getLayers();
-    
-    // for (var groups in layers.getArray()) {
-    //     var temp = layers.getArray()[groups];
-    //     let properties = temp.getProperties();
-    //     if (properties["title"] === inVal) {
-    //         temp.setProperties({ "visible": true });
-    //         for (let i = 0; i < temp.getLayersArray().length; i++) {
-    //             temp.getLayersArray()[i].setProperties({ "visible": true });
-    //         }
-
-    //         layerSwitcher.renderPanel();
-
-    //         var container = $("div.panel"); // hope there's only one
-    //         var element = $("label:contains('" + inVal + "')");
-
-    //         container.scrollTop(
-    //             element.offset().top - container.offset().top + container.scrollTop()
-    //         );
-
-    //         let lat = StaticData.data[inVal].lat;
-    //         let lon = StaticData.data[inVal].lon;
-    //         let zoom = StaticData.data[inVal].zoom;
-    //         map.getView().animate({zoom: zoom, center: fromLonLat([lon, lat])});
-    //     }
-    // }
+$('#locSelect').on("change", function () {
+    showLocLayerGroup(this.value);
 });
 
-$('#locSelect').on( "change", function() {
-    fuckThatChicken(this.value);
-});
-//39c74a95-eef5-4727-9079-5866aefae6d9 ak
+function zoomToLocation(locId) {
+    if (!(locId in StaticData.data))
+        return;
+    let lat = StaticData.data[locId].lat;
+    let lon = StaticData.data[locId].lon;
+    let zoom = StaticData.data[locId].zoom;
+    map.getView().animate({ zoom: zoom, center: fromLonLat([lon, lat]) });
+}
+
+function scrollToLayGroupInPanel(locId) {
+    var container = $("div.panel");
+    var element = $("label:contains('" + locId + "')");
+
+    container.scrollTop(
+        element.offset().top - container.offset().top + container.scrollTop()
+    );
+}
+
+function selectLayerGroup(layerGroup) {
+
+    // set to be checked and open the tree node
+    layerGroup.setProperties({ "visible": true, "fold": 'open' });
+
+    // set each child visible
+    for (let i = 0; i < layerGroup.getLayersArray().length; i++) {
+        layerGroup.getLayersArray()[i].setProperties({ "visible": true });
+    }
+
+    // refresh redraw panel
+    layerSwitcher.renderPanel();
+}

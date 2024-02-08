@@ -1,5 +1,7 @@
 
 export default class LocData {
+    // !!! reminder put POTA PARK marker layer LAST so it shows up on top of 
+    // boundary geometry !!
     static data = {
         'data':
         {
@@ -71,6 +73,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-LA.geojson' },
             ],
             'US-MA': [
+                { title: 'PAD-US', file: 'PADUS3_0Fee_StateMA.geojson' },
                 { title: 'Parks', file: 'parks-US-MA.geojson' },
             ],
             'US-MD': [
