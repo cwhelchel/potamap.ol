@@ -1,99 +1,204 @@
+'use strict';
+
 import './style.css';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import GeoJSON from 'ol/format/GeoJSON'
 import VectorLayer from 'ol/layer/Vector'
+import LayerGroup from 'ol/layer/Group'
 import VectorSource from 'ol/source/Vector';
-import { Icon, Style } from 'ol/style.js';
 import Overlay from 'ol/Overlay.js';
+import LayerSwitcher from 'ol-layerswitcher';
+import { fromLonLat } from 'ol/proj.js';
 
-const iconStyle = new Style({
-  image: new Icon({
-    anchor: [0.5, 0.5],
-    anchorXUnits: 'fraction',
-    anchorYUnits: 'fraction',
-    src: 'data/img/yd.png',
-  }),
+import initLayers from './BoundaryLayers.js'
+import StaticData from './StaticData.js'
+
+
+// create all our layers: boundary shapes and pota park markers. grouped into
+// layer groups for each location (US-GA, etc)
+let groups = initLayers();
+
+let allGroup = new LayerGroup({
+    layers: [],
+    title: 'All'
 });
 
-var gaDnrLayer = new VectorLayer({
-  source: new VectorSource({
-    format: new GeoJSON(),
-    url: './data/dnr20a.geojson'
-  })
-})
-
-var gaPotaLayer = new VectorLayer({
-  source: new VectorSource({
-    format: new GeoJSON(),
-    url: './data/parks-US-GA.geojson'
-  }),
-  style: iconStyle
-})
-
-//gaPotaLayer.style = iconStyle
+// add our created groups into a single top level group
+for (let i = 0; i < groups.length; i++) {
+    allGroup.getLayers().getArray().push(groups[i]);
+}
 
 const map = new Map({
-  target: document.getElementById('map'),
-  layers: [
-    new TileLayer({
-      source: new OSM()
-    }),
-    gaDnrLayer,
-    gaPotaLayer
-  ],
-  view: new View({
-    center: [0, 0],
-    zoom: 2
-  })
+    target: document.getElementById('map'),
+    layers: [new TileLayer({ source: new OSM() }), allGroup],
+    title: 'Map',
+    type: 'base',
+    view: new View({
+        center: [0, 0],
+        zoom: 2
+    })
 });
+
+// remove visibility of all groups in layerswitcher
+//for (let i = 0; i < groups.length; i++) {
+//allGroup.getLayers().getArray()[1].getLayersArray()[0].setProperties({ "visible": true });
+//allGroup.getLayers().getArray()[0].getLayersArray()[1].setProperties({"visible": true});
+//allGroup.getLayers().getArray()[0].getLayersArray()[2].setProperties({"visible": true});
+//}
+
+// allGroup.getLayers().getArray().push
+
+var layerSwitcher = new LayerSwitcher({
+    startActive: true,
+    activationMode: 'click',
+    groupSelectStyle: 'children',
+    reverse: false // this logic is backwards-af
+});
+
+map.addControl(layerSwitcher);
+
 
 // add popup div as map overlay
 const element = document.getElementById('popup');
 
 const popup = new Overlay({
-  element: element,
-  positioning: 'bottom-center',
-  stopEvent: false,
+    element: element,
+    positioning: 'bottom-center',
+    stopEvent: false,
 });
 map.addOverlay(popup);
 
 let popover;
 function disposePopover() {
-  if (popover) {
-    popover.dispose();
-    popover = undefined;
-  }
+    if (popover) {
+        popover.dispose();
+        popover = undefined;
+    }
 }
 
 // display popup on click
 map.on('click', function (evt) {
-  const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-    return feature;
-  });
+    const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
+        return feature;
+    });
 
-  disposePopover();
-  if (!feature) {
-    return;
-  }
+    disposePopover();
+    if (!feature) {
+        return;
+    }
 
-  popup.setPosition(evt.coordinate);
-  popover = new bootstrap.Popover(element, {
-    placement: 'top',
-    html: true,
-    content: feature.get('NAME') + ' - ' + feature.get('TITLE'),
-  });
-  popover.show();
+    popup.setPosition(evt.coordinate);
+    popover = new bootstrap.Popover(element, {
+        placement: 'top',
+        html: true,
+        content: getContent(),
+    });
+    popover.show();
+
+    function getContent() {
+        let name = feature.get('NAME'); // should ALWAYS be there 
+        let title = feature.get('TITLE'); // will be there for pota parks
+        let res = "";
+
+        // from a shapefile. use its properties as they provide way more info
+        if (title === undefined) {
+            let p = feature.getProperties();
+            for (var property in p) {
+                if (typeof(p[property]) == "string") {
+                    res += `${property} : ${p[property]} <br/>`;
+                }
+            }
+            res = `<span class="shapeProps">${res}</span>`
+        }
+        else
+            res = `${name} - ${title}`;
+        return res;
+    }
 });
 
 // change mouse cursor when over marker
 map.on('pointermove', function (e) {
-  const pixel = map.getEventPixel(e.originalEvent);
-  const hit = map.hasFeatureAtPixel(pixel);
-  //console.log(map.getTarget().style)
-  map.getTarget().style.cursor = hit ? 'pointer' : '';
+    const pixel = map.getEventPixel(e.originalEvent);
+    const hit = map.hasFeatureAtPixel(pixel);
+    //console.log(map.getTarget().style)
+    map.getTarget().style.cursor = hit ? 'pointer' : '';
 });
 
 // Close the popup when the map is moved
 map.on('movestart', disposePopover);
+
+function applyMargins() {
+    $("#map .ol-zoom").css("margin-top", $("nav").outerHeight())
+    $("#map").css("margin-top", $("nav").outerHeight())
+}
+
+$(window).on("resize", applyMargins);
+
+applyMargins();
+
+function clearLocLayerGroups() {
+    for (let i = 0; i < groups.length; i++) {
+        groups[i].setProperties({ "visible": false });
+
+        // hide each sub layer
+        groups[i].getLayersArray().forEach(function (val, i, array) {
+            val.setProperties({ "visible": false });
+        });
+    }
+}
+
+function showLocLayerGroup(inVal) {
+    let layers = allGroup.getLayers();
+
+    clearLocLayerGroups();
+
+    for (var groups in layers.getArray()) {
+        var temp = layers.getArray()[groups];
+        let properties = temp.getProperties();
+        if (properties["title"] === inVal) {
+            selectLayerGroup(temp);
+
+            scrollToLayGroupInPanel(inVal);
+
+            zoomToLocation(inVal);
+        }
+    }
+}
+
+$('#locSelect').on("change", function () {
+    showLocLayerGroup(this.value);
+});
+
+function zoomToLocation(locId) {
+    if (!(locId in StaticData.data))
+        return;
+    let lat = StaticData.data[locId].lat;
+    let lon = StaticData.data[locId].lon;
+    let zoom = StaticData.data[locId].zoom;
+    map.getView().animate({ zoom: zoom, center: fromLonLat([lon, lat]) });
+}
+
+function scrollToLayGroupInPanel(locId) {
+    var container = $("div.panel");
+    var element = $("label:contains('" + locId + "')");
+
+    container.scrollTop(
+        element.offset().top - container.offset().top + container.scrollTop()
+    );
+}
+
+function selectLayerGroup(layerGroup) {
+
+    // set to be checked and open the tree node
+    layerGroup.setProperties({ "visible": true, "fold": 'open' });
+
+    // set each child visible
+    for (let i = 0; i < layerGroup.getLayersArray().length; i++) {
+        layerGroup.getLayersArray()[i].setProperties({ "visible": true });
+    }
+
+    // refresh redraw panel
+    layerSwitcher.renderPanel();
+}

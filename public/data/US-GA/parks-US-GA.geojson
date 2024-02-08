@@ -1,0 +1,3142 @@
+{
+    "type": "FeatureCollection",
+    "name": "GA POTA PARKS",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.0956,
+                    31.0351
+                ]
+            },
+            "properties": {
+                "NAME": "K-0259",
+                "TITLE": "Banks Lake National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.1962,
+                    31.5187
+                ]
+            },
+            "properties": {
+                "NAME": "K-0260",
+                "TITLE": "Blackbeard Island National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.5628,
+                    32.7394
+                ]
+            },
+            "properties": {
+                "NAME": "K-0261",
+                "TITLE": "Bond Swamp National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.2678,
+                    31.6312
+                ]
+            },
+            "properties": {
+                "NAME": "K-0262",
+                "TITLE": "Harris Neck National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.14,
+                    30.7383
+                ]
+            },
+            "properties": {
+                "NAME": "K-0263",
+                "TITLE": "Okefenokee National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.679,
+                    33.111
+                ]
+            },
+            "properties": {
+                "NAME": "K-0264",
+                "TITLE": "Piedmont National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.9922,
+                    31.8945
+                ]
+            },
+            "properties": {
+                "NAME": "K-0266",
+                "TITLE": "Wassaw National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.301,
+                    31.3501
+                ]
+            },
+            "properties": {
+                "NAME": "K-0267",
+                "TITLE": "Wolf Island National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.1514,
+                    32.1655
+                ]
+            },
+            "properties": {
+                "NAME": "K-0522",
+                "TITLE": "Savannah National Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.42,
+                    31.04
+                ]
+            },
+            "properties": {
+                "NAME": "K-0636",
+                "TITLE": "Jekyll Island State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.2491,
+                    33.9999
+                ]
+            },
+            "properties": {
+                "NAME": "K-0662",
+                "TITLE": "Chattahoochee River National Recreation Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4681,
+                    30.7651
+                ]
+            },
+            "properties": {
+                "NAME": "K-0663",
+                "TITLE": "Cumberland Island National Seashore"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.5781,
+                    33.9844
+                ]
+            },
+            "properties": {
+                "NAME": "K-0711",
+                "TITLE": "Kennesaw Mountain National Battlefield"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.2598,
+                    34.9405
+                ]
+            },
+            "properties": {
+                "NAME": "K-0716",
+                "TITLE": "Chickamauga and Chattanooga National Military Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.1244,
+                    32.1896
+                ]
+            },
+            "properties": {
+                "NAME": "K-0799",
+                "TITLE": "Andersonville National Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.4246,
+                    32.0265
+                ]
+            },
+            "properties": {
+                "NAME": "K-0837",
+                "TITLE": "Jimmy Carter National Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.3736,
+                    33.7569
+                ]
+            },
+            "properties": {
+                "NAME": "K-0846",
+                "TITLE": "Martin Luther King Jr. National Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.3893,
+                    31.2231
+                ]
+            },
+            "properties": {
+                "NAME": "K-0926",
+                "TITLE": "Fort Frederica National Monument"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.8905,
+                    32.0271
+                ]
+            },
+            "properties": {
+                "NAME": "K-0930",
+                "TITLE": "Fort Pulaski National Monument"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.6034,
+                    32.8396
+                ]
+            },
+            "properties": {
+                "NAME": "K-0952",
+                "TITLE": "Ocmulgee National Monument"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.5528,
+                    35.0395
+                ]
+            },
+            "properties": {
+                "NAME": "K-10397",
+                "TITLE": "Southern Nantahala Wilderness Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.8955,
+                    33.562
+                ]
+            },
+            "properties": {
+                "NAME": "K-2165",
+                "TITLE": "A. H. Stephens State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.2436,
+                    34.5683
+                ]
+            },
+            "properties": {
+                "NAME": "K-2166",
+                "TITLE": "Amicalola Falls State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4116,
+                    34.9107
+                ]
+            },
+            "properties": {
+                "NAME": "K-2167",
+                "TITLE": "Black Rock Mountain State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.9896,
+                    33.4299
+                ]
+            },
+            "properties": {
+                "NAME": "K-2168",
+                "TITLE": "Chattahoochee Bend State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.484,
+                    34.8395
+                ]
+            },
+            "properties": {
+                "NAME": "K-2169",
+                "TITLE": "Cloudland Canyon State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.5514,
+                    30.8407
+                ]
+            },
+            "properties": {
+                "NAME": "K-2170",
+                "TITLE": "Crooked River State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7491,
+                    34.3907
+                ]
+            },
+            "properties": {
+                "NAME": "K-2171",
+                "TITLE": "Don Carter State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.3975,
+                    33.8497
+                ]
+            },
+            "properties": {
+                "NAME": "K-2172",
+                "TITLE": "Elijah Clark State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.8304,
+                    32.8426
+                ]
+            },
+            "properties": {
+                "NAME": "K-2173",
+                "TITLE": "F.D. Roosevelt State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.0416,
+                    32.087
+                ]
+            },
+            "properties": {
+                "NAME": "K-2174",
+                "TITLE": "Florence Marina State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.1815,
+                    31.885
+                ]
+            },
+            "properties": {
+                "NAME": "K-2175",
+                "TITLE": "Fort McAllister State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.6922,
+                    34.7594
+                ]
+            },
+            "properties": {
+                "NAME": "K-2176",
+                "TITLE": "Fort Mountain State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7367,
+                    33.9807
+                ]
+            },
+            "properties": {
+                "NAME": "K-2177",
+                "TITLE": "Fort Yargo State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.7553,
+                    31.5088
+                ]
+            },
+            "properties": {
+                "NAME": "K-2178",
+                "TITLE": "General Coffee State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.1197,
+                    32.5586
+                ]
+            },
+            "properties": {
+                "NAME": "K-2179",
+                "TITLE": "George L. Smith State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.0577,
+                    31.6651
+                ]
+            },
+            "properties": {
+                "NAME": "K-2180",
+                "TITLE": "George T. Bagby State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9124,
+                    31.9683
+                ]
+            },
+            "properties": {
+                "NAME": "K-2181",
+                "TITLE": "Georgia Veterans State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.1227,
+                    32.0825
+                ]
+            },
+            "properties": {
+                "NAME": "K-2182",
+                "TITLE": "Jack Hill State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.7785,
+                    33.2065
+                ]
+            },
+            "properties": {
+                "NAME": "K-2183",
+                "TITLE": "Hamburg State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.6061,
+                    33.6673
+                ]
+            },
+            "properties": {
+                "NAME": "K-2184",
+                "TITLE": "Hard Labor Creek State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.0141,
+                    33.1824
+                ]
+            },
+            "properties": {
+                "NAME": "K-2185",
+                "TITLE": "High Falls State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9205,
+                    33.2477
+                ]
+            },
+            "properties": {
+                "NAME": "K-2186",
+                "TITLE": "Indian Springs State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.3372,
+                    34.4399
+                ]
+            },
+            "properties": {
+                "NAME": "K-2187",
+                "TITLE": "James H. (Sloppy) Floyd State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.2138,
+                    31.1441
+                ]
+            },
+            "properties": {
+                "NAME": "K-2188",
+                "TITLE": "Laura S. Walker State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.8848,
+                    32.0916
+                ]
+            },
+            "properties": {
+                "NAME": "K-2189",
+                "TITLE": "Little Ocmulgee State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.9561,
+                    32.8807
+                ]
+            },
+            "properties": {
+                "NAME": "K-2190",
+                "TITLE": "Magnolia Springs State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.3798,
+                    33.646
+                ]
+            },
+            "properties": {
+                "NAME": "K-2191",
+                "TITLE": "Mistletoe State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.588,
+                    34.844
+                ]
+            },
+            "properties": {
+                "NAME": "K-2192",
+                "TITLE": "Moccasin Creek State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.1715,
+                    33.625
+                ]
+            },
+            "properties": {
+                "NAME": "K-2193",
+                "TITLE": "Panola Mountain State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7043,
+                    34.1479
+                ]
+            },
+            "properties": {
+                "NAME": "K-2194",
+                "TITLE": "Red Top Mountain State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.5372,
+                    31.1609
+                ]
+            },
+            "properties": {
+                "NAME": "K-2195",
+                "TITLE": "Reed Bingham State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.7614,
+                    34.1781
+                ]
+            },
+            "properties": {
+                "NAME": "K-2196",
+                "TITLE": "Richard B. Russell State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.8779,
+                    30.8095
+                ]
+            },
+            "properties": {
+                "NAME": "K-2197",
+                "TITLE": "Seminole State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.0561,
+                    31.9526
+                ]
+            },
+            "properties": {
+                "NAME": "K-2198",
+                "TITLE": "Skidaway Island State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7694,
+                    34.6918
+                ]
+            },
+            "properties": {
+                "NAME": "K-2199",
+                "TITLE": "Smithgall Woods State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.3648,
+                    30.8219
+                ]
+            },
+            "properties": {
+                "NAME": "K-2200",
+                "TITLE": "Stephen C Foster State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.6395,
+                    33.7542
+                ]
+            },
+            "properties": {
+                "NAME": "K-2201",
+                "TITLE": "Sweetwater Creek State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4002,
+                    34.7426
+                ]
+            },
+            "properties": {
+                "NAME": "K-2202",
+                "TITLE": "Tallulah Gorge State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.0638,
+                    34.4942
+                ]
+            },
+            "properties": {
+                "NAME": "K-2203",
+                "TITLE": "Tugaloo State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7224,
+                    34.7226
+                ]
+            },
+            "properties": {
+                "NAME": "K-2204",
+                "TITLE": "Unicoi State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1598,
+                    34.3011
+                ]
+            },
+            "properties": {
+                "NAME": "K-2205",
+                "TITLE": "Victoria Bryant State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9197,
+                    34.767
+                ]
+            },
+            "properties": {
+                "NAME": "K-2206",
+                "TITLE": "Vogel State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.0734,
+                    34.0261
+                ]
+            },
+            "properties": {
+                "NAME": "K-2207",
+                "TITLE": "Watson Mill Bridge State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.8071,
+                    34.128
+                ]
+            },
+            "properties": {
+                "NAME": "K-3715",
+                "TITLE": "Etowah Indian Mounds State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4149,
+                    31.3638
+                ]
+            },
+            "properties": {
+                "NAME": "K-3716",
+                "TITLE": "Fort King George State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.2895,
+                    31.7601
+                ]
+            },
+            "properties": {
+                "NAME": "K-3717",
+                "TITLE": "Fort Morris State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7083,
+                    34.685
+                ]
+            },
+            "properties": {
+                "NAME": "K-3718",
+                "TITLE": "Hardman Farm State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4602,
+                    31.305
+                ]
+            },
+            "properties": {
+                "NAME": "K-3719",
+                "TITLE": "Hofwyl-Broadfield Plantation State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.72,
+                    33.05
+                ]
+            },
+            "properties": {
+                "NAME": "K-3720",
+                "TITLE": "Jarrell Plantation State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.3867,
+                    31.6646
+                ]
+            },
+            "properties": {
+                "NAME": "K-3721",
+                "TITLE": "Jefferson Davis Memorial State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.91,
+                    34.5413
+                ]
+            },
+            "properties": {
+                "NAME": "K-3722",
+                "TITLE": "New Echota State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7591,
+                    33.974
+                ]
+            },
+            "properties": {
+                "NAME": "K-3723",
+                "TITLE": "Pickett's Mill Battlefield State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.6813,
+                    32.8846
+                ]
+            },
+            "properties": {
+                "NAME": "K-3724",
+                "TITLE": "Roosevelts Little White House State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.0692,
+                    31.9806
+                ]
+            },
+            "properties": {
+                "NAME": "K-3725",
+                "TITLE": "Wormsloe State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.9435,
+                    31.4729
+                ]
+            },
+            "properties": {
+                "NAME": "K-3726",
+                "TITLE": "Kolomoki Mounds State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.9113,
+                    34.3795
+                ]
+            },
+            "properties": {
+                "NAME": "K-3727",
+                "TITLE": "Hart State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.9219,
+                    32.0644
+                ]
+            },
+            "properties": {
+                "NAME": "K-3728",
+                "TITLE": "Providence Canyon State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.3033,
+                    34.3663
+                ]
+            },
+            "properties": {
+                "NAME": "K-3729",
+                "TITLE": "Rocky Mountain State Recreation Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4935,
+                    31.3701
+                ]
+            },
+            "properties": {
+                "NAME": "K-3730",
+                "TITLE": "Altamaha Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4916,
+                    33.3925
+                ]
+            },
+            "properties": {
+                "NAME": "K-3731",
+                "TITLE": "B F Grant Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.9867,
+                    32.6929
+                ]
+            },
+            "properties": {
+                "NAME": "K-3733",
+                "TITLE": "Beaverdam Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.1796,
+                    34.3232
+                ]
+            },
+            "properties": {
+                "NAME": "K-3734",
+                "TITLE": "Berry College Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.0867,
+                    31.8647
+                ]
+            },
+            "properties": {
+                "NAME": "K-3735",
+                "TITLE": "Big Hammock Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.0858,
+                    32.7756
+                ]
+            },
+            "properties": {
+                "NAME": "K-3736",
+                "TITLE": "Blanton Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.5225,
+                    31.9426
+                ]
+            },
+            "properties": {
+                "NAME": "K-3737",
+                "TITLE": "Bullard Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.5238,
+                    33.2294
+                ]
+            },
+            "properties": {
+                "NAME": "K-3738",
+                "TITLE": "Cedar Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.4126,
+                    31.5016
+                ]
+            },
+            "properties": {
+                "NAME": "K-3739",
+                "TITLE": "Chickasawhatchee Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.5731,
+                    31.3683
+                ]
+            },
+            "properties": {
+                "NAME": "K-3740",
+                "TITLE": "Clayhole Swamp Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7612,
+                    34.6319
+                ]
+            },
+            "properties": {
+                "NAME": "K-3741",
+                "TITLE": "Coosawattee Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.3399,
+                    34.7083
+                ]
+            },
+            "properties": {
+                "NAME": "K-3742",
+                "TITLE": "Crockford-Pigeon Mountain Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.2114,
+                    34.426
+                ]
+            },
+            "properties": {
+                "NAME": "K-3743",
+                "TITLE": "Dawson Forest Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.0585,
+                    32.9694
+                ]
+            },
+            "properties": {
+                "NAME": "K-3744",
+                "TITLE": "Di-Lane Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.5522,
+                    32.8878
+                ]
+            },
+            "properties": {
+                "NAME": "K-3745",
+                "TITLE": "Dixon Bay Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.2757,
+                    31.1164
+                ]
+            },
+            "properties": {
+                "NAME": "K-3746",
+                "TITLE": "Dixon Memorial Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.6542,
+                    34.0649
+                ]
+            },
+            "properties": {
+                "NAME": "K-3747",
+                "TITLE": "Elbert County Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.4882,
+                    31.3472
+                ]
+            },
+            "properties": {
+                "NAME": "K-3748",
+                "TITLE": "Elmodel Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.7956,
+                    31.7824
+                ]
+            },
+            "properties": {
+                "NAME": "K-3749",
+                "TITLE": "Flat Tub Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9925,
+                    32.1633
+                ]
+            },
+            "properties": {
+                "NAME": "K-3750",
+                "TITLE": "Flint River Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1928,
+                    30.9205
+                ]
+            },
+            "properties": {
+                "NAME": "K-3751",
+                "TITLE": "Grand Bay Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7877,
+                    31.6911
+                ]
+            },
+            "properties": {
+                "NAME": "K-3752",
+                "TITLE": "Griffin Ridge Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7439,
+                    32.1092
+                ]
+            },
+            "properties": {
+                "NAME": "K-3753",
+                "TITLE": "Hannahatchee Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.8566,
+                    34.2995
+                ]
+            },
+            "properties": {
+                "NAME": "K-3754",
+                "TITLE": "Hart County Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.868,
+                    31.8317
+                ]
+            },
+            "properties": {
+                "NAME": "K-3755",
+                "TITLE": "Horse Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.2053,
+                    33.9472
+                ]
+            },
+            "properties": {
+                "NAME": "K-3756",
+                "TITLE": "J.L. Lester Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.5378,
+                    33.1142
+                ]
+            },
+            "properties": {
+                "NAME": "K-3757",
+                "TITLE": "Joe Kurz Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.0922,
+                    34.5791
+                ]
+            },
+            "properties": {
+                "NAME": "K-3758",
+                "TITLE": "John's Mountain Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.0183,
+                    31.3516
+                ]
+            },
+            "properties": {
+                "NAME": "K-3759",
+                "TITLE": "Little Satilla Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7973,
+                    31.2026
+                ]
+            },
+            "properties": {
+                "NAME": "K-3760",
+                "TITLE": "Mayhaw Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.5786,
+                    32.4848
+                ]
+            },
+            "properties": {
+                "NAME": "K-3761",
+                "TITLE": "Oaky Woods Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.481,
+                    32.339
+                ]
+            },
+            "properties": {
+                "NAME": "K-3762",
+                "TITLE": "Ocmulgee Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1496,
+                    33.336
+                ]
+            },
+            "properties": {
+                "NAME": "K-3763",
+                "TITLE": "Oconee Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.5706,
+                    32.4869
+                ]
+            },
+            "properties": {
+                "NAME": "K-3764",
+                "TITLE": "Oliver Bridge Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.0983,
+                    31.7946
+                ]
+            },
+            "properties": {
+                "NAME": "K-3765",
+                "TITLE": "Ossabaw Island Heritage Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.5863,
+                    31.3198
+                ]
+            },
+            "properties": {
+                "NAME": "K-3766",
+                "TITLE": "Paulks Pasture Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7163,
+                    31.5338
+                ]
+            },
+            "properties": {
+                "NAME": "K-3767",
+                "TITLE": "Penholoway Swamp Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.9851,
+                    33.4172
+                ]
+            },
+            "properties": {
+                "NAME": "K-3768",
+                "TITLE": "Phinizy Swamp Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.8218,
+                    32.4641
+                ]
+            },
+            "properties": {
+                "NAME": "K-3769",
+                "TITLE": "River Bend Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.0645,
+                    30.8674
+                ]
+            },
+            "properties": {
+                "NAME": "K-3770",
+                "TITLE": "River Creek - The Rolf and Alexandra Kauka Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.9342,
+                    31.4264
+                ]
+            },
+            "properties": {
+                "NAME": "K-3771",
+                "TITLE": "Rogers Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.8053,
+                    33.0303
+                ]
+            },
+            "properties": {
+                "NAME": "K-3772",
+                "TITLE": "Rum Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.6749,
+                    31.4503
+                ]
+            },
+            "properties": {
+                "NAME": "K-3773",
+                "TITLE": "Sansavilla Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.2627,
+                    31.4552
+                ]
+            },
+            "properties": {
+                "NAME": "K-3774",
+                "TITLE": "Sapelo Island Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7518,
+                    30.8208
+                ]
+            },
+            "properties": {
+                "NAME": "K-3775",
+                "TITLE": "Silver Lake Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.4805,
+                    32.8546
+                ]
+            },
+            "properties": {
+                "NAME": "K-3776",
+                "TITLE": "Sprewell Bluff Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.5965,
+                    34.4025
+                ]
+            },
+            "properties": {
+                "NAME": "K-3777",
+                "TITLE": "Wilson Shoals Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7842,
+                    33.0992
+                ]
+            },
+            "properties": {
+                "NAME": "K-3778",
+                "TITLE": "Yuchi Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.4701,
+                    36.8532
+                ]
+            },
+            "properties": {
+                "NAME": "K-3791",
+                "TITLE": "Trail of Tears National Historic Trail"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9833,
+                    34.6648
+                ]
+            },
+            "properties": {
+                "NAME": "K-4473",
+                "TITLE": "Chattahoochee-Oconee National Forest"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.1937,
+                    34.6267
+                ]
+            },
+            "properties": {
+                "NAME": "K-4556",
+                "TITLE": "Appalachian Trail National Scenic Trail"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.405,
+                    32.775
+                ]
+            },
+            "properties": {
+                "NAME": "K-4586",
+                "TITLE": "Big Lazer Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.2014,
+                    33.0218
+                ]
+            },
+            "properties": {
+                "NAME": "K-4647",
+                "TITLE": "Bartram Forest Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.216,
+                    33.0
+                ]
+            },
+            "properties": {
+                "NAME": "K-4648",
+                "TITLE": "Bartram Educational State Forest"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7146,
+                    33.05
+                ]
+            },
+            "properties": {
+                "NAME": "K-4649",
+                "TITLE": "Hitchiti State Forest"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.208,
+                    34.414
+                ]
+            },
+            "properties": {
+                "NAME": "K-4650",
+                "TITLE": "Dawson State Forest"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.289,
+                    31.0924
+                ]
+            },
+            "properties": {
+                "NAME": "K-4651",
+                "TITLE": "Dixon Memorial State Forest"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.9594,
+                    33.991
+                ]
+            },
+            "properties": {
+                "NAME": "K-4653",
+                "TITLE": "Paulding Forest Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.0207,
+                    33.3524
+                ]
+            },
+            "properties": {
+                "NAME": "K-4654",
+                "TITLE": "Spirit Creek Educational State Forest"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.1791,
+                    34.6605
+                ]
+            },
+            "properties": {
+                "NAME": "K-7135",
+                "TITLE": "Blue Ridge Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4834,
+                    32.82
+                ]
+            },
+            "properties": {
+                "NAME": "K-7136",
+                "TITLE": "Tuckahoe Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.0681,
+                    34.7705
+                ]
+            },
+            "properties": {
+                "NAME": "K-7137",
+                "TITLE": "Cooper's Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9195,
+                    34.7147
+                ]
+            },
+            "properties": {
+                "NAME": "K-7138",
+                "TITLE": "Chestatee Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.1159,
+                    33.6724
+                ]
+            },
+            "properties": {
+                "NAME": "K-7139",
+                "TITLE": "Arabia Mountain National Heritage Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7367,
+                    33.4625
+                ]
+            },
+            "properties": {
+                "NAME": "K-7140",
+                "TITLE": "Charlie Elliot Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7287,
+                    33.4691
+                ]
+            },
+            "properties": {
+                "NAME": "K-7141",
+                "TITLE": "Clybel Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.2726,
+                    33.6805
+                ]
+            },
+            "properties": {
+                "NAME": "K-7142",
+                "TITLE": "Redlands Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.6172,
+                    34.8961
+                ]
+            },
+            "properties": {
+                "NAME": "K-7446",
+                "TITLE": "Cohutta Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7743,
+                    34.7416
+                ]
+            },
+            "properties": {
+                "NAME": "K-7447",
+                "TITLE": "Chattahoochee Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7084,
+                    34.4146
+                ]
+            },
+            "properties": {
+                "NAME": "K-7448",
+                "TITLE": "Lula Bridge Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.6348,
+                    34.5596
+                ]
+            },
+            "properties": {
+                "NAME": "K-7449",
+                "TITLE": "Buck Shoals Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.3406,
+                    34.8892
+                ]
+            },
+            "properties": {
+                "NAME": "K-7450",
+                "TITLE": "Warwoman Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7269,
+                    34.8161
+                ]
+            },
+            "properties": {
+                "NAME": "K-7451",
+                "TITLE": "Swallow Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.3121,
+                    34.7809
+                ]
+            },
+            "properties": {
+                "NAME": "K-7452",
+                "TITLE": "Rich Mountain Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.6893,
+                    34.2171
+                ]
+            },
+            "properties": {
+                "NAME": "K-7453",
+                "TITLE": "Allatoona Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.349,
+                    34.3231
+                ]
+            },
+            "properties": {
+                "NAME": "K-7454",
+                "TITLE": "McGraw Ford Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4144,
+                    34.5471
+                ]
+            },
+            "properties": {
+                "NAME": "K-7455",
+                "TITLE": "Lake Russell Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9849,
+                    34.5327
+                ]
+            },
+            "properties": {
+                "NAME": "K-7456",
+                "TITLE": "Dahlonega Gold Museum State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.8222,
+                    34.7643
+                ]
+            },
+            "properties": {
+                "NAME": "K-7457",
+                "TITLE": "Chief Vann House State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.2389,
+                    34.609
+                ]
+            },
+            "properties": {
+                "NAME": "K-7458",
+                "TITLE": "Travelers Rest State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.0845,
+                    34.9559
+                ]
+            },
+            "properties": {
+                "NAME": "K-7459",
+                "TITLE": "Lake Nottely Dam Recreation Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.2818,
+                    34.8847
+                ]
+            },
+            "properties": {
+                "NAME": "K-7460",
+                "TITLE": "Lake Blue Ridge Dam Recreation Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4883,
+                    32.3839
+                ]
+            },
+            "properties": {
+                "NAME": "K-7461",
+                "TITLE": "Ocmulgee State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.407,
+                    32.7753
+                ]
+            },
+            "properties": {
+                "NAME": "K-7462",
+                "TITLE": "Big Lazer Creek State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1329,
+                    32.1586
+                ]
+            },
+            "properties": {
+                "NAME": "K-7463",
+                "TITLE": "Dodge County State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7938,
+                    32.1284
+                ]
+            },
+            "properties": {
+                "NAME": "K-7464",
+                "TITLE": "Evans County State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7769,
+                    32.4079
+                ]
+            },
+            "properties": {
+                "NAME": "K-7465",
+                "TITLE": "Flat Creek State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.718,
+                    32.5713
+                ]
+            },
+            "properties": {
+                "NAME": "K-7466",
+                "TITLE": "Hugh M. Gillis State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7367,
+                    33.4435
+                ]
+            },
+            "properties": {
+                "NAME": "K-7467",
+                "TITLE": "Marben State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.4235,
+                    33.3784
+                ]
+            },
+            "properties": {
+                "NAME": "K-7468",
+                "TITLE": "McDuffie State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.3691,
+                    31.401
+                ]
+            },
+            "properties": {
+                "NAME": "K-7469",
+                "TITLE": "Paradise State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.7516,
+                    30.8205
+                ]
+            },
+            "properties": {
+                "NAME": "K-7470",
+                "TITLE": "Silver Lake State Fishing Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.715,
+                    34.1138
+                ]
+            },
+            "properties": {
+                "NAME": "K-7471",
+                "TITLE": "Allatoona Pass Battlefield State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4599,
+                    32.8693
+                ]
+            },
+            "properties": {
+                "NAME": "K-7472",
+                "TITLE": "Griswoldville Battlefield State Historic Site"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.9149,
+                    34.7055
+                ]
+            },
+            "properties": {
+                "NAME": "K-7473",
+                "TITLE": "DeSoto Falls National Recreation Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.797,
+                    33.462
+                ]
+            },
+            "properties": {
+                "NAME": "K-7838",
+                "TITLE": "Gaither Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.2216,
+                    31.797
+                ]
+            },
+            "properties": {
+                "NAME": "K-7852",
+                "TITLE": "Richmond Hill Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.7577,
+                    33.0442
+                ]
+            },
+            "properties": {
+                "NAME": "K-7858",
+                "TITLE": "Dames Ferry Campground State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.0923,
+                    34.1389
+                ]
+            },
+            "properties": {
+                "NAME": "K-7860",
+                "TITLE": "Buford Trout Hatchery State Fish Hatchery"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.5607,
+                    30.6968
+                ]
+            },
+            "properties": {
+                "NAME": "K-7861",
+                "TITLE": "Suwannee River Eco-Lodge State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.3887,
+                    31.539
+                ]
+            },
+            "properties": {
+                "NAME": "K-7881",
+                "TITLE": "Alapaha River Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.8879,
+                    31.2863
+                ]
+            },
+            "properties": {
+                "NAME": "K-7882",
+                "TITLE": "Doerun Pitcherplant Bog Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.0665,
+                    33.1605
+                ]
+            },
+            "properties": {
+                "NAME": "K-7883",
+                "TITLE": "West Point Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.0029,
+                    33.512
+                ]
+            },
+            "properties": {
+                "NAME": "K-7893",
+                "TITLE": "Augusta Canal National Heritage Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.9062,
+                    34.0242
+                ]
+            },
+            "properties": {
+                "NAME": "K-7895",
+                "TITLE": "Sheffield Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.0358,
+                    32.5821
+                ]
+            },
+            "properties": {
+                "NAME": "K-7896",
+                "TITLE": "Standing Boy Creek State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.1512,
+                    34.4398
+                ]
+            },
+            "properties": {
+                "NAME": "K-7897",
+                "TITLE": "Arrowhead Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.8534,
+                    34.8277
+                ]
+            },
+            "properties": {
+                "NAME": "K-7898",
+                "TITLE": "Conasauga River Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.6796,
+                    34.6141
+                ]
+            },
+            "properties": {
+                "NAME": "K-7899",
+                "TITLE": "Carter's Lake Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.6165,
+                    32.6698
+                ]
+            },
+            "properties": {
+                "NAME": "K-7900",
+                "TITLE": "Echeconnee Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.4332,
+                    32.5708
+                ]
+            },
+            "properties": {
+                "NAME": "K-7901",
+                "TITLE": "Ohoopee Dunes Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.6781,
+                    33.625
+                ]
+            },
+            "properties": {
+                "NAME": "K-7902",
+                "TITLE": "Walton Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.4699,
+                    34.655
+                ]
+            },
+            "properties": {
+                "NAME": "K-7903",
+                "TITLE": "Zahnd Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1438,
+                    34.1867
+                ]
+            },
+            "properties": {
+                "NAME": "K-7904",
+                "TITLE": "Broad River Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7669,
+                    32.1899
+                ]
+            },
+            "properties": {
+                "NAME": "K-7905",
+                "TITLE": "Canoochee Sandhills Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.5269,
+                    32.5441
+                ]
+            },
+            "properties": {
+                "NAME": "K-7906",
+                "TITLE": "Chattahoochee Fall Line Almo Tract Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.5928,
+                    33.6357
+                ]
+            },
+            "properties": {
+                "NAME": "K-7907",
+                "TITLE": "Clarks Hill Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.5899,
+                    33.8569
+                ]
+            },
+            "properties": {
+                "NAME": "K-7908",
+                "TITLE": "Fishing Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.464,
+                    33.6113
+                ]
+            },
+            "properties": {
+                "NAME": "K-7909",
+                "TITLE": "Germany Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.2991,
+                    33.6346
+                ]
+            },
+            "properties": {
+                "NAME": "K-7910",
+                "TITLE": "Keg Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.1142,
+                    31.8451
+                ]
+            },
+            "properties": {
+                "NAME": "K-7911",
+                "TITLE": "Lake Walter F. George Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.0286,
+                    32.337
+                ]
+            },
+            "properties": {
+                "NAME": "K-7912",
+                "TITLE": "Montezuma Bluffs Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.4683,
+                    34.534
+                ]
+            },
+            "properties": {
+                "NAME": "K-7913",
+                "TITLE": "Otting Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.2744,
+                    32.5683
+                ]
+            },
+            "properties": {
+                "NAME": "K-7914",
+                "TITLE": "Sandhills East Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1928,
+                    34.9402
+                ]
+            },
+            "properties": {
+                "NAME": "K-9758",
+                "TITLE": "Chattooga National Wild and Scenic River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.3466,
+                    31.5921
+                ]
+            },
+            "properties": {
+                "NAME": "K-9763",
+                "TITLE": "Albany Nursery Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.8983,
+                    33.0086
+                ]
+            },
+            "properties": {
+                "NAME": "K-9765",
+                "TITLE": "Alexander Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.6551,
+                    31.9514
+                ]
+            },
+            "properties": {
+                "NAME": "K-9767",
+                "TITLE": "Alligator Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4835,
+                    31.3031
+                ]
+            },
+            "properties": {
+                "NAME": "K-9770",
+                "TITLE": "Altama Plantation Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.6712,
+                    30.944
+                ]
+            },
+            "properties": {
+                "NAME": "K-9772",
+                "TITLE": "Ceylon Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.6597,
+                    33.9985
+                ]
+            },
+            "properties": {
+                "NAME": "K-9774",
+                "TITLE": "Lower Broad River Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.8955,
+                    33.1354
+                ]
+            },
+            "properties": {
+                "NAME": "K-9776",
+                "TITLE": "Mead Farm Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.3119,
+                    31.9067
+                ]
+            },
+            "properties": {
+                "NAME": "K-9777",
+                "TITLE": "Moody Forest Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.4694,
+                    33.8259
+                ]
+            },
+            "properties": {
+                "NAME": "K-9779",
+                "TITLE": "Soap Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.6663,
+                    31.6176
+                ]
+            },
+            "properties": {
+                "NAME": "K-9780",
+                "TITLE": "Townsend Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.0357,
+                    32.8705
+                ]
+            },
+            "properties": {
+                "NAME": "K-9782",
+                "TITLE": "Big Dukes Pond Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7151,
+                    32.8909
+                ]
+            },
+            "properties": {
+                "NAME": "K-9784",
+                "TITLE": "Hiltonia Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.914,
+                    30.8286
+                ]
+            },
+            "properties": {
+                "NAME": "K-9786",
+                "TITLE": "Lake Seminole Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.4882,
+                    32.0441
+                ]
+            },
+            "properties": {
+                "NAME": "K-9788",
+                "TITLE": "Lanahassee Creek Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.8147,
+                    31.6691
+                ]
+            },
+            "properties": {
+                "NAME": "K-9791",
+                "TITLE": "Morgan Lake Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.9647,
+                    32.783
+                ]
+            },
+            "properties": {
+                "NAME": "K-9793",
+                "TITLE": "Ball's Ferry Property Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.4072,
+                    32.5703
+                ]
+            },
+            "properties": {
+                "NAME": "K-9795",
+                "TITLE": "Sandhills West Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.5838,
+                    32.4098
+                ]
+            },
+            "properties": {
+                "NAME": "K-9797",
+                "TITLE": "Chattahoochee Fall Line Hilliard Tract Wildlife Management Area"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.3931,
+                    33.7605
+                ]
+            },
+            "properties": {
+                "NAME": "K-9798",
+                "TITLE": "Centennial Olympic State Park"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.1458,
+                    33.8056
+                ]
+            },
+            "properties": {
+                "NAME": "K-9799",
+                "TITLE": "Stone Mountain (GA) State Park"
+            }
+        }
+    ]
+}
