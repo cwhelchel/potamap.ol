@@ -15,6 +15,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-AR.geojson' },
             ],
             'US-AZ': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateAZ.geojson' },
                 { title: 'Parks', file: 'parks-US-AZ.geojson' },
             ],
             'US-CA': [
@@ -47,6 +48,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-IA.geojson' },
             ],
             'US-ID': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateID.geojson' },
                 { title: 'Parks', file: 'parks-US-ID.geojson' },
             ],
             'US-IL': [
@@ -101,6 +103,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NC.geojson' },
             ],
             'US-ND': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateND.geojson' },
                 { title: 'Parks', file: 'parks-US-ND.geojson' },
             ],
             'US-NE': [
@@ -113,6 +116,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NJ.geojson' },
             ],
             'US-NM': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateNM.geojson' },
                 { title: 'Parks', file: 'parks-US-NM.geojson' },
             ],
             'US-NV': [
@@ -125,6 +129,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-OH.geojson' },
             ],
             'US-OK': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateOK.geojson' },
                 { title: 'Parks', file: 'parks-US-OK.geojson' },
             ],
             'US-OR': [
@@ -159,6 +164,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-VI.geojson' },
             ],
             'US-VT': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateVT.geojson' },
                 { title: 'Parks', file: 'parks-US-VT.geojson' },
             ],
             'US-WA': [
@@ -171,6 +177,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-WV.geojson' },
             ],
             'US-WY': [
+                { title: 'PAD-US', file: 'PADUS3_0Combined_StateWY.geojson' },
+                { title: 'BLM', file: 'BLM_PADUS3_0Combined_StateWY.geojson' },
                 { title: 'Parks', file: 'parks-US-WY.geojson' },
             ],
         }
