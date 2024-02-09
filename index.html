@@ -55,6 +55,15 @@
         .shapeProps {
             font-size: 0.75em;
         }
+
+        .navbar-text {
+            margin-right: 10px;
+        }
+
+        .parkSearch {
+            margin-right: 100px;
+            height: auto;
+        }
     </style>
     <title>Using OpenLayers with Vite</title>
 </head>
@@ -64,12 +73,16 @@
         <nav class="navbar navbar-expand-lg bg-light fixed-top" role="navigation">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">POTAMAP OpenLayers</a>
-                <!-- <div class="d-flex input-group w-auto">
-
-                    <input id="locTxt" class="form-control rounded" placeholder="Location ex: US-GA" />
-                    <button id="locBtn" class="btn btn-default">Submit</button>
-                </div> -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <div class="d-flex">
+                            <input id="parkTxt" class="form-control rounded" placeholder="" />
+                            <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item">Search Park</button>
+                        </div>
+                    </li>
+                </ul>
                 <div class="d-flex input-group w-auto">
+                    <span class="navbar-text">Use this to select your location ---- > </span>
                     <select id="locSelect" class="form-select w-auto" aria-label="Location Selection">
                         <option selected>Open this select menu</option>
                         <option value="US-AK"> US-AK </option>

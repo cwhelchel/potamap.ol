@@ -14,6 +14,7 @@ import { fromLonLat } from 'ol/proj.js';
 
 import initLayers from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
+import getParkLocation from './PotaApi.js'
 
 
 // create all our layers: boundary shapes and pota park markers. grouped into
@@ -80,33 +81,38 @@ function disposePopover() {
 
 // display popup on click
 map.on('click', function (evt) {
-    const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-        return feature;
+
+    let content = "";
+
+    //const feature = 
+    map.forEachFeatureAtPixel(evt.pixel, function (x) {
+        content += getContent(x) + "</br>";
+        //return feature;
     });
 
     disposePopover();
-    if (!feature) {
-        return;
-    }
+    // if (!feature) {
+    //     return;
+    // }
 
     popup.setPosition(evt.coordinate);
     popover = new bootstrap.Popover(element, {
         placement: 'top',
         html: true,
-        content: getContent(),
+        content: content,
     });
     popover.show();
 
-    function getContent() {
-        let name = feature.get('NAME'); // should ALWAYS be there 
-        let title = feature.get('TITLE'); // will be there for pota parks
+    function getContent(f) {
+        let name = f.get('NAME'); // should ALWAYS be there 
+        let title = f.get('TITLE'); // will be there for pota parks
         let res = "";
 
         // from a shapefile. use its properties as they provide way more info
         if (title === undefined) {
-            let p = feature.getProperties();
+            let p = f.getProperties();
             for (var property in p) {
-                if (typeof(p[property]) == "string") {
+                if (typeof (p[property]) == "string") {
                     res += `${property} : ${p[property]} <br/>`;
                 }
             }
@@ -166,6 +172,22 @@ function showLocLayerGroup(inVal) {
         }
     }
 }
+
+$('#parkBtn').click(function () {
+    const input = $('#parkTxt').val();
+    let loc = getParkLocation(input);
+    loc.then(
+        function (value) { map.getView().animate({ zoom: 12, center: fromLonLat([value.lon, value.lat]) }); },
+        function (error) { /* code if some error */ }
+    );
+});
+
+$('#parkTxt').keypress(function (event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        $(this).parent().find('button').click();
+    }
+});
 
 $('#locSelect').on("change", function () {
     showLocLayerGroup(this.value);
