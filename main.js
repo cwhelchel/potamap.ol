@@ -11,11 +11,21 @@ import VectorSource from 'ol/source/Vector';
 import Overlay from 'ol/Overlay.js';
 import LayerSwitcher from 'ol-layerswitcher';
 import { fromLonLat } from 'ol/proj.js';
+import { Icon, Style, Stroke, Fill, Circle } from 'ol/style.js';
 
-import initLayers from './BoundaryLayers.js'
+import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 import getParkLocation from './PotaApi.js'
 
+const selectStyle = new Style({
+    fill: new Fill({
+        color: 'rgba(126,126,126,0.5)',
+    }),
+    stroke: new Stroke({
+        color: 'rgba(255, 155, 155, 0.7)',
+        width: 2,
+    }),
+});
 
 // create all our layers: boundary shapes and pota park markers. grouped into
 // layer groups for each location (US-GA, etc)
@@ -124,13 +134,13 @@ map.on('click', function (evt) {
     }
 });
 
-// change mouse cursor when over marker
-map.on('pointermove', function (e) {
-    const pixel = map.getEventPixel(e.originalEvent);
-    const hit = map.hasFeatureAtPixel(pixel);
-    //console.log(map.getTarget().style)
-    map.getTarget().style.cursor = hit ? 'pointer' : '';
-});
+// // change mouse cursor when over marker
+// map.on('pointermove', function (e) {
+//     const pixel = map.getEventPixel(e.originalEvent);
+//     const hit = map.hasFeatureAtPixel(pixel);
+//     //console.log(map.getTarget().style)
+//     map.getTarget().style.cursor = hit ? 'pointer' : '';
+// });
 
 // Close the popup when the map is moved
 map.on('movestart', disposePopover);
@@ -224,3 +234,32 @@ function selectLayerGroup(layerGroup) {
     // refresh redraw panel
     layerSwitcher.renderPanel();
 }
+
+let selected = null;
+let hoverTitle = "";
+
+map.on('pointermove', function (e) {
+    if (selected !== null) {
+        selected.setStyle(defaultStyle);
+        selected = null;
+        $("#status").text(' ');
+        hoverTitle = " ";
+        map.render();
+    }
+
+    map.forEachFeatureAtPixel(e.pixel, function (f) {
+        selected = f;
+        // only the features w/ pota markers have TITLE
+        if (f.get('TITLE') === undefined) {
+            f.setStyle(selectStyle);
+            map.render();
+            hoverTitle = selected.get('NAME')
+            return true;
+        }
+        // keeps the POTA park marker dots from getting restyles
+        hoverTitle = selected.get('NAME') + ' - ' + selected.get('TITLE');
+        selected = null;
+    });
+
+    $("#status").text(hoverTitle);
+});

@@ -60,6 +60,12 @@
             margin-right: 10px;
         }
 
+        .hoverTitle {
+            margin-left: 30px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
         .parkSearch {
             margin-right: 100px;
             height: auto;
@@ -78,6 +84,11 @@
                         <div class="d-flex">
                             <input id="parkTxt" class="form-control rounded" placeholder="" />
                             <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item">Search Park</button>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="d-flex">
+                            <span class="hoverTitle navbar-text" id="status">test</span>
                         </div>
                     </li>
                 </ul>

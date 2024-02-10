@@ -20,7 +20,6 @@ const defaultStyle = [
         stroke: stroke,
         fill: new Fill({ color: 'rgba(0,255,255,0.4)' })
     }),
-
 ];
 
 const iconStyle = new Style({
@@ -80,3 +79,5 @@ export default function initLayers() {
 
     return groups;
 };
+
+export { defaultStyle, initLayers };

@@ -19,6 +19,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-AZ.geojson' },
             ],
             'US-CA': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateCA.geojson' },
                 { title: 'Parks', file: 'parks-US-CA.geojson' },
             ],
             'US-CO': [
@@ -28,6 +29,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-CT.geojson' },
             ],
             'US-DC': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateDC.geojson' },
                 { title: 'Parks', file: 'parks-US-DC.geojson' },
             ],
             'US-DE': [
@@ -75,7 +77,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-LA.geojson' },
             ],
             'US-MA': [
-                { title: 'PAD-US', file: 'PADUS3_0Fee_StateMA.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateMA.geojson' },
                 { title: 'Parks', file: 'parks-US-MA.geojson' },
             ],
             'US-MD': [
@@ -94,6 +96,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-MO.geojson' },
             ],
             'US-MS': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateMS.geojson' },
                 { title: 'Parks', file: 'parks-US-MS.geojson' },
             ],
             'US-MT': [
@@ -136,9 +139,11 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
             ],
             'US-PA': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StatePA.geojson' },
                 { title: 'Parks', file: 'parks-US-PA.geojson' },
             ],
             'US-RI': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateRI.geojson' },
                 { title: 'Parks', file: 'parks-US-RI.geojson' },
             ],
             'US-SC': [
@@ -171,6 +176,10 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-WA.geojson' },
             ],
             'US-WI': [
+                
+                { title: 'PAD-US Proc', file: 'PADUS3_0Proclamation_StateWI.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateWI.geojson' },
+                { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateWI.geojson' },
                 { title: 'Parks', file: 'parks-US-WI.geojson' },
             ],
             'US-WV': [
