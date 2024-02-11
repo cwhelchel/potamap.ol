@@ -4,18 +4,16 @@ import './style.css';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import GeoJSON from 'ol/format/GeoJSON'
-import VectorLayer from 'ol/layer/Vector'
 import LayerGroup from 'ol/layer/Group'
-import VectorSource from 'ol/source/Vector';
 import Overlay from 'ol/Overlay.js';
-import LayerSwitcher from 'ol-layerswitcher';
 import { fromLonLat } from 'ol/proj.js';
 import { Icon, Style, Stroke, Fill, Circle } from 'ol/style.js';
 
+import LayerSwitcher from 'ol-layerswitcher';
+
 import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
-import getParkLocation from './PotaApi.js'
+import {getParkLocation, getParkLastActx} from './PotaApi.js'
 
 const selectStyle = new Style({
     fill: new Fill({
@@ -26,6 +24,7 @@ const selectStyle = new Style({
         width: 2,
     }),
 });
+
 
 // create all our layers: boundary shapes and pota park markers. grouped into
 // layer groups for each location (US-GA, etc)
@@ -52,15 +51,8 @@ const map = new Map({
     })
 });
 
-// remove visibility of all groups in layerswitcher
-//for (let i = 0; i < groups.length; i++) {
-//allGroup.getLayers().getArray()[1].getLayersArray()[0].setProperties({ "visible": true });
-//allGroup.getLayers().getArray()[0].getLayersArray()[1].setProperties({"visible": true});
-//allGroup.getLayers().getArray()[0].getLayersArray()[2].setProperties({"visible": true});
-//}
 
-// allGroup.getLayers().getArray().push
-
+// add our layer switcher component
 var layerSwitcher = new LayerSwitcher({
     startActive: true,
     activationMode: 'click',
@@ -91,19 +83,13 @@ function disposePopover() {
 
 // display popup on click
 map.on('click', function (evt) {
-
     let content = "";
 
-    //const feature = 
     map.forEachFeatureAtPixel(evt.pixel, function (x) {
         content += getContent(x) + "</br>";
-        //return feature;
     });
 
     disposePopover();
-    // if (!feature) {
-    //     return;
-    // }
 
     popup.setPosition(evt.coordinate);
     popover = new bootstrap.Popover(element, {
@@ -129,10 +115,16 @@ map.on('click', function (evt) {
             res = `<span class="shapeProps">${res}</span>`
         }
         else {
+            // from POTA park markers. get and display POTA specific info
             res = `${name} - ${title}`;
             $("#potaLink").attr('href', `https://pota.app/#park/${name}`);
             $("#potaLink").text(res);
             $("#wikiLink").attr('href', `https://pota.miraheze.org/wiki/${title}`);
+            let lastAct = getParkLastActx(name);
+            lastAct.then(
+                function (value) { $("#actxData").text("Last Activation: " + `${value.lastActivator} on ${value.date}`) },
+                function (error) { /* code if some error */ }
+            );
         }
         return res;
     }
@@ -150,10 +142,10 @@ map.on('click', function (evt) {
 map.on('movestart', disposePopover);
 
 function applyMargins() {
-    $("#map .ol-zoom").css("margin-top", $("nav").outerHeight())
-    $("#map").css("margin-top", $("nav").outerHeight())
-    $("#map").css("margin-top", $("nav").outerHeight())
-    $("#map").css("margin-bottom", $(".footer").outerHeight())
+    //("#map .ol-zoom").css("margin-top", $("nav").outerHeight())
+    // $("#map").css("margin-top", $("nav").outerHeight())
+    // $("#map").css("margin-top", $("nav").outerHeight())
+    //$("#map").css("margin-bottom", $(".footer").outerHeight())
 }
 
 $(window).on("resize", applyMargins);
