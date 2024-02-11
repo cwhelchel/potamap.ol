@@ -12,6 +12,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-AL.geojson' },
             ],
             'US-AR': [
+                { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateAR.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateAR.geojson' },
                 { title: 'Parks', file: 'parks-US-AR.geojson' },
             ],
             'US-AZ': [
@@ -90,6 +92,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-MI.geojson' },
             ],
             'US-MN': [
+                { title: 'PAS-US Fee', file: 'PADUS3_0Fee_StateMN.geojson' },
                 { title: 'Parks', file: 'parks-US-MN.geojson' },
             ],
             'US-MO': [
@@ -159,6 +162,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-TX.geojson' },
             ],
             'US-UT': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateUT.geojson' },
+                { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateUT.geojson' },
                 { title: 'Parks', file: 'parks-US-UT.geojson' },
             ],
             'US-VA': [

@@ -128,8 +128,12 @@ map.on('click', function (evt) {
             }
             res = `<span class="shapeProps">${res}</span>`
         }
-        else
+        else {
             res = `${name} - ${title}`;
+            $("#potaLink").attr('href', `https://pota.app/#park/${name}`);
+            $("#potaLink").text(res);
+            $("#wikiLink").attr('href', `https://pota.miraheze.org/wiki/${title}`);
+        }
         return res;
     }
 });
@@ -148,6 +152,8 @@ map.on('movestart', disposePopover);
 function applyMargins() {
     $("#map .ol-zoom").css("margin-top", $("nav").outerHeight())
     $("#map").css("margin-top", $("nav").outerHeight())
+    $("#map").css("margin-top", $("nav").outerHeight())
+    $("#map").css("margin-bottom", $(".footer").outerHeight())
 }
 
 $(window).on("resize", applyMargins);
