@@ -248,7 +248,10 @@ map.on('pointermove', function (e) {
     map.forEachFeatureAtPixel(e.pixel, function (f) {
         selected = f;
         // only the features w/ pota markers have TITLE
-        if (f.get('TITLE') === undefined) {
+        if (f.get('TITLE') === undefined && f.get('NAME') !== "Appalachian trail"
+            //&& !f.get('trail_stat').includes("NCT") 
+            //fix later
+            ) {
             f.setStyle(selectStyle);
             map.render();
             hoverTitle = selected.get('NAME')

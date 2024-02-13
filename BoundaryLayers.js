@@ -31,6 +31,16 @@ const iconStyle = new Style({
     }),
 });
 
+const trailStyle = [
+    new Style({
+        stroke: new Stroke({
+            color: '#33cc8c',
+            width: 3.00,
+        }),
+        fill: new Fill({ color: 'rgba(50,255,100,0.4)' })
+    }),
+];
+
 /**
  * Creates all the layers for the app
  * 
@@ -50,14 +60,22 @@ export default function initLayers() {
 
         // loop thru each location
         d.data[key].forEach(function (obj) {
-            // console.log(obj.title)
-            // console.log(path + obj.file)
+
+            if (obj.title.startsWith('Parks')) {
+                var s = iconStyle;
+            }
+            else if (obj.title == "AT" || obj.title == "NCT NST") {
+                var s = trailStyle;
+            }
+            else {
+                var s = defaultStyle;
+            }
 
             var l = new VectorLayer({
                 title: obj.title,
                 layerId: i++,
                 visible: false,
-                style: (obj.title.startsWith('Parks')) ? iconStyle : defaultStyle,
+                style: s,
                 source: new VectorSource({
                     format: new GeoJSON(),
                     url: path + obj.file,

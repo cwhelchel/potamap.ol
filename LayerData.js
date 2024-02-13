@@ -41,8 +41,9 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-FL.geojson' },
             ],
             'US-GA': [
-                { title: 'GA DNR', file: 'dnr20a.geojson' },
-                { title: 'PAD-US', file: 'geojsonOutput.json' },
+                { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'GA DNR', file: 'new_dnr20a.geojson' },
+                { title: 'PAD-US', file: 'new_PAD.geojson' },
                 { title: 'Parks', file: 'parks-US-GA.geojson' }
             ],
             'US-HI': [
@@ -56,6 +57,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-ID.geojson' },
             ],
             'US-IL': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateIL.geojson' },
                 { title: 'Parks', file: 'parks-US-IL.geojson' },
             ],
             'US-IN': [
@@ -70,6 +72,7 @@ export default class LocData {
                 { title: 'Parks KP5', file: 'parks-US-KP5.geojson' },
             ],
             'US-KS': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateKS.geojson' },
                 { title: 'Parks', file: 'parks-US-KS.geojson' },
             ],
             'US-KY': [
@@ -89,9 +92,12 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-ME.geojson' },
             ],
             'US-MI': [
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateMI.geojson' },
                 { title: 'Parks', file: 'parks-US-MI.geojson' },
             ],
             'US-MN': [
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAS-US Fee', file: 'PADUS3_0Fee_StateMN.geojson' },
                 { title: 'Parks', file: 'parks-US-MN.geojson' },
             ],
@@ -109,6 +115,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NC.geojson' },
             ],
             'US-ND': [
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateND.geojson' },
                 { title: 'Parks', file: 'parks-US-ND.geojson' },
             ],
@@ -129,6 +136,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NV.geojson' },
             ],
             'US-NY': [
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'Parks', file: 'parks-US-NY.geojson' },
             ],
             'US-OH': [
@@ -142,6 +150,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
             ],
             'US-PA': [
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StatePA.geojson' },
                 { title: 'Parks', file: 'parks-US-PA.geojson' },
             ],
@@ -156,6 +165,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-SD.geojson' },
             ],
             'US-TN': [
+                { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateTN.geojson' },
                 { title: 'Parks', file: 'parks-US-TN.geojson' },
             ],
             'US-TX': [
@@ -174,6 +185,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-VI.geojson' },
             ],
             'US-VT': [
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateVT.geojson' },
                 { title: 'Parks', file: 'parks-US-VT.geojson' },
             ],
@@ -181,7 +193,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-WA.geojson' },
             ],
             'US-WI': [
-                
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAD-US Proc', file: 'PADUS3_0Proclamation_StateWI.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateWI.geojson' },
                 { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateWI.geojson' },
