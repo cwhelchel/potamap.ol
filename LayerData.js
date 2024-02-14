@@ -123,6 +123,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NE.geojson' },
             ],
             'US-NH': [
+                { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNH.geojson' },
                 { title: 'Parks', file: 'parks-US-NH.geojson' },
             ],
             'US-NJ': [
@@ -133,6 +135,9 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NM.geojson' },
             ],
             'US-NV': [
+                { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
+                { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateNV.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNV.geojson' },
                 { title: 'Parks', file: 'parks-US-NV.geojson' },
             ],
             'US-NY': [

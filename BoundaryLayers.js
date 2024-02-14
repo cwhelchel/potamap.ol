@@ -64,7 +64,7 @@ export default function initLayers() {
             if (obj.title.startsWith('Parks')) {
                 var s = iconStyle;
             }
-            else if (obj.title == "AT" || obj.title == "NCT NST") {
+            else if (obj.title == "AT" || obj.title == "NCT NST" || obj.title == "PE NHT") {
                 var s = trailStyle;
             }
             else {
