@@ -50,6 +50,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-HI.geojson' },
             ],
             'US-IA': [
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateIA.geojson' },
                 { title: 'Parks', file: 'parks-US-IA.geojson' },
             ],
             'US-ID': [
@@ -67,6 +69,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-KH1.geojson' },
             ],
             'US-KP': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StatePR.geojson' },
                 { title: 'Parks KP4', file: 'parks-US-KP4.geojson' },
                 { title: 'Parks KP1', file: 'parks-US-KP1.geojson' },
                 { title: 'Parks KP5', file: 'parks-US-KP5.geojson' },
@@ -89,6 +92,8 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-MD.geojson' },
             ],
             'US-ME': [
+                { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateME.geojson' },
                 { title: 'Parks', file: 'parks-US-ME.geojson' },
             ],
             'US-MI': [
@@ -187,6 +192,7 @@ export default class LocData {
             ],
             // no parks here 😢
             'US-VI': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateVI.geojson' },
                 { title: 'Parks', file: 'parks-US-VI.geojson' },
             ],
             'US-VT': [

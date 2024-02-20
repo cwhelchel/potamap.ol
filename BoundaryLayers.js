@@ -41,6 +41,10 @@ const trailStyle = [
     }),
 ];
 
+const trailNames = [
+    "AT", "NCT NST", "PE NHT", "LC NHT"
+];
+
 /**
  * Creates all the layers for the app
  * 
@@ -64,7 +68,7 @@ export default function initLayers() {
             if (obj.title.startsWith('Parks')) {
                 var s = iconStyle;
             }
-            else if (obj.title == "AT" || obj.title == "NCT NST" || obj.title == "PE NHT") {
+            else if (trailNames.includes(obj.title)) {
                 var s = trailStyle;
             }
             else {
