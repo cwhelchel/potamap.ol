@@ -51,6 +51,7 @@ export default class LocData {
             ],
             'US-IA': [
                 { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'MP NHT', file: '..\/US-common\/Mormon_Pioneer_NHT.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateIA.geojson' },
                 { title: 'Parks', file: 'parks-US-IA.geojson' },
             ],
