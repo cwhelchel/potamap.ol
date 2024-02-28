@@ -249,7 +249,7 @@ map.on('pointermove', function (e) {
         selected = f;
         // only the features w/ pota markers have TITLE
         const name = f.get('NAME');
-        const ignore = ["Appalachian trail", "PE_NHT", "MP NHT", "LC NHT", "WARO NHT" ]
+        const ignore = ["Appalachian trail", "PE_NHT", "MP NHT", "LC NHT", "WARO NHT", "NCT_NST" ]
         if (f.get('TITLE') === undefined && !ignore.includes(name)
             //&& !f.get('trail_stat').includes("NCT") 
             //fix later
