@@ -6,6 +6,7 @@ export default class LocData {
         'data':
         {
             'US-AK': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateAK.geojson' },
                 { title: 'Parks', file: 'parks-US-AK.geojson' },
             ],
             'US-AL': [
