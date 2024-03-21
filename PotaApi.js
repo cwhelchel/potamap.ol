@@ -3,7 +3,7 @@
 // Takes park id and returns the lat long for the parks marker
 // moderate checking on the park name
 export default async function getParkLocation(park) {
-    const re = /K-[0-9]*/;
+    const re = /[A-Z]{2}-[0-9]*/;
     park = park.toUpperCase();
     let b = re.test(park);
 
