@@ -17,7 +17,7 @@ export default async function getParkLocation(park) {
 }
 
 async function getParkLastActx(park) {
-    const re = /K-[0-9]*/;
+    const re = /[A-Z]{2}-[0-9]*/;
     park = park.toUpperCase();
     let b = re.test(park);
 
