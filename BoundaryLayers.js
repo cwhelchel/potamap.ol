@@ -42,7 +42,7 @@ const trailStyle = [
 ];
 
 const trailNames = [
-    "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT"
+    "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT"
 ];
 
 /**
