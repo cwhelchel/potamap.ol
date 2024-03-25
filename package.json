@@ -7,8 +7,7 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.2.6",
-    "vite-plugin-mkcert": "^1.17.5"
+    "vite": "^5.2.6"
   },
   "dependencies": {
     "ol": "latest",
