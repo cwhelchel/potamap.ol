@@ -7,13 +7,14 @@ import OSM from 'ol/source/OSM';
 import LayerGroup from 'ol/layer/Group'
 import Overlay from 'ol/Overlay.js';
 import { fromLonLat } from 'ol/proj.js';
-import { Icon, Style, Stroke, Fill, Circle } from 'ol/style.js';
+import { Style, Stroke, Fill } from 'ol/style.js';
 
 import LayerSwitcher from 'ol-layerswitcher';
 
 import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
-import {getParkLocation, getParkLastActx} from './PotaApi.js'
+import { getParkLocation, getParkLastActx } from './PotaApi.js'
+import { getGeolocationLayer } from './getGeolocationLayer.js';
 
 const selectStyle = new Style({
     fill: new Fill({
@@ -40,17 +41,22 @@ for (let i = 0; i < groups.length; i++) {
     allGroup.getLayers().getArray().push(groups[i]);
 }
 
+const view = new View({
+    center: [0, 0],
+    zoom: 2
+})
 const map = new Map({
     target: document.getElementById('map'),
     layers: [new TileLayer({ source: new OSM() }), allGroup],
     title: 'Map',
     type: 'base',
-    view: new View({
-        center: [0, 0],
-        zoom: 2
-    })
+    view: view
 });
 
+// add layer and source for GPS position
+const geolocLayer = getGeolocationLayer(view.getProjection());
+
+map.addLayer(geolocLayer);
 
 // add our layer switcher component
 var layerSwitcher = new LayerSwitcher({
@@ -61,7 +67,6 @@ var layerSwitcher = new LayerSwitcher({
 });
 
 map.addControl(layerSwitcher);
-
 
 // add popup div as map overlay
 const element = document.getElementById('popup');
@@ -74,6 +79,7 @@ const popup = new Overlay({
 map.addOverlay(popup);
 
 let popover;
+
 function disposePopover() {
     if (popover) {
         popover.dispose();
@@ -249,11 +255,8 @@ map.on('pointermove', function (e) {
         selected = f;
         // only the features w/ pota markers have TITLE
         const name = f.get('NAME');
-        const ignore = ["Appalachian trail", "PE_NHT", "MP NHT", "LC NHT", "WARO NHT", "NCT_NST" ]
-        if (f.get('TITLE') === undefined && !ignore.includes(name)
-            //&& !f.get('trail_stat').includes("NCT") 
-            //fix later
-            ) {
+        const ignore = ["Appalachian trail", "PE_NHT", "MP NHT", "LC NHT", "WARO NHT", "NCT_NST", "accuracy_feat", "pos_feat"]
+        if (f.get('TITLE') === undefined && !ignore.includes(name)) {
             f.setStyle(selectStyle);
             map.render();
             hoverTitle = selected.get('NAME')
