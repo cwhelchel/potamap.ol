@@ -20,6 +20,16 @@ geometry (it also keeps the original properties)
     mapshaper .\simple.geojson -join .\simple.csv keys="NAME,NAME" -dissolve MERGED copy-fields='NAME,OWNTYPE,OWNNAME,MANTYPE,MANNAME' -o simple2.geojson
 
 
+## Trails
+
+Check here:
+
+https://nps.maps.arcgis.com/apps/webappviewer/index.html?id=24fc463363f54929833580280cc1a751
+
+Dissolving trails created from potamap_tool:
+
+mapshaper .\safe.geojson -dissolve "NAME,NAME_EXT" -o format=geojson .\safe2.geojson
+
 ## Original setup instructions
 
 This example demonstrates how the `ol` package can be used with [Vite](https://vitejs.dev/).

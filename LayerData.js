@@ -122,6 +122,8 @@ export default class LocData {
             ],
             'US-MO': [
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
+                { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
+                { title: 'PAS-US Fee', file: 'PADUS3_0Fee_StateMO.geojson' },
                 { title: 'Parks', file: 'parks-US-MO.geojson' },
             ],
             'US-MS': [
