@@ -35,7 +35,6 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-CT.geojson' },
             ],
             'US-DC': [
-                
                 { title: 'WARO NHT', file: '..\/US-common\/waro.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateDC.geojson' },
                 { title: 'Parks', file: 'parks-US-DC.geojson' },
@@ -157,6 +156,8 @@ export default class LocData {
             ],
             'US-NJ': [
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'WARO NHT', file: '..\/US-common\/waro.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNJ.geojson' },
                 { title: 'Parks', file: 'parks-US-NJ.geojson' },
             ],
             'US-NM': [
