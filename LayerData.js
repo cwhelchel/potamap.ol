@@ -144,6 +144,10 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-ND.geojson' },
             ],
             'US-NE': [
+                { title: 'MP NHT', file: '..\/US-common\/Mormon_Pioneer_NHT.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNE.geojson' },
                 { title: 'Parks', file: 'parks-US-NE.geojson' },
             ],
             'US-NH': [
