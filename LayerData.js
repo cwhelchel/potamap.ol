@@ -135,6 +135,7 @@ export default class LocData {
             'US-NC': [
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNC.geojson' },
                 { title: 'Parks', file: 'parks-US-NC.geojson' },
             ],
             'US-ND': [
