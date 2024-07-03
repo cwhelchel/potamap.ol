@@ -199,9 +199,11 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-RI.geojson' },
             ],
             'US-SC': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateSC.geojson' },
                 { title: 'Parks', file: 'parks-US-SC.geojson' },
             ],            
             'US-SD': [
+                { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateSD.geojson' },
                 { title: 'Parks', file: 'parks-US-SD.geojson' },
             ],
             'US-TN': [
