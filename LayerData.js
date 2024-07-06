@@ -213,6 +213,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-TN.geojson' },
             ],
             'US-TX': [
+                { title: 'PAD-US', file: 'PADUS4_0Fee_StateTX.geojson' },
                 { title: 'Parks', file: 'parks-US-TX.geojson' },
             ],
             'US-UT': [
