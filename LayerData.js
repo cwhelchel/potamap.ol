@@ -32,6 +32,7 @@ export default class LocData {
             ],
             'US-CT': [
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS4_0_State_CT.geojson' },
                 { title: 'Parks', file: 'parks-US-CT.geojson' },
             ],
             'US-DC': [
