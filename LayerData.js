@@ -10,8 +10,9 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-AK.geojson' },
             ],
             'US-AL': [
-                { title: 'Parks', file: 'parks-US-AL.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateAL.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
+                { title: 'Parks', file: 'parks-US-AL.geojson' },
             ],
             'US-AR': [
                 { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateAR.geojson' },
