@@ -4,5 +4,5 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
-  base: '/potamap.ol/',
+  base: '/',
 })
