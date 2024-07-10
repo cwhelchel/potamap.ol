@@ -43,6 +43,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-DC.geojson' },
             ],
             'US-DE': [
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateDE.geojson' },
                 { title: 'Parks', file: 'parks-US-DE.geojson' },
             ],
             'US-FL': [
@@ -53,6 +54,7 @@ export default class LocData {
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'GA DNR', file: 'new_dnr20a.geojson' },
                 { title: 'PAD-US', file: 'new_PAD.geojson' },
+                { title: 'PAD-US 4.0', file: 'PADUS4_0_StateGA.geojson' },
                 { title: 'Parks', file: 'parks-US-GA.geojson' }
             ],
             'US-HI': [
