@@ -47,6 +47,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-DE.geojson' },
             ],
             'US-FL': [
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateFL.geojson' },
                 { title: 'Parks', file: 'parks-US-FL.geojson' },
             ],
             'US-GA': [
