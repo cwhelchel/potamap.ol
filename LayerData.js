@@ -55,7 +55,6 @@ export default class LocData {
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'GA DNR', file: 'new_dnr20a.geojson' },
                 { title: 'PAD-US', file: 'new_PAD.geojson' },
-                { title: 'PAD-US 4.0', file: 'PADUS4_0_StateGA.geojson' },
                 { title: 'Parks', file: 'parks-US-GA.geojson' }
             ],
             'US-HI': [
@@ -229,6 +228,8 @@ export default class LocData {
             ],
             'US-VA': [
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Des', file: 'PADUS4_0_StateVA_Desig.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateVA.geojson' },
                 { title: 'Parks', file: 'parks-US-VA.geojson' },
             ],
             // no parks here 😢
