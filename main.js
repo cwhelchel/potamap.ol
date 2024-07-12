@@ -1,10 +1,10 @@
 'use strict';
 
-import './style.css';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import LayerGroup from 'ol/layer/Group'
+import { defaults as defaultControls } from 'ol/control.js';
 import Overlay from 'ol/Overlay.js';
 import { fromLonLat } from 'ol/proj.js';
 import { Style, Stroke, Fill } from 'ol/style.js';
@@ -15,6 +15,8 @@ import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 import { getParkLocation, getParkLastActx } from './PotaApi.js'
 import { getGeolocationLayer } from './getGeolocationLayer.js';
+import { InfoControl } from './InfoControl.js'
+import { BugReportControl } from './BugReportControl.js';
 
 const selectStyle = new Style({
     fill: new Fill({
@@ -50,7 +52,8 @@ const map = new Map({
     layers: [new TileLayer({ source: new OSM() }), allGroup],
     title: 'Map',
     type: 'base',
-    view: view
+    view: view,
+    controls: defaultControls().extend([new InfoControl(), new BugReportControl()])
 });
 
 // add layer and source for GPS position

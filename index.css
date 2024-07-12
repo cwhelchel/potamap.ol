@@ -1,0 +1,148 @@
+/* 
+    Map control
+*/
+
+.map {
+    height: 92%;
+}
+
+#map {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-top: 50px;
+    z-index: 35;
+}
+
+#map .ol-zoom {
+    font-size: 1.2em;
+}
+
+.navbar-offset {
+    margin-top: 50px;
+}
+
+.main-row {
+    position: relative;
+    top: 0;
+    z-index: 45;
+}
+
+/* 
+    Nav Bar
+*/
+
+.navbar {
+    z-index: 40;
+}
+
+.navbar-text {
+    margin-right: 10px;
+}
+
+/* 
+    on click popup
+*/
+
+.shapeProps {
+    font-size: 0.75em;
+}
+
+.hoverTitle {
+    margin-left: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 
+    Main page footer 
+*/
+.footer {
+    z-index: 45;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: fit-content;
+}
+
+.footer-text-l {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.footer-text-r {
+    text-align: right;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        font-size: small;
+    }
+}
+
+
+/* 
+    Layer Switcher
+*/
+
+.layer-switcher.shown {
+    height: 700px;
+}
+
+@media only screen and (max-width: 600px) {
+    .layer-switcher.shown {
+        font-size: small;
+    }
+}
+
+/* 
+    info custom control and bootstrap modal
+*/
+
+.info-control {
+    left: .5em;
+    font-size: 1.0em;
+}
+
+.bug-rpt-control {
+    left: .5em;
+    font-size: 1.0em;
+    background-color: var(--ol-background-color);;
+}
+
+@media only screen and (max-width: 600px) {
+    /* 
+    PHONE SCREENS 
+    */
+    .info-control {
+        top: 100px;
+    }
+    .bug-rpt-control {
+        top: 145px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* 
+    BIG SCREENS 
+    */
+
+    .info-control {
+        top: 75px;
+    }
+    .bug-rpt-control {
+        top: 110px;
+    }
+}
+
+.modal-body .disclaimer {
+    font-size: xx-small;
+}
+
+.modal-header span {
+    text-align: center;
+    margin-left: 1em;
+}
