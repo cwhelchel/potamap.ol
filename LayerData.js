@@ -58,6 +58,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-GA.geojson' }
             ],
             'US-HI': [
+                { title: 'PAD-US', file: 'PADUS4_0_StateHI.geojson' },
                 { title: 'Parks', file: 'parks-US-HI.geojson' },
             ],
             'US-IA': [
