@@ -3,11 +3,12 @@
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import XYZ from 'ol/source/XYZ.js';
 import LayerGroup from 'ol/layer/Group'
-import { defaults as defaultControls } from 'ol/control.js';
 import Overlay from 'ol/Overlay.js';
 import { fromLonLat } from 'ol/proj.js';
 import { Style, Stroke, Fill } from 'ol/style.js';
+import { defaults as defaultControls } from 'ol/control.js';
 
 import LayerSwitcher from 'ol-layerswitcher';
 
@@ -17,6 +18,7 @@ import { getParkLocation, getParkLastActx } from './PotaApi.js'
 import { getGeolocationLayer } from './getGeolocationLayer.js';
 import { InfoControl } from './InfoControl.js'
 import { BugReportControl } from './BugReportControl.js';
+import { TileLayerControl } from './TileLayerControl.js';
 
 const selectStyle = new Style({
     fill: new Fill({
@@ -47,14 +49,30 @@ const view = new View({
     center: [0, 0],
     zoom: 2
 })
+
+const xyzSrc = new XYZ({
+    attributions: ['Powered by Esri',
+        'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
+    attributionsCollapsible: false,
+    url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    maxZoom: 23
+});
+
+const osmSrc = new OSM();
+
+const tileLayer = new TileLayer({
+    source: osmSrc
+});
+
 const map = new Map({
     target: document.getElementById('map'),
-    layers: [new TileLayer({ source: new OSM() }), allGroup],
+    layers: [tileLayer, allGroup],
     title: 'Map',
     type: 'base',
     view: view,
-    controls: defaultControls().extend([new InfoControl(), new BugReportControl()])
+    controls: defaultControls().extend([new InfoControl(), new BugReportControl(), new TileLayerControl(handleLayerSwitchCallback)])
 });
+
 
 // add layer and source for GPS position
 const geolocLayer = getGeolocationLayer(view.getProjection());
@@ -88,6 +106,13 @@ function disposePopover() {
         popover.dispose();
         popover = undefined;
     }
+}
+
+function handleLayerSwitchCallback() {
+    if (tileLayer.getSource() == xyzSrc) 
+        tileLayer.setSource(osmSrc);
+    else
+        tileLayer.setSource(xyzSrc);
 }
 
 // display popup on click
@@ -139,27 +164,8 @@ map.on('click', function (evt) {
     }
 });
 
-// // change mouse cursor when over marker
-// map.on('pointermove', function (e) {
-//     const pixel = map.getEventPixel(e.originalEvent);
-//     const hit = map.hasFeatureAtPixel(pixel);
-//     //console.log(map.getTarget().style)
-//     map.getTarget().style.cursor = hit ? 'pointer' : '';
-// });
-
 // Close the popup when the map is moved
 map.on('movestart', disposePopover);
-
-function applyMargins() {
-    //("#map .ol-zoom").css("margin-top", $("nav").outerHeight())
-    // $("#map").css("margin-top", $("nav").outerHeight())
-    // $("#map").css("margin-top", $("nav").outerHeight())
-    //$("#map").css("margin-bottom", $(".footer").outerHeight())
-}
-
-$(window).on("resize", applyMargins);
-
-applyMargins();
 
 function clearLocLayerGroups() {
     for (let i = 0; i < groups.length; i++) {

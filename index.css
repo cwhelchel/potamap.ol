@@ -110,6 +110,12 @@
 .bug-rpt-control {
     left: .5em;
     font-size: 1.0em;
+    background-color: var(--ol-background-color);
+}
+
+.toggle-layer-control {
+    left: .5em;
+    font-size: 1.0em;
     background-color: var(--ol-background-color);;
 }
 
@@ -123,6 +129,25 @@
     .bug-rpt-control {
         top: 145px;
     }
+    .toggle-layer-control {
+        top: 175px;
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    /* 
+    MEDIUM SCREENS 
+    */
+    .info-control {
+        top: 100px;
+    }
+    .bug-rpt-control {
+        top: 145px;
+    }
+    .toggle-layer-control {
+        top: 175px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -135,6 +160,9 @@
     }
     .bug-rpt-control {
         top: 110px;
+    }
+    .toggle-layer-control {
+        top: 145px;
     }
 }
 
