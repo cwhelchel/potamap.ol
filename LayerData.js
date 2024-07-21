@@ -77,6 +77,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-IL.geojson' },
             ],
             'US-IN': [
+                { title: 'PAD-US', file: 'PADUS4_0_StateIN.geojson' },
                 { title: 'Parks', file: 'parks-US-IN.geojson' },
             ],
             'US-KH': [
