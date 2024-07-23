@@ -100,6 +100,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-KY.geojson' },
             ],
             'US-LA': [
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateLA.geojson' },
                 { title: 'Parks', file: 'parks-US-LA.geojson' },
             ],
             'US-MA': [
