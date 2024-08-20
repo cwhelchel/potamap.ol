@@ -110,6 +110,7 @@ export default class LocData {
             ],
             'US-MD': [
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateMD.geojson' },
                 { title: 'Parks', file: 'parks-US-MD.geojson' },
             ],
             'US-ME': [
