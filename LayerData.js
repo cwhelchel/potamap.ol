@@ -140,6 +140,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-MS.geojson' },
             ],
             'US-MT': [
+                { title: 'PAD-US Fee', file: 'PADUS4_0_StateMT.geojson' },
                 { title: 'Parks', file: 'parks-US-MT.geojson' },
             ],
             'US-NC': [
