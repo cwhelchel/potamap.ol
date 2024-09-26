@@ -125,7 +125,8 @@ export default class LocData {
             ],
             'US-MN': [
                 { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
-                { title: 'PAS-US Fee', file: 'PADUS3_0Fee_StateMN.geojson' },
+                { title: 'PAS-US Fee', file: 'PADUS4_0_StateMN.geojson' },
+                { title: 'MNRRA', file: 'mnrra.geojson' },
                 { title: 'Parks', file: 'parks-US-MN.geojson' },
             ],
             'US-MO': [
