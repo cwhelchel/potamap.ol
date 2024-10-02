@@ -38,6 +38,9 @@ geometry (it also keeps the original properties)
 
     mapshaper .\simple.geojson -join .\simple.csv keys="NAME,NAME" -dissolve MERGED copy-fields='NAME,OWNTYPE,OWNNAME,MANTYPE,MANNAME' -o simple2.geojson
 
+### Add a property to all features in a geojson
+
+    mapshaper .\counties.geojson -each 'this.properties.type = \"county\"' -o test.geojson  
 
 ## Trails
 

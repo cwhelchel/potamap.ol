@@ -51,6 +51,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-FL.geojson' },
             ],
             'US-GA': [
+                { title: 'Counties', file: 'counties.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'GA DNR', file: 'new_dnr20a.geojson' },

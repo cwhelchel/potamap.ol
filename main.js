@@ -241,7 +241,12 @@ function selectLayerGroup(layerGroup) {
 
     // set each child visible
     for (let i = 0; i < layerGroup.getLayersArray().length; i++) {
-        layerGroup.getLayersArray()[i].setProperties({ "visible": true });
+        let title = layerGroup.getLayersArray()[i].getProperties().title;
+
+        // dont auto select counties
+        if (title != "Counties") {
+            layerGroup.getLayersArray()[i].setProperties({ "visible": true });
+        }
     }
 
     // refresh redraw panel
@@ -264,8 +269,9 @@ map.on('pointermove', function (e) {
         selected = f;
         // only the features w/ pota markers have TITLE
         const name = f.get('NAME');
+        const type = f.get('type');
         const ignore = ["Appalachian trail", "PE_NHT", "MP NHT", "LC NHT", "WARO NHT", "NCT_NST", "TOT_NHT", "SAFE_NHT", "accuracy_feat", "pos_feat"]
-        if (f.get('TITLE') === undefined && !ignore.includes(name)) {
+        if (f.get('TITLE') === undefined && !ignore.includes(name) && type !== 'county') {
             f.setStyle(selectStyle);
             map.render();
             hoverTitle = selected.get('NAME')

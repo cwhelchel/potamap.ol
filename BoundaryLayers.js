@@ -5,7 +5,7 @@ import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON'
 import LayerGroup from 'ol/layer/Group'
 import Collection from 'ol/Collection.js';
-import { Icon, Style, Stroke, Fill, Circle } from 'ol/style.js';
+import { Icon, Style, Stroke, Fill, Circle, Text } from 'ol/style.js';
 
 import LocData from './LayerData.js'
 
@@ -13,6 +13,12 @@ import LocData from './LayerData.js'
 const stroke = new Stroke({
     color: '#3399CC',
     width: 1.25,
+});
+
+const countyStroke = new Stroke({
+    color: 'rgba(176,26,146,0.5)', // #b01a92
+    width: 1.1,
+    
 });
 
 const defaultStyle = [
@@ -41,9 +47,25 @@ const trailStyle = [
     }),
 ];
 
+function createCountyStyle(county) {
+    const countyStyle = [
+        new Style({
+            stroke: countyStroke,
+            fill: new Fill({ color: 'rgba(176,26,146,0.05)' }),
+            text: new Text({text: county, stroke: countyStroke})
+        }),
+    ];
+
+    return countyStyle;
+}
+
 const trailNames = [
     "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT", "SAFE NHT"
 ];
+
+function polygonStyleFunction(feature, resolution) {
+    return createCountyStyle(feature.get('name'));
+}
 
 /**
  * Creates all the layers for the app
@@ -70,6 +92,9 @@ export default function initLayers() {
             }
             else if (trailNames.includes(obj.title)) {
                 var s = trailStyle;
+            }
+            else if (obj.title.startsWith('Counties')) {
+                var s = polygonStyleFunction;
             }
             else {
                 var s = defaultStyle;
