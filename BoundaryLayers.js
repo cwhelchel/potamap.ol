@@ -60,7 +60,7 @@ function createCountyStyle(county) {
 }
 
 const trailNames = [
-    "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT", "SAFE NHT"
+    "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT", "SAFE NHT", "FL NST"
 ];
 
 function polygonStyleFunction(feature, resolution) {

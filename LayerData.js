@@ -48,14 +48,15 @@ export default class LocData {
             ],
             'US-FL': [
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateFL.geojson' },
+                { title: 'FL NST', file: 'fl_nst2.geojson' },
                 { title: 'Parks', file: 'parks-US-FL.geojson' },
             ],
             'US-GA': [
                 { title: 'Counties', file: 'counties.geojson' },
+                { title: 'GA DNR', file: 'new_dnr20a.geojson' },
+                { title: 'PAD-US', file: 'new_PAD1.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
-                { title: 'GA DNR', file: 'new_dnr20a.geojson' },
-                { title: 'PAD-US', file: 'new_PAD.geojson' },
                 { title: 'Parks', file: 'parks-US-GA.geojson' }
             ],
             'US-HI': [
@@ -92,6 +93,9 @@ export default class LocData {
             ],
             'US-KS': [
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateKS.geojson' },
+                { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
                 { title: 'Parks', file: 'parks-US-KS.geojson' },
             ],
             'US-KY': [
