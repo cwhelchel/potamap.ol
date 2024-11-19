@@ -30,6 +30,16 @@ const selectStyle = new Style({
     }),
 });
 
+const trailSelectStyle = new Style({
+    fill: new Fill({
+        color: 'rgba(204, 51, 115, 1.0)',
+    }),
+    stroke: new Stroke({
+        color: 'rgba(204, 51, 115, 0.7)',
+        width: 5,
+    }),
+});
+
 
 // create all our layers: boundary shapes and pota park markers. grouped into
 // layer groups for each location (US-GA, etc)
@@ -256,9 +266,11 @@ function selectLayerGroup(layerGroup) {
 let selected = null;
 let hoverTitle = "";
 
+let oldStyle = defaultStyle;
+
 map.on('pointermove', function (e) {
     if (selected !== null) {
-        selected.setStyle(defaultStyle);
+        selected.setStyle(oldStyle);
         selected = null;
         $("#status").text(' ');
         hoverTitle = " ";
@@ -270,9 +282,14 @@ map.on('pointermove', function (e) {
         // only the features w/ pota markers have TITLE
         const name = f.get('NAME');
         const type = f.get('type');
-        const ignore = ["Appalachian trail", "PE_NHT", "MP NHT", "LC NHT", "WARO NHT", "NCT_NST", "TOT_NHT", "SAFE_NHT", "accuracy_feat", "pos_feat"]
+        const ignore = ["accuracy_feat", "pos_feat"]
         if (f.get('TITLE') === undefined && !ignore.includes(name) && type !== 'county') {
-            f.setStyle(selectStyle);
+            oldStyle = f.getStyle();
+
+            if (type === 'trail')
+                f.setStyle(trailSelectStyle);
+            else
+                f.setStyle(selectStyle);
             map.render();
             hoverTitle = selected.get('NAME')
             return true;

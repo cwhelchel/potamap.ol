@@ -18,18 +18,25 @@ export default class LocData {
                 { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateAR.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateAR.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-AR.geojson' },
             ],
             'US-AZ': [
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateAZ.geojson' },
+                { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-AZ.geojson' },
             ],
             'US-CA': [
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateCA.geojson' },
+                { title: 'CALI NHT', file: '..\/US-common\/cali_nht.geojson' },
+                { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-CA.geojson' },
             ],
             'US-CO': [
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateCO.geojson' },
+                { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-CO.geojson' },
             ],
             'US-CT': [
@@ -48,14 +55,15 @@ export default class LocData {
             ],
             'US-FL': [
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateFL.geojson' },
+                { title: 'FL NST', file: 'fl_nst2.geojson' },
                 { title: 'Parks', file: 'parks-US-FL.geojson' },
             ],
             'US-GA': [
                 { title: 'Counties', file: 'counties.geojson' },
+                { title: 'GA DNR', file: 'new_dnr20a.geojson' },
+                { title: 'PAD-US', file: 'new_PAD1.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
-                { title: 'GA DNR', file: 'new_dnr20a.geojson' },
-                { title: 'PAD-US', file: 'new_PAD.geojson' },
                 { title: 'Parks', file: 'parks-US-GA.geojson' }
             ],
             'US-HI': [
@@ -75,6 +83,7 @@ export default class LocData {
             'US-IL': [
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateIL.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
+                { title: 'MP NHT', file: '..\/US-common\/Mormon_Pioneer_NHT.geojson' },
                 { title: 'Parks', file: 'parks-US-IL.geojson' },
             ],
             'US-IN': [
@@ -92,6 +101,9 @@ export default class LocData {
             ],
             'US-KS': [
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateKS.geojson' },
+                { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
                 { title: 'Parks', file: 'parks-US-KS.geojson' },
             ],
             'US-KY': [
@@ -102,6 +114,7 @@ export default class LocData {
             ],
             'US-LA': [
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateLA.geojson' },
+                { title: 'ELCA_LT NHT', file: '..\/US-common\/los_tejas.geojson' },
                 { title: 'Parks', file: 'parks-US-LA.geojson' },
             ],
             'US-MA': [
@@ -131,9 +144,10 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-MN.geojson' },
             ],
             'US-MO': [
+                { title: 'PAS-US Fee', file: 'PADUS3_0Fee_StateMO.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
-                { title: 'PAS-US Fee', file: 'PADUS3_0Fee_StateMO.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-MO.geojson' },
             ],
             'US-MS': [
@@ -175,12 +189,16 @@ export default class LocData {
             ],
             'US-NM': [
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateNM.geojson' },
+                { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
+                { title: 'ELCA_TA NHT', file: '..\/US-common\/tierra_adentro.geojson' },
                 { title: 'Parks', file: 'parks-US-NM.geojson' },
             ],
             'US-NV': [
-                { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
                 { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateNV.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNV.geojson' },
+                { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
+                { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-NV.geojson' },
             ],
             'US-NY': [
@@ -190,14 +208,19 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NY.geojson' },
             ],
             'US-OH': [
+                { title: 'PAD-US', file: 'PADUS4_0_StateOH.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'Parks', file: 'parks-US-OH.geojson' },
             ],
             'US-OK': [
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateOK.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-OK.geojson' },
             ],
             'US-OR': [
+                { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
             ],
             'US-PA': [
@@ -226,11 +249,16 @@ export default class LocData {
             ],
             'US-TX': [
                 { title: 'PAD-US', file: 'PADUS4_0Fee_StateTX.geojson' },
+                { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
+                { title: 'ELCA_TA NHT', file: '..\/US-common\/tierra_adentro.geojson' },
+                { title: 'ELCA_LT NHT', file: '..\/US-common\/los_tejas.geojson' },
                 { title: 'Parks', file: 'parks-US-TX.geojson' },
             ],
             'US-UT': [
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateUT.geojson' },
                 { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateUT.geojson' },
+                { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
+                { title: 'MP NHT', file: '..\/US-common\/Mormon_Pioneer_NHT.geojson' },
                 { title: 'Parks', file: 'parks-US-UT.geojson' },
             ],
             'US-VA': [
@@ -269,6 +297,7 @@ export default class LocData {
             'US-WY': [
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateWY.geojson' },
                 { title: 'BLM', file: 'BLM_PADUS3_0Combined_StateWY.geojson' },
+                { title: 'MP NHT', file: '..\/US-common\/Mormon_Pioneer_NHT.geojson' },
                 { title: 'Parks', file: 'parks-US-WY.geojson' },
             ],
         }
