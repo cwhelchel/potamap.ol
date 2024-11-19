@@ -63,7 +63,8 @@ function createCountyStyle(county) {
 // configuration in LayerData.js LocData titles.
 const trailNames = [
     "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT", 
-    "SAFE NHT", "FL NST", "CALI NHT", "OR NHT"
+    "SAFE NHT", "FL NST", "CALI NHT", "OR NHT", "OLSP NHT", "BFO NHT", "ELCA_TA NHT",
+    "ELCA_LT NHT"
 ];
 
 function polygonStyleFunction(feature, resolution) {
