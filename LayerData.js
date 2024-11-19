@@ -26,6 +26,7 @@ export default class LocData {
             ],
             'US-CA': [
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateCA.geojson' },
+                { title: 'CALI NHT', file: '..\/US-common\/cali_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-CA.geojson' },
             ],
             'US-CO': [
@@ -194,6 +195,9 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-NY.geojson' },
             ],
             'US-OH': [
+                { title: 'PAD-US', file: 'PADUS4_0_StateOH.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'Parks', file: 'parks-US-OH.geojson' },
             ],
             'US-OK': [
@@ -202,6 +206,7 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-OK.geojson' },
             ],
             'US-OR': [
+                { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
             ],
             'US-PA': [
