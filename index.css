@@ -104,20 +104,32 @@
 
 .info-control {
     left: .5em;
+    min-width: 24px;
     font-size: 1.0em;
+    background-color: var(--ol-background-color);
 }
 
 .bug-rpt-control {
     left: .5em;
     font-size: 1.0em;
+    min-width: 24px;
     background-color: var(--ol-background-color);
 }
 
 .toggle-layer-control {
     left: .5em;
     font-size: 1.0em;
-    background-color: var(--ol-background-color);;
+    min-width: 24px;
+    background-color: var(--ol-background-color);
 }
+
+.zoom-pos-control {
+    left: .5em;
+    font-size: 1.0em;
+    min-width: 24px;
+    background-color: var(--ol-background-color);
+}
+
 
 @media only screen and (max-width: 600px) {
     /* 
@@ -130,7 +142,10 @@
         top: 145px;
     }
     .toggle-layer-control {
-        top: 175px;
+        top: 190px;
+    }
+    .zoom-pos-control {
+        top: 235px;
     }
 }
 
@@ -148,6 +163,9 @@
     .toggle-layer-control {
         top: 175px;
     }
+    .zoom-pos-control {
+        top: 205px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -163,6 +181,9 @@
     }
     .toggle-layer-control {
         top: 145px;
+    }
+    .zoom-pos-control {
+        top: 175px;
     }
 }
 
