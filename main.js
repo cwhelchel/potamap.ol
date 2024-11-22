@@ -16,10 +16,10 @@ import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 import { getParkLocation, getParkLastActx } from './PotaApi.js'
 import { currentPosition, getGeolocationLayer } from './getGeolocationLayer.js';
-import { InfoControl } from './InfoControl.js'
-import { BugReportControl } from './BugReportControl.js';
-import { TileLayerControl } from './TileLayerControl.js';
-import { ZoomToPosControl } from './ZoomToPosControl.js';
+import { InfoControl } from './controls/InfoControl.js'
+import { BugReportControl } from './controls/BugReportControl.js';
+import { TileLayerControl } from './controls/TileLayerControl.js';
+import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
 
 const selectStyle = new Style({
     fill: new Fill({
