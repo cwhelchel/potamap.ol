@@ -43,11 +43,37 @@
 }
 
 /* 
-    on click popup
+    feature/shape onClick popover
 */
 
-.shapeProps {
+.popover-body {
+    --bs-popover-body-padding-x: 0.75rem;
+    --bs-popover-body-padding-y: 0.50rem;
+}
+
+.shape-popover {
     font-size: 0.75em;
+}
+
+.shape-popover .shape-name {
+    text-align: center;
+    font-size: 1.09em;
+    margin-bottom: 3px;
+}
+
+.shape-popover .shape-props {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.shape-popover .shape-prop {
+    margin: 0px 5px;
+    padding: 0px 5px;
+    border: 1px;
+    border-style: dotted;
+    border-radius: 5px;
+    color: rgba(var(--bs-secondary-rgb), 0.75);
 }
 
 .hoverTitle {
@@ -132,39 +158,65 @@
 
 
 @media only screen and (max-width: 600px) {
+
     /* 
     PHONE SCREENS 
     */
     .info-control {
+        /* top: 100px; */
+        top: auto;
+        bottom: 25px;
+        left: 5px;
+    }
+
+    .bug-rpt-control {
+        /* top: 145px; */
+        top: auto;
+        left: auto;
+        right: 5px;
+        bottom: 25px;
+    }
+
+    .toggle-layer-control {
         top: 100px;
     }
-    .bug-rpt-control {
+
+    .zoom-pos-control {
         top: 145px;
     }
-    .toggle-layer-control {
-        top: 190px;
+
+    .footer span {
+        text-wrap: nowrap;
     }
-    .zoom-pos-control {
-        top: 235px;
+
+    .footer-text-r {
+        text-align: left;
     }
 }
 
 
 @media only screen and (min-width: 600px) {
+
     /* 
     MEDIUM SCREENS 
     */
     .info-control {
-        top: 100px;
+        top: auto;
+        bottom: 45px;
+        left: 45px;
     }
+
     .bug-rpt-control {
-        top: 145px;
+        top: auto;
+        bottom: 45px;
     }
+
     .toggle-layer-control {
-        top: 175px;
+        top: 75px;
     }
+
     .zoom-pos-control {
-        top: 205px;
+        top: 110px;
     }
 }
 
@@ -174,16 +226,22 @@
     */
 
     .info-control {
+        top: auto;
+        bottom: 10px;
+        left: 45px;
+    }
+
+    .bug-rpt-control {
+        top: auto;
+        bottom: 10px;
+    }
+
+    .toggle-layer-control {
         top: 75px;
     }
-    .bug-rpt-control {
-        top: 110px;
-    }
-    .toggle-layer-control {
-        top: 145px;
-    }
+
     .zoom-pos-control {
-        top: 175px;
+        top: 110px;
     }
 }
 

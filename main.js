@@ -147,16 +147,23 @@ map.on('click', function (evt) {
         let name = f.get('NAME'); // should ALWAYS be there 
         let title = f.get('TITLE'); // will be there for pota parks
         let res = "";
+        let shapeTitle = '';
 
         // from a shapefile. use its properties as they provide way more info
         if (title === undefined) {
             let p = f.getProperties();
             for (var property in p) {
                 if (typeof (p[property]) == "string") {
-                    res += `${property} : ${p[property]} <br/>`;
+                    if (property ==="NAME") {
+                        shapeTitle = `<div class="shape-name">${p["NAME"]}</div>`;
+                        continue;
+                    }
+                    res += `<div class="shape-prop">${property} : ${p[property]}</div>`;
                 }
             }
-            res = `<span class="shapeProps">${res}</span>`
+
+            let propsDiv = `<div class="shape-props">${res}</div>`
+            res = `<div class="shape-popover">${shapeTitle}${propsDiv}</div>`
         }
         else {
             // from POTA park markers. get and display POTA specific info
@@ -206,6 +213,15 @@ function showLocLayerGroup(inVal) {
     }
 }
 
+$(document).ready( function() {
+    if (localStorage.getItem('locSelectVal') !== undefined) { 
+        const x = localStorage.getItem('locSelectVal');
+        console.log(x);
+        $('#locSelect').val(x);
+        showLocLayerGroup(x);
+    }
+} );
+
 $('#parkBtn').click(function () {
     const input = $('#parkTxt').val();
     let loc = getParkLocation(input);
@@ -223,6 +239,7 @@ $('#parkTxt').keypress(function (event) {
 });
 
 $('#locSelect').on("change", function () {
+    localStorage.setItem('locSelectVal', this.value);
     showLocLayerGroup(this.value);
 });
 
