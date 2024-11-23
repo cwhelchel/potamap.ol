@@ -15,10 +15,11 @@ import LayerSwitcher from 'ol-layerswitcher';
 import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 import { getParkLocation, getParkLastActx } from './PotaApi.js'
-import { getGeolocationLayer } from './getGeolocationLayer.js';
-import { InfoControl } from './InfoControl.js'
-import { BugReportControl } from './BugReportControl.js';
-import { TileLayerControl } from './TileLayerControl.js';
+import { currentPosition, getGeolocationLayer } from './getGeolocationLayer.js';
+import { InfoControl } from './controls/InfoControl.js'
+import { BugReportControl } from './controls/BugReportControl.js';
+import { TileLayerControl } from './controls/TileLayerControl.js';
+import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
 
 const selectStyle = new Style({
     fill: new Fill({
@@ -80,9 +81,8 @@ const map = new Map({
     title: 'Map',
     type: 'base',
     view: view,
-    controls: defaultControls().extend([new InfoControl(), new BugReportControl(), new TileLayerControl(handleLayerSwitchCallback)])
+    controls: defaultControls().extend([new InfoControl(), new BugReportControl(), new TileLayerControl(handleLayerSwitchCallback), new ZoomToPosControl(zoomToPosition)])
 });
-
 
 // add layer and source for GPS position
 const geolocLayer = getGeolocationLayer(view.getProjection());
@@ -91,7 +91,7 @@ map.addLayer(geolocLayer);
 
 // add our layer switcher component
 var layerSwitcher = new LayerSwitcher({
-    startActive: true,
+    startActive: false,
     activationMode: 'click',
     groupSelectStyle: 'children',
     reverse: false // this logic is backwards-af
@@ -147,16 +147,23 @@ map.on('click', function (evt) {
         let name = f.get('NAME'); // should ALWAYS be there 
         let title = f.get('TITLE'); // will be there for pota parks
         let res = "";
+        let shapeTitle = '';
 
         // from a shapefile. use its properties as they provide way more info
         if (title === undefined) {
             let p = f.getProperties();
             for (var property in p) {
                 if (typeof (p[property]) == "string") {
-                    res += `${property} : ${p[property]} <br/>`;
+                    if (property ==="NAME") {
+                        shapeTitle = `<div class="shape-name">${p["NAME"]}</div>`;
+                        continue;
+                    }
+                    res += `<div class="shape-prop">${property} : ${p[property]}</div>`;
                 }
             }
-            res = `<span class="shapeProps">${res}</span>`
+
+            let propsDiv = `<div class="shape-props">${res}</div>`
+            res = `<div class="shape-popover">${shapeTitle}${propsDiv}</div>`
         }
         else {
             // from POTA park markers. get and display POTA specific info
@@ -206,6 +213,15 @@ function showLocLayerGroup(inVal) {
     }
 }
 
+$(document).ready( function() {
+    if (localStorage.getItem('locSelectVal') !== undefined) { 
+        const x = localStorage.getItem('locSelectVal');
+        console.log(x);
+        $('#locSelect').val(x);
+        showLocLayerGroup(x);
+    }
+} );
+
 $('#parkBtn').click(function () {
     const input = $('#parkTxt').val();
     let loc = getParkLocation(input);
@@ -223,6 +239,7 @@ $('#parkTxt').keypress(function (event) {
 });
 
 $('#locSelect').on("change", function () {
+    localStorage.setItem('locSelectVal', this.value);
     showLocLayerGroup(this.value);
 });
 
@@ -233,6 +250,15 @@ function zoomToLocation(locId) {
     let lon = StaticData.data[locId].lon;
     let zoom = StaticData.data[locId].zoom;
     map.getView().animate({ zoom: zoom, center: fromLonLat([lon, lat]) });
+}
+
+function zoomToPosition() {
+    const coordinates = currentPosition;
+    if (coordinates !== undefined && coordinates !== null) {
+        let zoom = 10;
+        let c = fromLonLat(coordinates);
+        map.getView().animate({ zoom: zoom, center: c});
+    } 
 }
 
 function scrollToLayGroupInPanel(locId) {

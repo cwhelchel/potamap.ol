@@ -9,17 +9,13 @@ export class BugReportControl extends Control {
     constructor(opt_options) {
         const options = opt_options || {};
 
-        //const button = document.createElement('button');
-        
-        const link = document.createElement('a');
-        link.innerHTML = '⚠️';
-        link.title = 'Report error on Github';
-        link.href = "https://github.com/cwhelchel/potamap.ol/issues";
-        link.target = "_blank";
+        const btn = document.createElement('button');
+        btn.innerHTML = '<a title="Report error on Github" href="https://github.com/cwhelchel/potamap.ol/issues" target="_blank">⚠️</a>'
+        btn.className = 'btn';
 
         const element = document.createElement('div');
         element.className = 'bug-rpt-control ol-unselectable ol-control';
-        element.appendChild(link);
+        element.appendChild(btn);
 
         super({
             element: element,

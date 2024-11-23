@@ -6,6 +6,8 @@ import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 import Geolocation from 'ol/Geolocation.js';
 
+export var currentPosition;
+
 /*
   Gets a layer to be added to the map with the browsers geolocation data.
   The layer will display a position point and an accuracy "ring".
@@ -13,6 +15,7 @@ import Geolocation from 'ol/Geolocation.js';
   projection should be from the maps view, ala: view.getProjection()
 */
 export function getGeolocationLayer(projection) {
+    //currentPosition = [-152.404, 61.3707];
 
     const geolocation = new Geolocation({
         // enableHighAccuracy must be set to true to have the heading value.
@@ -48,6 +51,7 @@ export function getGeolocationLayer(projection) {
 
     geolocation.on('change:position', function () {
         const coordinates = geolocation.getPosition();
+        currentPosition = coordinates;
         positionFeature.setGeometry(coordinates ? new Point(coordinates) : null);
     });
 
