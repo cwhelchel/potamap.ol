@@ -54,6 +54,30 @@ mapshaper .\safe.geojson -dissolve "NAME,NAME_EXT" -o format=geojson .\safe2.geo
 
 This should keep the NAME property and NAME_EXT property in tact.
 
+## Testing GEOLOCATION in dev
+
+https://stackoverflow.com/a/71618444
+
+Add vite-plugin-mkcert to npm and to vite.config.js
+
+```sh
+$ npm i vite-plugin-mkcert -D
+```
+
+```js
+import { defineConfig } from 'vite'
+import mkcert from 'vite-plugin-mkcert'
+
+export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
+  base: '/',
+  server: {https:true},
+  plugins: [ mkcert() ]
+})
+```
+
 ## Original setup instructions
 
 This example demonstrates how the `ol` package can be used with [Vite](https://vitejs.dev/).
