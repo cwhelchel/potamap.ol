@@ -256,7 +256,7 @@ function zoomToPosition() {
     const coordinates = currentPosition;
     if (coordinates !== undefined && coordinates !== null) {
         let zoom = 10;
-        let c = fromLonLat(coordinates);
+        let c = coordinates;
         map.getView().animate({ zoom: zoom, center: c});
     } 
 }
