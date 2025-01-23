@@ -220,6 +220,9 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-OK.geojson' },
             ],
             'US-OR': [
+                { title: 'PAD-US', file: 'PADUS4_0_State_OR.geojson' },
+                { title: 'CALI NHT', file: '..\/US-common\/cali_nht.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
                 { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
             ],
@@ -279,6 +282,9 @@ export default class LocData {
                 { title: 'Parks', file: 'parks-US-VT.geojson' },
             ],
             'US-WA': [
+                { title: 'PAD-US', file: 'PADUS4_0_State_WA.geojson' },
+                { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
+                { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-WA.geojson' },
             ],
             'US-WI': [
