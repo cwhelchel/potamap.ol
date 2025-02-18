@@ -37,6 +37,7 @@ export default class LocData {
             'US-CO': [
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateCO.geojson' },
                 { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
+                { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
                 { title: 'Parks', file: 'parks-US-CO.geojson' },
             ],
             'US-CT': [
@@ -192,6 +193,7 @@ export default class LocData {
                 { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
                 { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'ELCA_TA NHT', file: '..\/US-common\/tierra_adentro.geojson' },
+                { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
                 { title: 'Parks', file: 'parks-US-NM.geojson' },
             ],
             'US-NV': [
@@ -217,6 +219,7 @@ export default class LocData {
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateOK.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
+                { title: 'SAFE NHT', file: '..\/US-common\/safe.geojson' },
                 { title: 'Parks', file: 'parks-US-OK.geojson' },
             ],
             'US-OR': [
