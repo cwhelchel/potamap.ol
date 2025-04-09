@@ -4,10 +4,12 @@ import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector';
 import GeoJSON from 'ol/format/GeoJSON'
 import LayerGroup from 'ol/layer/Group'
+import BaseLayer from 'ol/layer/Base.js';
 import Collection from 'ol/Collection.js';
 import { Icon, Style, Stroke, Fill, Circle, Text } from 'ol/style.js';
 
 import LocData from './LayerData.js'
+import { getActxData } from './ActivationData.js'
 
 
 const stroke = new Stroke({
@@ -18,7 +20,7 @@ const stroke = new Stroke({
 const countyStroke = new Stroke({
     color: 'rgba(176,26,146,0.5)', // #b01a92
     width: 1.1,
-    
+
 });
 
 const defaultStyle = [
@@ -37,6 +39,16 @@ const iconStyle = new Style({
     }),
 });
 
+const activatedIconStyle = new Style({
+    image: new Icon({
+        anchor: [0.5, 0.5],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'fraction',
+        src: 'data/img/gd.png',
+    }),
+});
+
+
 const trailStyle = [
     new Style({
         stroke: new Stroke({
@@ -52,7 +64,7 @@ function createCountyStyle(county) {
         new Style({
             stroke: countyStroke,
             fill: new Fill({ color: 'rgba(176,26,146,0.05)' }),
-            text: new Text({text: county, stroke: countyStroke})
+            text: new Text({ text: county, stroke: countyStroke })
         }),
     ];
 
@@ -62,7 +74,7 @@ function createCountyStyle(county) {
 // we need to track these so the initial style is set correctly. its based off
 // configuration in LayerData.js LocData titles.
 const trailNames = [
-    "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT", 
+    "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT",
     "SAFE NHT", "FL NST", "CALI NHT", "OR NHT", "OLSP NHT", "BFO NHT", "ELCA_TA NHT",
     "ELCA_LT NHT"
 ];
@@ -80,6 +92,18 @@ export default function initLayers() {
     let d = LocData.data;
     let groups = [];
 
+    const activated = getActxData();
+
+    var styleFunction = function (feature, resolution) {
+
+        if (activated && activated.includes(feature.get("NAME"))) {
+            return activatedIconStyle;
+        }
+        else {
+            return iconStyle;
+        }
+    }
+
     for (var key in d.data) {
         //console.log('location: ' + key);
         let layers = new Collection();
@@ -92,7 +116,7 @@ export default function initLayers() {
         d.data[key].forEach(function (obj) {
 
             if (obj.title.startsWith('Parks')) {
-                var s = iconStyle;
+                var s = styleFunction;
             }
             else if (trailNames.includes(obj.title)) {
                 var s = trailStyle;

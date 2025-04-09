@@ -16,6 +16,8 @@ import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 import { getParkLocation, getParkLastActx } from './PotaApi.js'
 import { currentPosition, getGeolocationLayer } from './getGeolocationLayer.js';
+import {handleActxUpload} from './ActivationData.js';
+
 import { InfoControl } from './controls/InfoControl.js'
 import { BugReportControl } from './controls/BugReportControl.js';
 import { TileLayerControl } from './controls/TileLayerControl.js';
@@ -216,7 +218,7 @@ function showLocLayerGroup(inVal) {
 $(document).ready( function() {
     if (localStorage.getItem('locSelectVal') !== undefined) { 
         const x = localStorage.getItem('locSelectVal');
-        console.log(x);
+        //console.log(x);
         $('#locSelect').val(x);
         showLocLayerGroup(x);
     }
@@ -327,3 +329,14 @@ map.on('pointermove', function (e) {
 
     $("#status").text(hoverTitle);
 });
+
+async function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    handleActxUpload(file);
+
+    window.location.reload();
+}
+
+document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
