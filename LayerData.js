@@ -205,6 +205,7 @@ export default class LocData {
             ],
             'US-NY': [
                 { title: 'PAD-US', file: 'PADUS3_0Fee_StateNY.geojson' },
+                { title: 'EC', file: 'eriecanalway_sim.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'Parks', file: 'parks-US-NY.geojson' },
