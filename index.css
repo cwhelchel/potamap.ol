@@ -77,7 +77,6 @@
 }
 
 .hoverTitle {
-    margin-left: 30px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
@@ -91,16 +90,22 @@
     bottom: 0;
     left: 0;
     height: fit-content;
+    font-size: small;
 }
 
 .footer-text-l {
-    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.footer-text-m {
     vertical-align: middle;
 }
 
 .footer-text-r {
     text-align: right;
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 @media only screen and (max-width: 600px) {
@@ -192,6 +197,14 @@
     .footer-text-r {
         text-align: left;
     }
+
+    #autocompleteBottomInput {
+        width: 300px;
+    }
+
+    .hoverTitle {
+        display: none;
+    }
 }
 
 
@@ -203,7 +216,7 @@
     .info-control {
         top: auto;
         bottom: 45px;
-        left: 45px;
+        /* left: 45px; */
     }
 
     .bug-rpt-control {
@@ -218,6 +231,11 @@
     .zoom-pos-control {
         top: 110px;
     }
+
+    
+    #autocompleteBottomInput {
+        width: 400px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -228,7 +246,7 @@
     .info-control {
         top: auto;
         bottom: 10px;
-        left: 45px;
+        /* left: 45px; */
     }
 
     .bug-rpt-control {
@@ -242,6 +260,10 @@
 
     .zoom-pos-control {
         top: 110px;
+    }
+
+    #autocompleteBottomInput {
+        width: 500px;
     }
 }
 

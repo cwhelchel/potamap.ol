@@ -10,7 +10,7 @@ export class InfoControl extends Control {
         const options = opt_options || {};
 
         const button = document.createElement('button');
-        button.innerHTML = 'ℹ️';
+        button.innerHTML = '❔';
         button.title = 'Info';
 
         // bootstrap modal stuff

@@ -11,17 +11,20 @@ import { Style, Stroke, Fill } from 'ol/style.js';
 import { defaults as defaultControls } from 'ol/control.js';
 
 import LayerSwitcher from 'ol-layerswitcher';
+import Autocomplete from 'bootstrap5-autocomplete'
 
 import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
 import { getParkLocation, getParkLastActx } from './PotaApi.js'
 import { currentPosition, getGeolocationLayer } from './getGeolocationLayer.js';
-import {handleActxUpload} from './ActivationData.js';
+import { handleActxUpload } from './ActivationData.js';
 
 import { InfoControl } from './controls/InfoControl.js'
-import { BugReportControl } from './controls/BugReportControl.js';
+//import { BugReportControl } from './controls/BugReportControl.js';
 import { TileLayerControl } from './controls/TileLayerControl.js';
 import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
+
+
 
 const selectStyle = new Style({
     fill: new Fill({
@@ -83,7 +86,7 @@ const map = new Map({
     title: 'Map',
     type: 'base',
     view: view,
-    controls: defaultControls().extend([new InfoControl(), new BugReportControl(), new TileLayerControl(handleLayerSwitchCallback), new ZoomToPosControl(zoomToPosition)])
+    controls: defaultControls().extend([new InfoControl(), new TileLayerControl(handleLayerSwitchCallback), new ZoomToPosControl(zoomToPosition)])
 });
 
 // add layer and source for GPS position
@@ -121,7 +124,7 @@ function disposePopover() {
 }
 
 function handleLayerSwitchCallback() {
-    if (tileLayer.getSource() == xyzSrc) 
+    if (tileLayer.getSource() == xyzSrc)
         tileLayer.setSource(osmSrc);
     else
         tileLayer.setSource(xyzSrc);
@@ -156,7 +159,7 @@ map.on('click', function (evt) {
             let p = f.getProperties();
             for (var property in p) {
                 if (typeof (p[property]) == "string") {
-                    if (property ==="NAME") {
+                    if (property === "NAME") {
                         shapeTitle = `<div class="shape-name">${p["NAME"]}</div>`;
                         continue;
                     }
@@ -215,16 +218,18 @@ function showLocLayerGroup(inVal) {
     }
 }
 
-$(document).ready( function() {
-    if (localStorage.getItem('locSelectVal') !== undefined) { 
+$(document).ready(function () {
+    if (localStorage.getItem('locSelectVal') !== undefined) {
         const x = localStorage.getItem('locSelectVal');
         //console.log(x);
         $('#locSelect').val(x);
         showLocLayerGroup(x);
     }
-} );
+});
 
 $('#parkBtn').click(function () {
+    // this hidden input will be set by the new autocomplete plugin
+
     const input = $('#parkTxt').val();
     let loc = getParkLocation(input);
     loc.then(
@@ -233,12 +238,6 @@ $('#parkBtn').click(function () {
     );
 });
 
-$('#parkTxt').keypress(function (event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '13') {
-        $(this).parent().find('button').click();
-    }
-});
 
 $('#locSelect').on("change", function () {
     localStorage.setItem('locSelectVal', this.value);
@@ -259,8 +258,8 @@ function zoomToPosition() {
     if (coordinates !== undefined && coordinates !== null) {
         let zoom = 10;
         let c = coordinates;
-        map.getView().animate({ zoom: zoom, center: c});
-    } 
+        map.getView().animate({ zoom: zoom, center: c });
+    }
 }
 
 function scrollToLayGroupInPanel(locId) {
@@ -340,3 +339,14 @@ async function handleFileUpload(event) {
 }
 
 document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
+
+Autocomplete.init("#autocompleteBottomInput", {
+    items: [{ title: "", id: "" }],
+    valueField: "id",
+    labelField: "title",
+    highlightTyped: true,
+    onSelectItem: ({label, value}) => {
+        $('#parkTxt').val(value);
+        $('#parkBtn').click();
+    }
+});

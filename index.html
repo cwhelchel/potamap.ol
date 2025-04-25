@@ -22,12 +22,14 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">POTAMAP Info</h5>
                     <span>
-                        <a href="https://github.com/cwhelchel/potamap.ol" target="_blank"
+                        <a href="https://github.com/cwhelchel/potamap.ol/" target="_blank"
                             title="View source code on Github">
                             <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="35px"
-                                height="35px">
+                                height="35px" />
                         </a>
                     </span>
+                    <span>Report bugs <a href="https://github.com/cwhelchel/potamap.ol/issues"
+                            target="_blank">here</a></span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -91,26 +93,32 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <div class="d-flex">
-                                <input id="parkTxt" class="form-control rounded" placeholder="" />
-                                <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
+                            <div class="">
+                                <input type="text" name="remote" class="form-control autocomplete"
+                                    id="autocompleteBottomInput" placeholder="Search parks..." data-full-width="1"
+                                    data-server="https://api.pota.app/lookup?search=&size=10"
+                                    data-server-data-key="items" data-hidden-input="true" data-label-field="display"
+                                    data-value-field="value" data-query-param="search" data-live-server="true" />
+
+                                <input id="parkTxt" style="display: none;" />
+                                <!-- <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
                                     title="Search Park Reference">
                                     <i class="fas fa-search"></i>
-                                </button>
+                                </button>  -->
                             </div>
                         </li>
                         <li class="nav-item">
-                            <button id="uploadBtn" 
-                                class="btn btn-secondary text-nowrap nav-item mx-1"
+                            <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
+                                title="Search Park Reference">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button id="uploadBtn" class="btn btn-secondary text-nowrap mx-1"
                                 title="Get the activations csv file from your POTA.app Stats page, upper right corner.">
-                                Upload Activation
+                                Upload Activations
                             </button>
                             <input type="file" id="fileUpload" accept=".csv, text/csv" style="display:none;" />
-                        </li>
-                        <li class="nav-item">
-                            <div class="d-flex">
-                                <span class="hoverTitle navbar-text" id="status">test</span>
-                            </div>
                         </li>
                     </ul>
                     <div class="d-flex input-group w-auto">
@@ -192,6 +200,9 @@
                         <span>/</span>
                         <a href="https://pota.miraheze.org/" target="_blank" id="wikiLink">Wiki</a>
                     </span>
+                </div>
+                <div class="col footer-text-m text-truncate">
+                    <span class="hoverTitle" id="status"></span>
                 </div>
                 <div class="col footer-text-r ">
                     <span id="actxData">
