@@ -15,7 +15,7 @@ import Autocomplete from 'bootstrap5-autocomplete'
 
 import { defaultStyle, initLayers } from './BoundaryLayers.js'
 import StaticData from './StaticData.js'
-import { getParkLocation, getParkLastActx } from './PotaApi.js'
+import { getParkLocation, getParkLastActx, isPark } from './PotaApi.js'
 import { currentPosition, getGeolocationLayer } from './getGeolocationLayer.js';
 import { handleActxUpload } from './ActivationData.js';
 
@@ -172,15 +172,25 @@ map.on('click', function (evt) {
         }
         else {
             // from POTA park markers. get and display POTA specific info
-            res = `${name} - ${title}`;
-            $("#potaLink").attr('href', `https://pota.app/#park/${name}`);
-            $("#potaLink").text(res);
-            $("#wikiLink").attr('href', `https://pota.miraheze.org/wiki/${title}`);
-            let lastAct = getParkLastActx(name);
-            lastAct.then(
-                function (value) { $("#actxData").text("Last Activation: " + `${value.lastActivator} on ${value.date}`) },
-                function (error) { /* code if some error */ }
-            );
+            if (isPark(name)) {
+                res = `${name} - ${title}`;
+                $("#potaLink").attr('href', `https://pota.app/#park/${name}`);
+                $("#potaLink").text(res);
+                $("#wikiLink").attr('href', `https://pota.miraheze.org/wiki/${title}`);
+                let lastAct = getParkLastActx(name);
+                lastAct.then(
+                    function (value) { $("#actxData").text("Last Activation: " + `${value.lastActivator} on ${value.date}`) },
+                    function (error) { /* code if some error */ }
+                );
+            } else {
+                // summit
+                res = `${name} - ${title}`;
+                $("#potaLink").attr('href', `https://www.sotadata.org.uk/en/summit/${name}`);
+                $("#potaLink").text(res);
+                $("#wikiLink").text('')
+                let p = f.getProperties();
+                $("#actxData").text(p['ASSOCIATION'] + ' / ' + p['REGION']);
+            }
         }
         return res;
     }
@@ -276,15 +286,20 @@ function selectLayerGroup(layerGroup) {
     // set to be checked and open the tree node
     layerGroup.setProperties({ "visible": true, "fold": 'open' });
 
-    // set each child visible
-    for (let i = 0; i < layerGroup.getLayersArray().length; i++) {
-        let title = layerGroup.getLayersArray()[i].getProperties().title;
+    const layers = layerGroup.getLayers();
+
+    layers.forEach(function (layer) {
+        let title = layer.getProperties().title;
 
         // dont auto select counties
         if (title != "Counties") {
-            layerGroup.getLayersArray()[i].setProperties({ "visible": true });
+            layer.setProperties({ "visible": true });
         }
-    }
+
+        // if we want to show a sub group (like summits) we have to 
+        // loop thru a the sub-layergroup. but for now we dont want to show
+        // the summits when the state is selected
+    });
 
     // refresh redraw panel
     layerSwitcher.renderPanel();
@@ -345,7 +360,7 @@ Autocomplete.init("#autocompleteBottomInput", {
     valueField: "id",
     labelField: "title",
     highlightTyped: true,
-    onSelectItem: ({label, value}) => {
+    onSelectItem: ({ label, value }) => {
         $('#parkTxt').val(value);
         $('#parkBtn').click();
     }
