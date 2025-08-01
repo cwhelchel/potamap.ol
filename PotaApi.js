@@ -3,17 +3,21 @@
 // Takes park id and returns the lat long for the parks marker
 // moderate checking on the park name
 export default async function getParkLocation(park) {
-    const re = /[A-Z]{2}-[0-9]*/;
-    park = park.toUpperCase();
-    let b = re.test(park);
-
-    if (b == false) return;
+    if (!isPark(park)) return;
 
     let url = "https://api.pota.app/park/" + park;
 
     const parkData = await $.ajax({ url: url });
 
     return { 'lat': parkData.latitude, 'lon': parkData.longitude };
+}
+
+function isPark(ref) {
+    const re = /^[A-Z]{2}-[0-9]*/;
+    const park = ref.toUpperCase();
+    let b = re.test(park);
+
+    return b;
 }
 
 async function getParkLastActx(park) {
@@ -36,4 +40,4 @@ async function getParkLastActx(park) {
     };
 }
 
-export { getParkLocation, getParkLastActx };
+export { getParkLocation, getParkLastActx, isPark };

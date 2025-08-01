@@ -121,12 +121,18 @@
 
 .layer-switcher.shown {
     height: 700px;
+    width: 275px;
 }
 
 @media only screen and (max-width: 600px) {
     .layer-switcher.shown {
         font-size: small;
     }
+}
+
+.layer-switcher > button {
+    width: 38px !important;
+    height: 38px !important;
 }
 
 /* 
@@ -267,6 +273,10 @@
     }
 }
 
+/* 
+MODAL POPUPS and landing popup
+*/
+
 .modal-body .disclaimer {
     font-size: xx-small;
 }
@@ -274,4 +284,9 @@
 .modal-header span {
     text-align: center;
     margin-left: 1em;
+}
+
+.landing-bmc {
+    margin-top: 2px;
+    text-align: center;
 }

@@ -28,8 +28,6 @@
                                 height="35px" />
                         </a>
                     </span>
-                    <span>Report bugs <a href="https://github.com/cwhelchel/potamap.ol/issues"
-                            target="_blank">here</a></span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -43,19 +41,25 @@
                         <a href="https://sciencebase.gov" target="_blank">USGS Gap Analysis Project, Protected
                             Areas Database of the United States (PAD-US)</a> for the POTA park boundaries. Some trails
                         have come from the USGS, NPS, and other trail mapping volunteer groups.
+                        Hope to hear you on the air at a park.
+                        🍻 es 73 - de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
                     </p>
-                    <p>
+
+                    <p class="small">
                         This site is freely usable by anyone and represents many hours of work to parse, filter, and
                         convert geospatial data. If you are so inclined you can click the button to show your support
                         and feed my caffeine addiction. 👇
-                        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-                            data-name="bmc-button" data-slug="krinkle" data-color="#40DCA5" data-emoji=""
-                            data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
-                            data-font-color="#ffffff" data-coffee-color="#FFDD00"></script>
-                    </p>
-                    <p>
-                        Hope to hear you on the air at a park.
-                        🍻 es 73 - de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                        <div class="landing-bmc">
+                            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                                data-name="bmc-button" data-slug="krinkle" data-color="#40DCA5" data-emoji=""
+                                data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
+                                data-font-color="#ffffff" data-coffee-color="#FFDD00">
+                            </script>
+                            <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#landingModal">View Release Notes</button>
+                            <a class="btn btn-link btn-sm" href="https://github.com/cwhelchel/potamap.ol/issues"
+                                target="_blank">Report bugs here</a>
+                        </div>
                     </p>
                     <hr />
                     <!-- thanks chatgpt -->
@@ -80,6 +84,43 @@
             </div>
         </div>
     </div>
+
+    <!-- landing modal -->
+    <div class="modal fade" id="landingModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Welcome to POTAMAP.US</h5>
+                    <span>
+                        🏔 SOTA update
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Update 2025-Aug: Added summit markers from the SOTA program.
+                    </p>
+                    <p>
+                        The summits are hidden by default. Please select the Summits in the layer switcher
+                        on the right-hand side and zoom in. They won't show up if you're zoomed out too far.
+                        73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                    </p>
+                    <hr />
+                    <p class="small text-secondary">
+                        This site is freely usable by anyone and represents many hours of work to parse, filter, and
+                        convert geospatial data. If you are so inclined you can click the button to show your support
+                        and feed my caffeine addiction. 👇
+                    </p>
+                    <div class="landing-bmc">
+                        <a href="https://www.buymeacoffee.com/krinkle" target="_blank">
+                            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee"
+                                style="height: 40px !important;width: 145px !important;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="container bg-light">
         <nav class="navbar navbar-expand-lg bg-light fixed-top" role="navigation">
