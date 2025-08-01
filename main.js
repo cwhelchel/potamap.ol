@@ -177,6 +177,7 @@ map.on('click', function (evt) {
                 $("#potaLink").attr('href', `https://pota.app/#park/${name}`);
                 $("#potaLink").text(res);
                 $("#wikiLink").attr('href', `https://pota.miraheze.org/wiki/${title}`);
+                $("#wikiLink").text('Wiki')
                 let lastAct = getParkLastActx(name);
                 lastAct.then(
                     function (value) { $("#actxData").text("Last Activation: " + `${value.lastActivator} on ${value.date}`) },
@@ -234,6 +235,25 @@ $(document).ready(function () {
         //console.log(x);
         $('#locSelect').val(x);
         showLocLayerGroup(x);
+    }
+
+    // roll this number up to force a display of the landing modal info box
+    const expectedLanding = 1;
+
+    if (localStorage.getItem('showLanding') === null) {
+        showLandingModal();
+    } else {
+        const storedVal = localStorage.getItem('showLanding');
+        if (storedVal < expectedLanding) {
+            showLandingModal();
+        }
+    }
+
+    function showLandingModal() {
+        const myModalEl = document.getElementById('landingModal');
+        const myModal = new bootstrap.Modal(myModalEl);
+        myModal.toggle();
+        localStorage.setItem('showLanding', expectedLanding);
     }
 });
 

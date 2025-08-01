@@ -131,7 +131,7 @@ export default class LocData {
                 { title: 'PAD-US', file: 'new_PAD1.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
-                { title: 'COP!!!', file: 'cop3.geojson' },
+                { title: 'COP', file: 'cop3.geojson' },
                 { title: 'Parks', file: 'parks-US-GA.geojson' },
                 
                 { title: 'Summits W4G/CE', file: 'W4G--CE.geojson' },
