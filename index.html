@@ -19,6 +19,7 @@
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">POTAMAP Info</h5>
                     <span>
@@ -36,10 +37,12 @@
                         <a href="http://pota.app/" target="_blank">Parks-on-the-Air</a> activations.
                     </p>
                     <p>
-                        This site uses the <a href="https://openlayers.org" target="_blank">Openlayers</a> library for
+                        This site uses the <a href="https://openlayers.org" target="_blank">Openlayers</a> library
+                        for
                         mapping and the
                         <a href="https://sciencebase.gov" target="_blank">USGS Gap Analysis Project, Protected
-                            Areas Database of the United States (PAD-US)</a> for the POTA park boundaries. Some trails
+                            Areas Database of the United States (PAD-US)</a> for the POTA park boundaries. Some
+                        trails
                         have come from the USGS, NPS, and other trail mapping volunteer groups.
                         Hope to hear you on the air at a park.
                         🍻 es 73 - de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
@@ -47,19 +50,20 @@
 
                     <p class="small">
                         This site is freely usable by anyone and represents many hours of work to parse, filter, and
-                        convert geospatial data. If you are so inclined you can click the button to show your support
+                        convert geospatial data. If you are so inclined you can click the button to show your
+                        support
                         and feed my caffeine addiction. 👇
-                        <div class="landing-bmc">
-                            <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-                                data-name="bmc-button" data-slug="krinkle" data-color="#40DCA5" data-emoji=""
-                                data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
-                                data-font-color="#ffffff" data-coffee-color="#FFDD00">
+                    <div class="landing-bmc">
+                        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                            data-name="bmc-button" data-slug="krinkle" data-color="#40DCA5" data-emoji=""
+                            data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
+                            data-font-color="#ffffff" data-coffee-color="#FFDD00">
                             </script>
-                            <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#landingModal">View Release Notes</button>
-                            <a class="btn btn-link btn-sm" href="https://github.com/cwhelchel/potamap.ol/issues"
-                                target="_blank">Report bugs here</a>
-                        </div>
+                        <button type="button" class="btn btn-link btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#landingModal">View Release Notes</button>
+                        <a class="btn btn-link btn-sm" href="https://github.com/cwhelchel/potamap.ol/issues"
+                            target="_blank">Report bugs here</a>
+                    </div>
                     </p>
                     <hr />
                     <!-- thanks chatgpt -->
@@ -68,19 +72,24 @@
                             The information provided on this website is for general informational purposes only. All
                             information on the site is provided in good faith, however we make no representation or
                             warranty
-                            of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability,
+                            of any kind, express or implied, regarding the accuracy, adequacy, validity,
+                            reliability,
                             availability, or completeness of any information on the site.
                         </p>
 
                         <p>
-                            Under no circumstance shall we have any liability to you for any loss or damage of any kind
-                            incurred as a result of the use of the site or reliance on any information provided on the
+                            Under no circumstance shall we have any liability to you for any loss or damage of any
+                            kind
+                            incurred as a result of the use of the site or reliance on any information provided on
+                            the
                             site.
-                            Your use of the site and your reliance on any information on the site is solely at your own
+                            Your use of the site and your reliance on any information on the site is solely at your
+                            own
                             risk.
                         </p>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -92,18 +101,36 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Welcome to POTAMAP.US</h5>
                     <span>
-                        🏔 SOTA update
+                        <i class="fas fa-globe-americas"></i> County Update
                     </span>
                 </div>
                 <div class="modal-body">
-                    <p>
-                        Update 2025-Aug: Added summit markers from the SOTA program.
-                    </p>
-                    <p>
-                        The summits are hidden by default. Please select the Summits in the layer switcher
-                        on the right-hand side and zoom in. They won't show up if you're zoomed out too far.
-                        73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
-                    </p>
+                    <div class="release-notes">
+                        <p>
+                            Update 2025-Nov: Added counties to all states.
+                        </p>
+                        <p>
+                            The counties are hidden by default. Please select the counties in the layer switcher
+                            on the right-hand side. Only AK and RI don't have county shapes. Also removed
+                            inactive summits that were included erroneously.
+                            73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                        </p>
+                    </div>
+                    <button class="btn btn-link btn-sm" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseChangelog" aria-expanded="false" aria-controls="collapseChangelog">
+                        Show Older
+                    </button>
+                    <div class="collapse" id="collapseChangelog" style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
+                        <p>
+                            Update 2025-Aug: Added summit markers from the SOTA program.
+                        </p>
+                        <p>
+                            The summits are hidden by default. Please select the Summits in the layer switcher
+                            on the right-hand side and zoom in. They won't show up if you're zoomed out too far.
+                            73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                        </p>
+                    </div>
+
                     <hr />
                     <p class="small text-secondary">
                         This site is freely usable by anyone and represents many hours of work to parse, filter, and
