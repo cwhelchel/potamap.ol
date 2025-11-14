@@ -40,7 +40,36 @@ geometry (it also keeps the original properties)
 
 ### Add a property to all features in a geojson
 
-    mapshaper .\counties.geojson -each 'this.properties.type = \"county\"' -o test.geojson  
+    mapshaper .\counties.geojson -each 'this.properties.type = \"county\"' -o test.geojson 
+
+```
+# remove all attributes but name
+mapshaper .\counties.geojson -filter-fields name -o counties.geojson  
+&&
+mapshaper .\counties.geojson -each 'this.properties.type = \"county\"' -o counties.geojson   
+```
+### convert kml to geojson
+
+The county files are all from the K1RA APRS QSO party tracker. They are in kml but we
+can convert them to geojson with this tool:
+
+```bash
+$ npm install -g @mapbox/togeojson
+$ togeoJson file.kml > file.geojson
+```
+
+```powershell
+$TargetFiles = Get-ChildItem -Path "C:\path\to\boundaries\" -Filter "*.kml"
+
+foreach ($f in $TargetFiles) {
+    togeojson $f.FullName > $f.BaseName
+}
+
+# add geojson extension. store list of files in $toRename
+foreach ($f in $toRename) {
+     Rename-Item -Path $f.FullName -NewName ($f.Name+".geojson") 
+}
+```
 
 ## Trails
 
