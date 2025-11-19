@@ -6,6 +6,7 @@ export default class LocData {
         'data':
         {
             'US-AK': [
+                { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateAK.geojson' },
                 { title: 'Parks', file: 'parks-US-AK.geojson' },
             ],
@@ -489,6 +490,7 @@ export default class LocData {
                 { title: "Summits W3/SV ", file: "W3--SV.geojson" },
             ],
             'US-RI': [
+                { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateRI.geojson' },
                 { title: 'Parks', file: 'parks-US-RI.geojson' },
             ],

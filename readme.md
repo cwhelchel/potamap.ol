@@ -42,7 +42,7 @@ geometry (it also keeps the original properties)
 
     mapshaper .\counties.geojson -each 'this.properties.type = \"county\"' -o test.geojson 
 
-```
+```bash
 # remove all attributes but name
 mapshaper .\counties.geojson -filter-fields name -o counties.geojson  
 &&

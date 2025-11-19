@@ -237,8 +237,8 @@ $(document).ready(function () {
         showLocLayerGroup(x);
     }
 
-    // roll this number up to force a display of the landing modal info box
-    const expectedLanding = 2;
+    // roll/bump this number up to force a display of the landing modal info box
+    const expectedLanding = 3;
 
     if (localStorage.getItem('showLanding') === null) {
         showLandingModal();
