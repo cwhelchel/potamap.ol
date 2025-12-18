@@ -25,7 +25,7 @@
                     <span>
                         <a href="https://github.com/cwhelchel/potamap.ol/" target="_blank"
                             title="View source code on Github">
-                            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="35px"
+                            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="35px" aria-label="github-icon"
                                 height="35px" />
                         </a>
                     </span>
@@ -121,7 +121,8 @@
                         data-bs-target="#collapseChangelog" aria-expanded="false" aria-controls="collapseChangelog">
                         Show Older
                     </button>
-                    <div class="collapse" id="collapseChangelog" style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
+                    <div class="collapse" id="collapseChangelog"
+                        style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
                         <p>
                             Update 2025-Aug: Added summit markers from the SOTA program.
                         </p>
@@ -164,12 +165,13 @@
                         <li class="nav-item">
                             <div class="">
                                 <input type="text" name="remote" class="form-control autocomplete"
+                                    aria-label="search-for-parks"
                                     id="autocompleteBottomInput" placeholder="Search parks..." data-full-width="1"
                                     data-server="https://api.pota.app/lookup?search=&size=10"
                                     data-server-data-key="items" data-hidden-input="true" data-label-field="display"
                                     data-value-field="value" data-query-param="search" data-live-server="true" />
 
-                                <input id="parkTxt" style="display: none;" />
+                                <input id="parkTxt" style="display: none;" aria-hidden="true" aria-label="deprecated-search-button" />
                                 <!-- <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
                                     title="Search Park Reference">
                                     <i class="fas fa-search"></i>
@@ -187,7 +189,7 @@
                                 title="Get the activations csv file from your POTA.app Stats page, upper right corner.">
                                 Upload Activations
                             </button>
-                            <input type="file" id="fileUpload" accept=".csv, text/csv" style="display:none;" />
+                            <input type="file" id="fileUpload" accept=".csv, text/csv" style="display:none;" aria-hidden="true" aria-label="file-upload-input" />
                         </li>
                     </ul>
                     <div class="d-flex input-group w-auto">

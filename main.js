@@ -99,7 +99,9 @@ var layerSwitcher = new LayerSwitcher({
     startActive: false,
     activationMode: 'click',
     groupSelectStyle: 'children',
-    reverse: false // this logic is backwards-af
+    reverse: false, // this logic is backwards-af
+    tipLabel: "Open Layer Switcher",
+    collapseTipLabel: "Close Layer Switcher",
 });
 
 map.addControl(layerSwitcher);
