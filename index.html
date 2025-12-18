@@ -26,7 +26,7 @@
                         <a href="https://github.com/cwhelchel/potamap.ol/" target="_blank"
                             title="View source code on Github">
                             <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" width="35px"
-                                height="35px" />
+                                aria-label="github-icon" height="35px" />
                         </a>
                     </span>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -101,19 +101,18 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Welcome to POTAMAP.US</h5>
                     <span>
-                        <i class="fas fa-globe-americas"></i> County Update
+                        🎅 December Update
                     </span>
                 </div>
                 <div class="modal-body">
                     <div class="release-notes">
                         <p>
-                            Update 2025-Nov: Added counties to all states.
+                            Parks Update 2025-Dec
                         </p>
                         <p>
-                            The counties are hidden by default. Please select the counties in the layer switcher
-                            on the right-hand side. <s>Only AK and RI don't have county shapes.</s> Thanks to Marty
-                            N9EAT for the AK and RI county files.
-                            Also removed inactive summits that were included erroneously.
+                            Ran the park update tool to pull in the new markers and 
+                            remove any inactive parks. Rest-in-peace the old Virginia WMAs
+                            and State Fishing lakes. But Welcome to the new parks added in Nov and Dec.
                             73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
                         </p>
                     </div>
@@ -121,15 +120,30 @@
                         data-bs-target="#collapseChangelog" aria-expanded="false" aria-controls="collapseChangelog">
                         Show Older
                     </button>
-                    <div class="collapse" id="collapseChangelog" style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
-                        <p>
-                            Update 2025-Aug: Added summit markers from the SOTA program.
-                        </p>
-                        <p>
-                            The summits are hidden by default. Please select the Summits in the layer switcher
-                            on the right-hand side and zoom in. They won't show up if you're zoomed out too far.
-                            73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
-                        </p>
+                    <div class="collapse" id="collapseChangelog"
+                        style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
+                        <div class="old-release-notes">
+                            <p>
+                                Update 2025-Nov: Added counties to all states.
+                            </p>
+                            <p>
+                                The counties are hidden by default. Please select the counties in the layer switcher
+                                on the right-hand side. <s>Only AK and RI don't have county shapes.</s> Thanks to Marty
+                                N9EAT for the AK and RI county files.
+                                Also removed inactive summits that were included erroneously.
+                                73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                            </p>
+                        </div>
+                        <div class="old-release-notes">
+                            <p>
+                                Update 2025-Aug: Added summit markers from the SOTA program.
+                            </p>
+                            <p>
+                                The summits are hidden by default. Please select the Summits in the layer switcher
+                                on the right-hand side and zoom in. They won't show up if you're zoomed out too far.
+                                73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                            </p>
+                        </div>
                     </div>
 
                     <hr />
@@ -164,12 +178,14 @@
                         <li class="nav-item">
                             <div class="">
                                 <input type="text" name="remote" class="form-control autocomplete"
-                                    id="autocompleteBottomInput" placeholder="Search parks..." data-full-width="1"
+                                    aria-label="search-for-parks" id="autocompleteBottomInput"
+                                    placeholder="Search parks..." data-full-width="1"
                                     data-server="https://api.pota.app/lookup?search=&size=10"
                                     data-server-data-key="items" data-hidden-input="true" data-label-field="display"
                                     data-value-field="value" data-query-param="search" data-live-server="true" />
 
-                                <input id="parkTxt" style="display: none;" />
+                                <input id="parkTxt" style="display: none;" aria-hidden="true"
+                                    aria-label="deprecated-search-button" />
                                 <!-- <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
                                     title="Search Park Reference">
                                     <i class="fas fa-search"></i>
@@ -187,7 +203,8 @@
                                 title="Get the activations csv file from your POTA.app Stats page, upper right corner.">
                                 Upload Activations
                             </button>
-                            <input type="file" id="fileUpload" accept=".csv, text/csv" style="display:none;" />
+                            <input type="file" id="fileUpload" accept=".csv, text/csv" style="display:none;"
+                                aria-hidden="true" aria-label="file-upload-input" />
                         </li>
                     </ul>
                     <div class="d-flex input-group w-auto">

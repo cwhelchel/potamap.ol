@@ -99,7 +99,9 @@ var layerSwitcher = new LayerSwitcher({
     startActive: false,
     activationMode: 'click',
     groupSelectStyle: 'children',
-    reverse: false // this logic is backwards-af
+    reverse: false, // this logic is backwards-af
+    tipLabel: "Open Layer Switcher",
+    collapseTipLabel: "Close Layer Switcher",
 });
 
 map.addControl(layerSwitcher);
@@ -238,7 +240,7 @@ $(document).ready(function () {
     }
 
     // roll/bump this number up to force a display of the landing modal info box
-    const expectedLanding = 3;
+    const expectedLanding = 4;
 
     if (localStorage.getItem('showLanding') === null) {
         showLandingModal();
