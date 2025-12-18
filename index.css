@@ -294,3 +294,14 @@ MODAL POPUPS and landing popup
 .release-notes {
     margin: 5px;
 }
+
+.old-release-notes {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px dashed grey;
+}
+
+.old-release-notes p {
+    margin-top: 1px;
+    margin-bottom: 5px;
+}

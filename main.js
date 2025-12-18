@@ -240,7 +240,7 @@ $(document).ready(function () {
     }
 
     // roll/bump this number up to force a display of the landing modal info box
-    const expectedLanding = 3;
+    const expectedLanding = 4;
 
     if (localStorage.getItem('showLanding') === null) {
         showLandingModal();
