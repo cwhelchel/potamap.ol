@@ -23,7 +23,7 @@ import { InfoControl } from './controls/InfoControl.js'
 //import { BugReportControl } from './controls/BugReportControl.js';
 import { TileLayerControl } from './controls/TileLayerControl.js';
 import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
-
+import { getPopupContent, updateFooterLinks } from './MapClickHandler.ts'
 
 
 const selectStyle = new Style({
@@ -86,7 +86,7 @@ const map = new Map({
     title: 'Map',
     type: 'base',
     view: view,
-    controls: defaultControls().extend([new InfoControl(), new TileLayerControl(handleLayerSwitchCallback), new ZoomToPosControl(zoomToPosition)])
+    controls: defaultControls().extend([new TileLayerControl(handleLayerSwitchCallback), new ZoomToPosControl(zoomToPosition)])
 });
 
 // add layer and source for GPS position
@@ -135,10 +135,16 @@ function handleLayerSwitchCallback() {
 // display popup on click
 map.on('click', function (evt) {
     let content = "";
+    let layerContent = "";
+
+    let clickedLayers = [];
 
     map.forEachFeatureAtPixel(evt.pixel, function (x) {
-        content += getContent(x) + "</br>";
+        clickedLayers.push(x);
+        updateFooterLinks(x);
     });
+
+    content = getPopupContent(clickedLayers);
 
     disposePopover();
 
@@ -146,57 +152,11 @@ map.on('click', function (evt) {
     popover = new bootstrap.Popover(element, {
         placement: 'top',
         html: true,
-        content: content,
+        content: content + layerContent,
     });
+
     popover.show();
 
-    function getContent(f) {
-        let name = f.get('NAME'); // should ALWAYS be there 
-        let title = f.get('TITLE'); // will be there for pota parks
-        let res = "";
-        let shapeTitle = '';
-
-        // from a shapefile. use its properties as they provide way more info
-        if (title === undefined) {
-            let p = f.getProperties();
-            for (var property in p) {
-                if (typeof (p[property]) == "string") {
-                    if (property === "NAME") {
-                        shapeTitle = `<div class="shape-name">${p["NAME"]}</div>`;
-                        continue;
-                    }
-                    res += `<div class="shape-prop">${property} : ${p[property]}</div>`;
-                }
-            }
-
-            let propsDiv = `<div class="shape-props">${res}</div>`
-            res = `<div class="shape-popover">${shapeTitle}${propsDiv}</div>`
-        }
-        else {
-            // from POTA park markers. get and display POTA specific info
-            if (isPark(name)) {
-                res = `${name} - ${title}`;
-                $("#potaLink").attr('href', `https://pota.app/#park/${name}`);
-                $("#potaLink").text(res);
-                $("#wikiLink").attr('href', `https://pota.miraheze.org/wiki/${title}`);
-                $("#wikiLink").text('Wiki')
-                let lastAct = getParkLastActx(name);
-                lastAct.then(
-                    function (value) { $("#actxData").text("Last Activation: " + `${value.lastActivator} on ${value.date}`) },
-                    function (error) { /* code if some error */ }
-                );
-            } else {
-                // summit
-                res = `${name} - ${title}`;
-                $("#potaLink").attr('href', `https://www.sotadata.org.uk/en/summit/${name}`);
-                $("#potaLink").text(res);
-                $("#wikiLink").text('')
-                let p = f.getProperties();
-                $("#actxData").text(p['ASSOCIATION'] + ' / ' + p['REGION']);
-            }
-        }
-        return res;
-    }
 });
 
 // Close the popup when the map is moved
@@ -240,7 +200,7 @@ $(document).ready(function () {
     }
 
     // roll/bump this number up to force a display of the landing modal info box
-    const expectedLanding = 4;
+    const expectedLanding = 5;
 
     if (localStorage.getItem('showLanding') === null) {
         showLandingModal();
@@ -314,7 +274,9 @@ function selectLayerGroup(layerGroup) {
         let title = layer.getProperties().title;
 
         // dont auto select counties
-        if (title != "Counties") {
+        const titleIgnore = ["Counties", "FFMA"];
+
+        if (!titleIgnore.includes(title)) {
             layer.setProperties({ "visible": true });
         }
 
@@ -346,8 +308,9 @@ map.on('pointermove', function (e) {
         // only the features w/ pota markers have TITLE
         const name = f.get('NAME');
         const type = f.get('type');
-        const ignore = ["accuracy_feat", "pos_feat"]
-        if (f.get('TITLE') === undefined && !ignore.includes(name) && type !== 'county') {
+        const ignoreNames = ["accuracy_feat", "pos_feat"]
+        const ignoreTypes = ["ffma", "county"]
+        if (f.get('TITLE') === undefined && !ignoreNames.includes(name) && !ignoreTypes.includes(type)) {
             oldStyle = f.getStyle();
 
             if (type === 'trail')

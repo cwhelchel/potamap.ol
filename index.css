@@ -53,6 +53,16 @@
 
 .shape-popover {
     font-size: 0.75em;
+    background-color: lightgrey;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.popover-body .popover-title {
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 .shape-popover .shape-name {
@@ -75,6 +85,26 @@
     border-radius: 5px;
     color: rgba(var(--bs-secondary-rgb), 0.75);
 }
+
+.shape-popover .layer-badge {
+    background-color: rgba(var(--bs-success-rgb), 0.5);
+}
+
+.popover-body .layers {
+    overflow-y: auto;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.popover-body .layers-title {
+    text-align: center;
+    font-size: 0.75em;
+    margin-bottom: 1px;
+    text-decoration: underline;
+}
+
 
 .hoverTitle {
     text-overflow: ellipsis;
@@ -143,7 +173,13 @@
     left: .5em;
     min-width: 24px;
     font-size: 1.0em;
-    background-color: var(--ol-background-color);
+    background-color: #E39D25;
+}
+
+.btn-info-control {
+    border: 1px solid #000000 !important;
+    border-radius: 5px !important;
+    background-color: #E39D25 !important;
 }
 
 .bug-rpt-control {
