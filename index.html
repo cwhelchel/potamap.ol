@@ -34,9 +34,12 @@
                 <div class="modal-body">
                     <p>
                         👋 Thanks for using this site. I hope this is useful for your
-                        <a href="http://pota.app/" target="_blank">Parks-on-the-Air</a> activations.
+                        <a href="http://pota.app/" target="_blank">Parks-on-the-Air</a> activations. 
                     </p>
                     <p>
+                        💡 User guide is at <a href="https://github.com/cwhelchel/potamap.ol/wiki" target="_blank">the wiki</a>
+                    </p>
+                    <p class="small">
                         This site uses the <a href="https://openlayers.org" target="_blank">Openlayers</a> library
                         for
                         mapping and the
@@ -101,18 +104,24 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Welcome to POTAMAP.US</h5>
                     <span>
-                        🎅 December Update
+                        Update - April 2026 🌺
                     </span>
                 </div>
                 <div class="modal-body">
                     <div class="release-notes">
                         <p>
-                            Parks Update 2025-Dec
+                            <strong>What's new</strong>: Added the "FFMA" layer to show all 488 Maidenhead 4 digit gridsquares of the CONUS. This
+                            is
+                            available for all states but is not selected by default.
+                            Useful for things like <a href="https://www.arrl.org/vucc/" target="_blank">VUCC</a> and
+                            <a href="https://www.arrl.org/ffma/" target="_blank">FFMA</a> or general gridsquare
+                            hunting. 
                         </p>
                         <p>
-                            Ran the park update tool to pull in the new markers and 
-                            remove any inactive parks. Rest-in-peace the old Virginia WMAs
-                            and State Fishing lakes. But Welcome to the new parks added in Nov and Dec.
+                            I've also tweaked the UI to be more user friendly and added a link to <a href="https://github.com/cwhelchel/potamap.ol/wiki" target="_blank">the wiki</a>
+                        </p>
+                        <p>
+                            The park update tool has been ran to add any new POTA parks.
                             73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
                         </p>
                     </div>
@@ -122,6 +131,17 @@
                     </button>
                     <div class="collapse" id="collapseChangelog"
                         style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
+                        <div class="old-release-notes">
+                            <p>
+                                Parks Update 2025-Dec
+                            </p>
+                            <p>
+                                Ran the park update tool to pull in the new markers and
+                                remove any inactive parks. Rest-in-peace the old Virginia WMAs
+                                and State Fishing lakes. But Welcome to the new parks added in Nov and Dec.
+                                73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                            </p>
+                        </div>
                         <div class="old-release-notes">
                             <p>
                                 Update 2025-Nov: Added counties to all states.
@@ -166,17 +186,83 @@
 
     <div class="container bg-light">
         <nav class="navbar navbar-expand-lg bg-light fixed-top" role="navigation">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">POTAMAP</a>
+            <div class="container-fluid gap-2">
+                <!-- collapse button only vis small screen -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    data-bs-target="#navbarCollpaseArea" aria-controls="navbarCollpaseArea" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav me-auto">
+                <a class="navbar-brand" href="#">POTAMAP</a>
+
+                <!-- drop down is not collapsed -->
+                <div class="input-group w-auto me-auto">
+                    <label class="input-group-text" for="locSelect">State</label>
+                    <select id="locSelect" class="form-select" aria-label="Location Selection">
+                        <option selected>Select...</option>
+                        <option value="US-AK"> US-AK </option>
+                        <option value="US-AL"> US-AL </option>
+                        <option value="US-AR"> US-AR </option>
+                        <option value="US-AZ"> US-AZ </option>
+                        <option value="US-CA"> US-CA </option>
+                        <option value="US-CO"> US-CO </option>
+                        <option value="US-CT"> US-CT </option>
+                        <option value="US-DE"> US-DE </option>
+                        <option value="US-DC"> US-DC </option>
+                        <option value="US-FL"> US-FL </option>
+                        <option value="US-GA"> US-GA </option>
+                        <option value="US-HI"> US-HI </option>
+                        <option value="US-IA"> US-IA </option>
+                        <option value="US-ID"> US-ID </option>
+                        <option value="US-IL"> US-IL </option>
+                        <option value="US-IN"> US-IN </option>
+                        <option value="US-KH"> US-KH1 </option>
+                        <option value="US-KS"> US-KS </option>
+                        <option value="US-KP"> US-KP4 </option>
+                        <option value="US-KY"> US-KY </option>
+                        <option value="US-LA"> US-LA </option>
+                        <option value="US-MA"> US-MA </option>
+                        <option value="US-ME"> US-ME </option>
+                        <option value="US-MD"> US-MD </option>
+                        <option value="US-MI"> US-MI </option>
+                        <option value="US-MN"> US-MN </option>
+                        <option value="US-MO"> US-MO </option>
+                        <option value="US-MS"> US-MS </option>
+                        <option value="US-MT"> US-MT </option>
+                        <option value="US-NC"> US-NC </option>
+                        <option value="US-ND"> US-ND </option>
+                        <option value="US-NE"> US-NE </option>
+                        <option value="US-NH"> US-NH </option>
+                        <option value="US-NJ"> US-NJ </option>
+                        <option value="US-NM"> US-NM </option>
+                        <option value="US-NV"> US-NV </option>
+                        <option value="US-NY"> US-NY </option>
+                        <option value="US-OH"> US-OH </option>
+                        <option value="US-OK"> US-OK </option>
+                        <option value="US-OR"> US-OR </option>
+                        <option value="US-PA"> US-PA </option>
+                        <option value="US-RI"> US-RI </option>
+                        <option value="US-SC"> US-SC </option>
+                        <option value="US-SD"> US-SD </option>
+                        <option value="US-TN"> US-TN </option>
+                        <option value="US-TX"> US-TX </option>
+                        <option value="US-UT"> US-UT </option>
+                        <option value="US-VA"> US-VA </option>
+                        <option value="US-VT"> US-VT </option>
+                        <option value="US-WA"> US-WA </option>
+                        <option value="US-WI"> US-WI </option>
+                        <option value="US-WV"> US-WV </option>
+                        <option value="US-WY"> US-WY </option>
+                        <option value="US-VI"> US-VI </option>
+                        <option value="US-KH9"> US-KH9 </option>
+                    </select>
+                </div>
+
+                <!-- the other controls are collapsed -->
+                <div class="collapse navbar-collapse" id="navbarCollpaseArea">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <div class="">
+                            <div class="d-flex">
                                 <input type="text" name="remote" class="form-control autocomplete"
                                     aria-label="search-for-parks" id="autocompleteBottomInput"
                                     placeholder="Search parks..." data-full-width="1"
@@ -186,94 +272,35 @@
 
                                 <input id="parkTxt" style="display: none;" aria-hidden="true"
                                     aria-label="deprecated-search-button" />
-                                <!-- <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
+
+                                <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
                                     title="Search Park Reference">
                                     <i class="fas fa-search"></i>
-                                </button>  -->
+                                </button>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <button id="parkBtn" class="btn btn-secondary text-nowrap nav-item mx-1"
-                                title="Search Park Reference">
-                                <i class="fas fa-search"></i>
-                            </button>
+
                         </li>
                         <li class="nav-item">
-                            <button id="uploadBtn" class="btn btn-secondary text-nowrap mx-1"
+                            <button id="uploadBtn" class="btn btn-primary text-nowrap mx-1"
                                 title="Get the activations csv file from your POTA.app Stats page, upper right corner.">
                                 Upload Activations
                             </button>
                             <input type="file" id="fileUpload" accept=".csv, text/csv" style="display:none;"
                                 aria-hidden="true" aria-label="file-upload-input" />
                         </li>
+                        <li class="nav-item">
+                            <button title="Help / Info" class="btn btn-secondary btn-info-control"
+                                data-bs-toggle="modal" data-bs-target="#exampleModalCenter">❔</button>
+                        </li>
                     </ul>
-                    <div class="d-flex input-group w-auto">
-                        <span class="navbar-text">Start Here -- > </span>
-                        <select id="locSelect" class="form-select w-auto" aria-label="Location Selection">
-                            <option selected>Open this select menu</option>
-                            <option value="US-AK"> US-AK </option>
-                            <option value="US-AL"> US-AL </option>
-                            <option value="US-AR"> US-AR </option>
-                            <option value="US-AZ"> US-AZ </option>
-                            <option value="US-CA"> US-CA </option>
-                            <option value="US-CO"> US-CO </option>
-                            <option value="US-CT"> US-CT </option>
-                            <option value="US-DE"> US-DE </option>
-                            <option value="US-DC"> US-DC </option>
-                            <option value="US-FL"> US-FL </option>
-                            <option value="US-GA"> US-GA </option>
-                            <option value="US-HI"> US-HI </option>
-                            <option value="US-IA"> US-IA </option>
-                            <option value="US-ID"> US-ID </option>
-                            <option value="US-IL"> US-IL </option>
-                            <option value="US-IN"> US-IN </option>
-                            <option value="US-KH"> US-KH1 </option>
-                            <option value="US-KS"> US-KS </option>
-                            <option value="US-KP"> US-KP4 </option>
-                            <option value="US-KY"> US-KY </option>
-                            <option value="US-LA"> US-LA </option>
-                            <option value="US-MA"> US-MA </option>
-                            <option value="US-ME"> US-ME </option>
-                            <option value="US-MD"> US-MD </option>
-                            <option value="US-MI"> US-MI </option>
-                            <option value="US-MN"> US-MN </option>
-                            <option value="US-MO"> US-MO </option>
-                            <option value="US-MS"> US-MS </option>
-                            <option value="US-MT"> US-MT </option>
-                            <option value="US-NC"> US-NC </option>
-                            <option value="US-ND"> US-ND </option>
-                            <option value="US-NE"> US-NE </option>
-                            <option value="US-NH"> US-NH </option>
-                            <option value="US-NJ"> US-NJ </option>
-                            <option value="US-NM"> US-NM </option>
-                            <option value="US-NV"> US-NV </option>
-                            <option value="US-NY"> US-NY </option>
-                            <option value="US-OH"> US-OH </option>
-                            <option value="US-OK"> US-OK </option>
-                            <option value="US-OR"> US-OR </option>
-                            <option value="US-PA"> US-PA </option>
-                            <option value="US-RI"> US-RI </option>
-                            <option value="US-SC"> US-SC </option>
-                            <option value="US-SD"> US-SD </option>
-                            <option value="US-TN"> US-TN </option>
-                            <option value="US-TX"> US-TX </option>
-                            <option value="US-UT"> US-UT </option>
-                            <option value="US-VA"> US-VA </option>
-                            <option value="US-VT"> US-VT </option>
-                            <option value="US-WA"> US-WA </option>
-                            <option value="US-WI"> US-WI </option>
-                            <option value="US-WV"> US-WV </option>
-                            <option value="US-WY"> US-WY </option>
-                            <option value="US-VI"> US-VI </option>
-                            <option value="US-KH9"> US-KH9 </option>
-                        </select>
-                    </div>
                 </div>
         </nav>
         <div class="col">Test combobox</div>
         <div class="navbar-offset"></div>
         <div id="map" class="map">
-            <div id="popup"></div>
+            <div id="popup" data-bs-html="true"></div>
         </div>
         <div class="row main-row">
         </div>

@@ -20,13 +20,32 @@ const stroke = new Stroke({
 const countyStroke = new Stroke({
     color: 'rgba(176,26,146,0.5)', // #b01a92
     width: 1.1,
-
 });
+
+const ffmaStrokeOutline = new Stroke({
+    color: '#ffffff',
+    width: 3.0,
+});
+
 
 const defaultStyle = [
     new Style({
         stroke: stroke,
         fill: new Fill({ color: 'rgba(0,255,255,0.4)' })
+    }),
+];
+
+
+const ffmaStyle = [
+    new Style({
+        stroke: stroke,
+        fill: new Fill({ color: 'rgba(0,255,255,0.4)' }),
+        image: new Circle({
+            radius: 7,
+            fill: new Fill({ color: 'red' }),
+            stroke: new Stroke({ color: 'white', width: 2 }),
+            text: new Text({})
+        }),
     }),
 ];
 
@@ -69,6 +88,26 @@ function createCountyStyle(county) {
     ];
 
     return countyStyle;
+}
+
+function createFfmaStyle(feature, resolution) {
+    let gridName = feature.get("NAME");
+    if (gridName.startsWith("Locator"))
+        gridName = "";
+
+    const ffmaStyle = [
+        new Style({
+            stroke: stroke,
+            text: new Text({
+                font: 'bold 12px "Roboto", "Open Sans", sans-serif',
+                text: gridName,
+                stroke: ffmaStrokeOutline,
+                fill: new Fill({ color: 'rgba(69, 71, 204, 1.0)' })
+            }),
+        }),
+    ];
+
+    return ffmaStyle;
 }
 
 const summitColors = [
@@ -162,6 +201,12 @@ export default function initLayers() {
             fold: 'close',
         });
 
+        // inject FFMA layer as first one in list since it needs to be in every state
+        // (could prob do same with counties.geojson)
+        d.data[key].splice(0, 0,
+            { title: 'FFMA', file: '..\/US-common\/FFMA_combined.geojson' }
+        );
+
         // loop thru each location
         d.data[key].forEach(function (obj) {
 
@@ -200,6 +245,9 @@ export default function initLayers() {
                 summitLayers.push(l);
                 j++;
                 return;
+            }
+            else if (obj.title.startsWith("FFMA")) {
+                var s = createFfmaStyle;
             }
             else {
                 var s = defaultStyle;
