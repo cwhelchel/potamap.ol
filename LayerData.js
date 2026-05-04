@@ -163,6 +163,7 @@ export default class LocData {
             'US-ID': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateID.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'Parks', file: 'parks-US-ID.geojson' },
                 { title: "Summits W7I/BC", file: "W7I--BC.geojson" },
                 { title: "Summits W7I/BL", file: "W7I--BL.geojson" },
@@ -287,6 +288,7 @@ export default class LocData {
             'US-MT': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateMT.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'Parks', file: 'parks-US-MT.geojson' },
                 { title: "Summits W7M/BE ", file: "W7M--BE.geojson" },
                 { title: "Summits W7M/BR ", file: "W7M--BR.geojson" },
@@ -463,6 +465,7 @@ export default class LocData {
                 { title: 'CALI NHT', file: '..\/US-common\/cali_nht.geojson' },
                 { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
                 { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
                 { title: "Summits W7O/CC ", file: "W7O--CC.geojson" },
                 { title: "Summits W7O/CE ", file: "W7O--CE.geojson" },
@@ -626,6 +629,7 @@ export default class LocData {
             'US-WA': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS4_0_State_WA.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
                 { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-WA.geojson' },

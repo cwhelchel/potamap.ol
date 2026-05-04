@@ -156,7 +156,7 @@ const summitColors = [
 const trailNames = [
     "AT", "NCT NST", "PE NHT", "LC NHT", "MP NHT", "WARO NHT", "TOT NHT",
     "SAFE NHT", "FL NST", "CALI NHT", "OR NHT", "OLSP NHT", "BFO NHT", "ELCA_TA NHT",
-    "ELCA_LT NHT"
+    "ELCA_LT NHT", "ICE_AGE"
 ];
 
 function polygonStyleFunction(feature, resolution) {
