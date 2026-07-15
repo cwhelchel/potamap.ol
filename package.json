@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@types/jquery": "^4.0.1",
-    "vite": "^8.0.0"
+    "vite": "^8.1.4"
   },
   "dependencies": {
     "bootstrap5-autocomplete": "^1.1.42",
