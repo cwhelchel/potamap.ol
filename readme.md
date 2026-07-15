@@ -48,6 +48,13 @@ mapshaper .\counties.geojson -filter-fields name -o counties.geojson
 &&
 mapshaper .\counties.geojson -each 'this.properties.type = \"county\"' -o counties.geojson   
 ```
+
+### Remove all properties from geojson but given ones
+
+```bash
+mapshaper -i .\input.geojson -filter-fields "owner,manager,unitname" -o .\output.geojson
+```
+
 ### convert kml to geojson
 
 The county files are all from the K1RA APRS QSO party tracker. They are in kml but we
