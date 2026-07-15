@@ -24,6 +24,7 @@ import { InfoControl } from './controls/InfoControl.js'
 import { TileLayerControl } from './controls/TileLayerControl.js';
 import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
 import { getPopupContent, updateFooterLinks } from './MapClickHandler.ts'
+import { getSummitLocation, isSummit } from './SotaApi.js';
 
 
 const selectStyle = new Style({
@@ -221,13 +222,21 @@ $(document).ready(function () {
 
 $('#parkBtn').click(function () {
     // this hidden input will be set by the new autocomplete plugin
-
     const input = $('#parkTxt').val();
-    let loc = getParkLocation(input);
-    loc.then(
-        function (value) { map.getView().animate({ zoom: 12, center: fromLonLat([value.lon, value.lat]) }); },
-        function (error) { /* code if some error */ }
-    );
+
+    if (isPark(input)) {
+        let loc = getParkLocation(input);
+        loc.then(
+            function (value) { map.getView().animate({ zoom: 12, center: fromLonLat([value.lon, value.lat]) }); },
+            function (error) { console.log('error getting park location. may be bad park reference id'); }
+        );
+    } else if (isSummit(input)) {
+        let loc = getSummitLocation(input);
+        loc.then(
+            function (value) { map.getView().animate({ zoom: 12, center: fromLonLat([value.lon, value.lat]) }); },
+            function (error) { console.log('error getting summit location. may be bad reference id'); }
+        );
+    }
 });
 
 
@@ -341,11 +350,15 @@ async function handleFileUpload(event) {
 document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
 
 Autocomplete.init("#autocompleteBottomInput", {
-    items: [{ title: "", id: "" }],
-    valueField: "id",
-    labelField: "title",
+    valueField: "v",
+    labelField: "l",
     highlightTyped: true,
+    fixed: true, // fixes dropdown pos on small screens
+    maximumItems: 10,
+    suggestionsThreshold: 4,
     onSelectItem: ({ label, value }) => {
+        //console.log('label', label);
+        //console.log('value', value);
         $('#parkTxt').val(value);
         $('#parkBtn').click();
     }

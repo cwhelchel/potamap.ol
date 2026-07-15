@@ -264,11 +264,13 @@
                         <li class="nav-item">
                             <div class="d-flex">
                                 <input type="text" name="remote" class="form-control autocomplete"
-                                    aria-label="search-for-parks" id="autocompleteBottomInput"
-                                    placeholder="Search parks..." data-full-width="1"
-                                    data-server="https://api.pota.app/lookup?search=&size=10"
-                                    data-server-data-key="items" data-hidden-input="true" data-label-field="display"
-                                    data-value-field="value" data-query-param="search" data-live-server="true" />
+                                    aria-label="search-for-parks"
+                                    id="autocompleteBottomInput"
+                                    placeholder="Search..." 
+                                    data-full-width="1"
+                                    data-server="/data/merged_search_data.json"
+                                    data-hidden-input="true" 
+                                    />
 
                                 <input id="parkTxt" style="display: none;" aria-hidden="true"
                                     aria-label="deprecated-search-button" />

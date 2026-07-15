@@ -356,6 +356,7 @@ export default class LocData {
             'US-NM': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateNM.geojson' },
+                { title: 'Marty', file: 'NMStateParks.geojson' },
                 { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
                 { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'ELCA_TA NHT', file: '..\/US-common\/tierra_adentro.geojson' },
