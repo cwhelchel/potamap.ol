@@ -34,10 +34,11 @@
                 <div class="modal-body">
                     <p>
                         👋 Thanks for using this site. I hope this is useful for your
-                        <a href="http://pota.app/" target="_blank">Parks-on-the-Air</a> activations. 
+                        <a href="http://pota.app/" target="_blank">Parks-on-the-Air</a> activations.
                     </p>
                     <p>
-                        💡 User guide is at <a href="https://github.com/cwhelchel/potamap.ol/wiki" target="_blank">the wiki</a>
+                        💡 User guide is at <a href="https://github.com/cwhelchel/potamap.ol/wiki" target="_blank">the
+                            wiki</a>
                     </p>
                     <p class="small">
                         This site uses the <a href="https://openlayers.org" target="_blank">Openlayers</a> library
@@ -104,25 +105,22 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Welcome to POTAMAP.US</h5>
                     <span>
-                        Update - April 2026 🌺
+                        Update - July 2026 🎇
                     </span>
                 </div>
                 <div class="modal-body">
                     <div class="release-notes">
                         <p>
-                            <strong>What's new</strong>: Added the "FFMA" layer to show all 488 Maidenhead 4 digit gridsquares of the CONUS. This
-                            is
-                            available for all states but is not selected by default.
-                            Useful for things like <a href="https://www.arrl.org/vucc/" target="_blank">VUCC</a> and
-                            <a href="https://www.arrl.org/ffma/" target="_blank">FFMA</a> or general gridsquare
-                            hunting. 
+                            <strong>What's new</strong>: The search bar has been greatly improved! It now searches
+                            summits and will look for text anywhere in the park/summit title or reference identifier.
                         </p>
                         <p>
-                            I've also tweaked the UI to be more user friendly and added a link to <a href="https://github.com/cwhelchel/potamap.ol/wiki" target="_blank">the wiki</a>
+                            "Community" maps have been added to some states: CA,IL,IN,MI,MN,NE,NM,NY. There may be existing
+                            overlap with the default PAD-US data but it does add some boundaries for parks that didn't have boundary data.
+                            A big thanks to Marty N9EAT for these! 🎉
                         </p>
                         <p>
-                            The park update tool has been ran to add any new POTA parks.
-                            73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                            A trail file has been added for US-3424 - Ice Age Floods National Geologic Trail. And the park update tool has been ran to update the POTA park list.
                         </p>
                     </div>
                     <button class="btn btn-link btn-sm" type="button" data-bs-toggle="collapse"
@@ -131,6 +129,28 @@
                     </button>
                     <div class="collapse" id="collapseChangelog"
                         style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
+                        <div class="old-release-notes">
+                            <p>
+                                Update - April 2026 🌺
+                            </p>
+                            <p>
+                                Added the "FFMA" layer to show all 488 Maidenhead 4 digit
+                                gridsquares of the CONUS. This
+                                is
+                                available for all states but is not selected by default.
+                                Useful for things like <a href="https://www.arrl.org/vucc/" target="_blank">VUCC</a> and
+                                <a href="https://www.arrl.org/ffma/" target="_blank">FFMA</a> or general gridsquare
+                                hunting.
+                            </p>
+                            <p>
+                                I've also tweaked the UI to be more user friendly and added a link to <a
+                                    href="https://github.com/cwhelchel/potamap.ol/wiki" target="_blank">the wiki</a>
+                            </p>
+                            <p>
+                                The park update tool has been ran to add any new POTA parks.
+                                73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
+                            </p>
+                        </div>
                         <div class="old-release-notes">
                             <p>
                                 Parks Update 2025-Dec
@@ -170,7 +190,8 @@
                     <p class="small text-secondary">
                         This site is freely usable by anyone and represents many hours of work to parse, filter, and
                         convert geospatial data. If you are so inclined you can click the button to show your support
-                        and feed my caffeine addiction. 👇
+                        and feed my caffeine addiction. 👇 
+                        73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
                     </p>
                     <div class="landing-bmc">
                         <a href="https://www.buymeacoffee.com/krinkle" target="_blank">
@@ -264,11 +285,9 @@
                         <li class="nav-item">
                             <div class="d-flex">
                                 <input type="text" name="remote" class="form-control autocomplete"
-                                    aria-label="search-for-parks" id="autocompleteBottomInput"
-                                    placeholder="Search parks..." data-full-width="1"
-                                    data-server="https://api.pota.app/lookup?search=&size=10"
-                                    data-server-data-key="items" data-hidden-input="true" data-label-field="display"
-                                    data-value-field="value" data-query-param="search" data-live-server="true" />
+                                    aria-label="search-for-parks" id="autocompleteBottomInput" placeholder="Search..."
+                                    data-full-width="1" data-server="/data/merged_search_data.json"
+                                    data-hidden-input="true" />
 
                                 <input id="parkTxt" style="display: none;" aria-hidden="true"
                                     aria-label="deprecated-search-button" />

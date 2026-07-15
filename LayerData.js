@@ -67,6 +67,7 @@ export default class LocData {
             'US-CA': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateCA.geojson' },
+                { title: 'Community', file: 'california_state_parks.geojson' },
                 { title: 'CALI NHT', file: '..\/US-common\/cali_nht.geojson' },
                 { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
                 { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
@@ -163,6 +164,7 @@ export default class LocData {
             'US-ID': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateID.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'Parks', file: 'parks-US-ID.geojson' },
                 { title: "Summits W7I/BC", file: "W7I--BC.geojson" },
                 { title: "Summits W7I/BL", file: "W7I--BL.geojson" },
@@ -180,6 +182,7 @@ export default class LocData {
             'US-IL': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateIL.geojson' },
+                { title: 'Community', file: 'illinois_state_parks.geojson' },
                 { title: 'TOT NHT', file: '..\/US-common\/tot.geojson' },
                 { title: 'MP NHT', file: '..\/US-common\/Mormon_Pioneer_NHT.geojson' },
                 { title: 'Parks', file: 'parks-US-IL.geojson' },
@@ -188,6 +191,7 @@ export default class LocData {
             'US-IN': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS4_0_StateIN.geojson' },
+                { title: 'Community', file: 'IN_DNR_Properties.geojson' },
                 { title: 'Parks', file: 'parks-US-IN.geojson' },
                 { title: "Summits W9/IN", file: "W9--IN.geojson" },
             ],
@@ -253,6 +257,7 @@ export default class LocData {
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateMI.geojson' },
+                { title: 'Community', file: 'MI_DNR_Parks_Unit_Boundary.geojson' },
                 { title: 'Parks', file: 'parks-US-MI.geojson' },
                 { title: "Summits W8M/LP", file: "W8M--LP.geojson" },
                 { title: "Summits W8M/UP", file: "W8M--UP.geojson" },
@@ -261,6 +266,7 @@ export default class LocData {
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
                 { title: 'PAS-US Fee', file: 'PADUS4_0_StateMN.geojson' },
+                { title: 'Community', file: 'minnesota_state_parks.geojson' },
                 { title: 'MNRRA', file: 'mnrra.geojson' },
                 { title: 'Parks', file: 'parks-US-MN.geojson' },
                 { title: "Summits W0M/ES", file: "W0M--ES.geojson" },
@@ -287,6 +293,7 @@ export default class LocData {
             'US-MT': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateMT.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'Parks', file: 'parks-US-MT.geojson' },
                 { title: "Summits W7M/BE ", file: "W7M--BE.geojson" },
                 { title: "Summits W7M/BR ", file: "W7M--BR.geojson" },
@@ -330,6 +337,7 @@ export default class LocData {
                 { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
                 { title: 'PE NHT', file: '..\/US-common\/Pony_Express_NHT.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateNE.geojson' },
+                { title: 'Community', file: 'nebraska_state_parks.geojson' },
                 { title: 'Parks', file: 'parks-US-NE.geojson' },
                 { title: "Summits W0N/PH ", file: "W0N--PH.geojson" },
                 { title: "Summits W0N/SH ", file: "W0N--SH.geojson" },
@@ -354,6 +362,7 @@ export default class LocData {
             'US-NM': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Combined_StateNM.geojson' },
+                { title: 'Community', file: 'NMStateParks.geojson' },
                 { title: 'OLSP NHT', file: '..\/US-common\/old_spanish_nht.geojson' },
                 { title: 'BFO NHT', file: '..\/US-common\/butterfield_ovrlnd_nht.geojson' },
                 { title: 'ELCA_TA NHT', file: '..\/US-common\/tierra_adentro.geojson' },
@@ -421,6 +430,7 @@ export default class LocData {
             'US-NY': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS3_0Fee_StateNY.geojson' },
+                { title: 'Community', file: 'new_york_state_parks.geojson' },
                 { title: 'EC', file: 'eriecanalway_sim.geojson' },
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'NCT NST', file: '..\/US-common\/nct_nst.geojson' },
@@ -463,6 +473,7 @@ export default class LocData {
                 { title: 'CALI NHT', file: '..\/US-common\/cali_nht.geojson' },
                 { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
                 { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'Parks', file: 'parks-US-OR.geojson' },
                 { title: "Summits W7O/CC ", file: "W7O--CC.geojson" },
                 { title: "Summits W7O/CE ", file: "W7O--CE.geojson" },
@@ -598,6 +609,7 @@ export default class LocData {
                 { title: 'AT', file: '..\/US-common\/at.geojson' },
                 { title: 'PAD-US Des', file: 'PADUS4_0_StateVA_Desig.geojson' },
                 { title: 'PAD-US Fee', file: 'PADUS4_0_StateVA.geojson' },
+                { title: 'Community', file: 'VA_SP_Boundaries.geojson' },
                 { title: 'Parks', file: 'parks-US-VA.geojson' },
                 { title: "Summits W4V/AB ", file: "W4V--AB.geojson" },
                 { title: "Summits W4V/BR ", file: "W4V--BR.geojson" },
@@ -626,6 +638,7 @@ export default class LocData {
             'US-WA': [
                 { title: 'Counties', file: 'counties.geojson' },
                 { title: 'PAD-US', file: 'PADUS4_0_State_WA.geojson' },
+                { title: 'ICE_AGE', file: '..\/US-common\/ice_age_trail2.geojson' },
                 { title: 'LC NHT', file: '..\/US-common\/lc_nht.geojson' },
                 { title: 'OR NHT', file: '..\/US-common\/or_nht.geojson' },
                 { title: 'Parks', file: 'parks-US-WA.geojson' },

@@ -3,7 +3,7 @@
 // Takes park id and returns the lat long for the parks marker
 // moderate checking on the park name
 export default async function getParkLocation(park) {
-    if (!isPark(park)) return;
+    if (!isPark(park)) throw new Error("not a park");
 
     let url = "https://api.pota.app/park/" + park;
 
