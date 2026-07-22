@@ -115,12 +115,15 @@
                             summits and will look for text anywhere in the park/summit title or reference identifier.
                         </p>
                         <p>
-                            "Community" maps have been added to some states: CA,IL,IN,MI,MN,NE,NM,NY. There may be existing
-                            overlap with the default PAD-US data but it does add some boundaries for parks that didn't have boundary data.
+                            "Community" maps have been added to some states: CA,IL,IN,MI,MN,NE,NM,NY. There may be
+                            existing
+                            overlap with the default PAD-US data but it does add some boundaries for parks that didn't
+                            have boundary data.
                             A big thanks to Marty N9EAT for these! 🎉
                         </p>
                         <p>
-                            A trail file has been added for US-3424 - Ice Age Floods National Geologic Trail. And the park update tool has been ran to update the POTA park list.
+                            A trail file has been added for US-3424 - Ice Age Floods National Geologic Trail. And the
+                            park update tool has been ran to update the POTA park list.
                         </p>
                     </div>
                     <button class="btn btn-link btn-sm" type="button" data-bs-toggle="collapse"
@@ -190,7 +193,7 @@
                     <p class="small text-secondary">
                         This site is freely usable by anyone and represents many hours of work to parse, filter, and
                         convert geospatial data. If you are so inclined you can click the button to show your support
-                        and feed my caffeine addiction. 👇 
+                        and feed my caffeine addiction. 👇
                         73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
                     </p>
                     <div class="landing-bmc">
@@ -310,6 +313,14 @@
                                 aria-hidden="true" aria-label="file-upload-input" />
                         </li>
                         <li class="nav-item">
+                            <button id="uploadKmlBtn" class="btn btn-primary text-nowrap mx-1"
+                                title="Upload KML and show it on map">
+                                Upload KML
+                            </button>
+                            <input type="file" id="kmlFileUpload" accept=".kml" style="display:none;"
+                                aria-hidden="true" aria-label="file-upload-input" />
+                        </li>
+                        <li class="nav-item">
                             <button title="Help / Info" class="btn btn-secondary btn-info-control"
                                 data-bs-toggle="modal" data-bs-target="#exampleModalCenter">❔</button>
                         </li>
@@ -354,6 +365,11 @@
             // Add event listeners for the menu options
             document.getElementById('uploadBtn').addEventListener('click', () => {
                 document.getElementById('fileUpload').click();
+            });
+
+            // Add event listeners for the menu options
+            document.getElementById('uploadKmlBtn').addEventListener('click', () => {
+                document.getElementById('kmlFileUpload').click();
             });
         </script>
 </body>

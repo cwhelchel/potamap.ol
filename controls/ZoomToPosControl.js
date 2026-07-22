@@ -2,14 +2,13 @@
 
 import { Control } from 'ol/control.js';
 import Geolocation from 'ol/Geolocation.js';
+import { currentPosition } from '../getGeolocationLayer.js';
 
 export class ZoomToPosControl extends Control {
     /**
      * @param {Object} [opt_options] Control options.
      */
     constructor(opt_options) {
-        const options = opt_options || {};
-
         const btn = document.createElement('button');
         btn.innerHTML = '🎯'
         btn.className = 'btn';
@@ -21,17 +20,21 @@ export class ZoomToPosControl extends Control {
 
         super({
             element: element,
-            target: options.target,
+            target: undefined
         });
 
-        this.callback = opt_options;
-
-        btn.addEventListener('click', this.handleButtonClick.bind(this), false);
+        //btn.addEventListener('click', this.handleButtonClick.bind(this), false);
+        btn.addEventListener('click', this.zoomToPosition.bind(this), false);
     }
 
-    handleButtonClick() {
+    zoomToPosition() {
+        const map = this.getMap();
 
-        if (this.callback)
-            this.callback();
+        const coordinates = currentPosition;
+        if (coordinates !== undefined && coordinates !== null) {
+            let zoom = 10;
+            let c = coordinates;
+            map.getView().animate({ zoom: zoom, center: c });
+        }
     }
 }

@@ -30,7 +30,7 @@ export default function getPopupContent(features: FeatureLike[]) {
         else
             content += html;
 
-        console.log(layerContent);
+        // console.log(layerContent);
     });
 
     if (layerContent !== "")
