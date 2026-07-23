@@ -313,12 +313,35 @@
                                 aria-hidden="true" aria-label="file-upload-input" />
                         </li>
                         <li class="nav-item">
-                            <button id="uploadKmlBtn" class="btn btn-primary text-nowrap mx-1"
-                                title="Upload KML and show it on map">
-                                Upload KML
-                            </button>
-                            <input type="file" id="kmlFileUpload" accept=".kml" style="display:none;"
-                                aria-hidden="true" aria-label="file-upload-input" />
+                            <div class="btn-group">
+                                <button id="uploadKmlBtn" class="btn btn-secondary"
+                                    title="Upload KML and show it on map">
+                                    Upload KML
+                                </button>
+                                <input type="file" id="kmlFileUpload" accept=".kml" style="display:none;"
+                                    aria-hidden="true" aria-label="file-upload-input" />
+                                <button type="button"
+                                    class="btn btn-secondary dropdown-toggle dropdown-toggle-split me-1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="link-delete-uploads" class="dropdown-item" href="#">Delete Uploads</a>
+                                    </li>
+                                    <li>
+                                        <a id="link-delete-waypoints" class="dropdown-item" href="#">Delete
+                                            Waypoints</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a id="link-download-waypoints" class="dropdown-item" href="#">Download
+                                            Waypoints</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <button title="Help / Info" class="btn btn-secondary btn-info-control"
@@ -330,9 +353,26 @@
         <div class="col">Test combobox</div>
         <div class="navbar-offset"></div>
         <div id="map" class="map">
-            <div id="popup" data-bs-html="true"></div>
+            <div id="popup" data-bs-html="true">
+            </div>
         </div>
         <div class="row main-row">
+        </div>
+
+        <div style="display: none;">
+            <!-- embedded in hidden div so it does not render on first load -->
+            <div id="waypoint-popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content">
+                    <h6>Enter Waypoint Name:</h6>
+                    <form class="d-flex gap-1">
+                        <input type="text" class="form-control" aria-label="waypoint-name-input" id="waypoint-input"
+                            placeholder="Waypoint Name" />
+                        <button type="submit" class="btn btn-primary" id="save-waypoint-btn">Save</button>
+                    </form>
+                    <input type="text" id="hidden-coordinates" style="display: none;" aria-hidden="true" />
+                </div>
+            </div>
         </div>
 
         <div class="footer container-fluid bg-light">
@@ -344,8 +384,9 @@
                         <a href="https://pota.miraheze.org/" target="_blank" id="wikiLink">Wiki</a>
                     </span>
                 </div>
-                <div class="col footer-text-m text-truncate">
+                <div id="footer-middle" class="col footer-text-m text-truncate">
                     <span class="hoverTitle" id="status"></span>
+                    <span class="" id="waypointStatus"></span>
                 </div>
                 <div class="col footer-text-r ">
                     <span id="actxData">

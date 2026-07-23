@@ -25,9 +25,12 @@ import { handleActxUpload } from './ActivationData.js';
 import { InfoControl } from './controls/InfoControl.js'
 import { TileLayerControl } from './controls/TileLayerControl.js';
 import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
+import { WaypointModeControl } from './controls/WaypointModeControl.js';
 import { getPopupContent, updateFooterLinks } from './MapClickHandler.ts'
 import { getSummitLocation, isSummit } from './SotaApi.js';
 import { KmlLayer } from './KmlLayer.js';
+import { WaypointLayer, waypoint_overlay } from './WaypointLayer.js';
+import { toLonLat } from 'ol/proj';
 
 
 const selectStyle = new Style({
@@ -68,6 +71,7 @@ let uploadGroup = new LayerGroup({
     fold: 'open'
 });
 
+
 // add our created groups into a single top level group
 for (let i = 0; i < groups.length; i++) {
     allGroup.getLayers().getArray().push(groups[i]);
@@ -90,11 +94,15 @@ const map = new Map({
     title: 'Map',
     type: 'base',
     view: view,
-    controls: defaultControls().extend([new TileLayerControl({ src: osmSrc }), new ZoomToPosControl()])
+    controls: defaultControls().extend([
+        new TileLayerControl({ src: osmSrc }),
+        new ZoomToPosControl(),
+        new WaypointModeControl()])
 });
 
 // add layer and source for GPS position
 const geolocLayer = getGeolocationLayer(view.getProjection());
+let waypointLayer = null;
 
 map.addLayer(geolocLayer);
 
@@ -119,6 +127,7 @@ const popup = new Overlay({
     stopEvent: false,
 });
 map.addOverlay(popup);
+map.addOverlay(waypoint_overlay);
 
 let popover;
 
@@ -129,8 +138,25 @@ function disposePopover() {
     }
 }
 
-// display popup on click
+/**
+ * Click handlers
+ */
+
+// Handle default map click
 map.on('click', function (evt) {
+    
+    // handle waypoint stuff b/c we'll stop the other popup
+    const controlsArray = map.getControls().getArray();
+    const wpModeCtrl = controlsArray.find(ctl => ctl instanceof WaypointModeControl);
+
+    if (wpModeCtrl && wpModeCtrl.waypointModeEnabled) {
+        const ll = toLonLat(evt.coordinate);
+        $("#hidden-coordinates").val(JSON.stringify(ll));
+        waypoint_overlay.setPosition(evt.coordinate);
+        $('#waypoint-input').trigger('focus');
+        return;
+    }
+
     let content = "";
     let layerContent = "";
 
@@ -154,6 +180,30 @@ map.on('click', function (evt) {
 
     popover.show();
 
+});
+
+// handle right click
+map.getViewport().addEventListener('contextmenu', function (event) {
+    // Prevent the default browser context menu from opening
+    event.preventDefault();
+
+    const controlsArray = map.getControls().getArray();
+    const wpModeCtrl = controlsArray.find(ctl => ctl instanceof WaypointModeControl);
+
+    // if were in waypoint edit mode...
+    if (wpModeCtrl && wpModeCtrl.waypointModeEnabled) {
+        const pixel = map.getEventPixel(event);
+        const coordinate = map.getCoordinateFromPixel(pixel);
+
+        const feature = map.forEachFeatureAtPixel(pixel, function (feature) {
+            return feature;
+        });
+
+        //console.log('Removing:', feature, feature.getProperties());
+        if (feature && feature.getProperties().type == "kml") {
+            waypointLayer.removeWaypoint(feature);
+        }
+    }
 });
 
 // Close the popup when the map is moved
@@ -197,6 +247,13 @@ $(document).ready(function () {
     }
 
     initKmlLayersFromStorage()
+
+    // add waypoint layer for user waypoints
+    const btn = document.getElementById('save-waypoint-btn');
+    const wl = new WaypointLayer({ title: 'Waypoints', saveBtn: btn, mapProjection: view.getProjection() });
+    uploadGroup.getLayers().push(wl.vectorLayer);
+
+    waypointLayer = wl;
 
     // roll/bump this number up to force a display of the landing modal info box
     const expectedLanding = 6;
@@ -366,6 +423,45 @@ function initKmlLayersFromStorage() {
 }
 
 document.getElementById('kmlFileUpload').addEventListener('change', handleKmlFileUpload);
+
+// Add event listeners for the menu options
+document.getElementById('link-delete-uploads').addEventListener('click', () => {
+    console.log('deleting all uploads');
+
+    const search = 'kml_';
+    const values = Object.keys(localStorage)
+        .filter((key) => key.startsWith(search))
+        .map((key) => key);
+
+    values.forEach((item) => { localStorage.removeItem(item) });
+
+    window.location.reload();
+});
+document.getElementById('link-delete-waypoints').addEventListener('click', () => {
+    console.log(waypointLayer);
+    waypointLayer.clear();
+});
+
+document.getElementById('link-download-waypoints').addEventListener('click', () => {
+    console.log('download waypoints');
+
+    const data = localStorage.getItem('user_waypoints');
+
+    // create blob and a temp link
+    const blob = new Blob([data], { type: "application/vnd.google-earth.kml+xml" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "user_waypoints.kml";
+
+    document.body.appendChild(link);
+    link.click();
+
+    // remove temp link
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+});
+
 
 Autocomplete.init("#autocompleteBottomInput", {
     valueField: "v",
