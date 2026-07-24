@@ -29,7 +29,7 @@ import { WaypointModeControl } from './controls/WaypointModeControl.js';
 import { getPopupContent, updateFooterLinks } from './MapClickHandler.ts'
 import { getSummitLocation, isSummit } from './SotaApi.js';
 import { KmlLayer } from './KmlLayer.js';
-import { WaypointLayer, waypoint_overlay } from './WaypointLayer.js';
+import { WaypointLayer } from './WaypointLayer.js';
 import { toLonLat } from 'ol/proj';
 
 
@@ -127,7 +127,7 @@ const popup = new Overlay({
     stopEvent: false,
 });
 map.addOverlay(popup);
-map.addOverlay(waypoint_overlay);
+
 
 let popover;
 
@@ -144,16 +144,32 @@ function disposePopover() {
 
 // Handle default map click
 map.on('click', function (evt) {
-    
+
     // handle waypoint stuff b/c we'll stop the other popup
     const controlsArray = map.getControls().getArray();
     const wpModeCtrl = controlsArray.find(ctl => ctl instanceof WaypointModeControl);
 
     if (wpModeCtrl && wpModeCtrl.waypointModeEnabled) {
-        const ll = toLonLat(evt.coordinate);
-        $("#hidden-coordinates").val(JSON.stringify(ll));
-        waypoint_overlay.setPosition(evt.coordinate);
-        $('#waypoint-input').trigger('focus');
+
+        let isEditing = false;
+
+        console.log('testing for wp edit...');
+
+        const clicked = map.getFeaturesAtPixel(evt.pixel);
+        for (const x of clicked) {
+            if (x.get("type") === "kml_wp") {
+                isEditing = true;
+                console.log("is wp, editing", x);
+                waypointLayer.editFeature(evt, x);
+                break;
+            }
+        }
+
+        if (!isEditing) {
+            const ll = toLonLat(evt.coordinate);
+            $("#hidden-coordinates").val(JSON.stringify(ll));
+            waypointLayer.showAddWaypoint(evt);
+        }
         return;
     }
 
@@ -200,7 +216,7 @@ map.getViewport().addEventListener('contextmenu', function (event) {
         });
 
         //console.log('Removing:', feature, feature.getProperties());
-        if (feature && feature.getProperties().type == "kml") {
+        if (feature && feature.getProperties().type == "kml_wp") {
             waypointLayer.removeWaypoint(feature);
         }
     }
@@ -249,9 +265,10 @@ $(document).ready(function () {
     initKmlLayersFromStorage()
 
     // add waypoint layer for user waypoints
-    const btn = document.getElementById('save-waypoint-btn');
-    const wl = new WaypointLayer({ title: 'Waypoints', saveBtn: btn, mapProjection: view.getProjection() });
+    const wl = new WaypointLayer({ title: 'Waypoints', mapProjection: view.getProjection() });
     uploadGroup.getLayers().push(wl.vectorLayer);
+    map.addOverlay(wl.editOverlay);
+    map.addOverlay(wl.addOverlay);
 
     waypointLayer = wl;
 
@@ -370,7 +387,7 @@ map.on('pointermove', function (e) {
 
             if (type === 'trail')
                 f.setStyle(trailSelectStyle);
-            if (type === 'kml')
+            else if (type && type.startsWith('kml'))
                 f.setStyle(oldStyle);
             else
                 f.setStyle(selectStyle);

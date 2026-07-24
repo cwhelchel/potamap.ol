@@ -373,7 +373,19 @@
                     <input type="text" id="hidden-coordinates" style="display: none;" aria-hidden="true" />
                 </div>
             </div>
+            <div id="edit-waypoint-popup" class="ol-popup">
+                <a href="#" id="edit-popup-closer" class="ol-popup-closer"></a>
+                <div id="edit-popup-content">
+                    <h6>Edit Name:</h6>
+                    <form class="d-flex gap-1">
+                        <input type="text" class="form-control" aria-label="waypoint-name-input"
+                            id="edit-waypoint-input" placeholder="Waypoint Name" />
+                        <button type="submit" class="btn btn-primary" id="edit-waypoint-btn">Save</button>
+                    </form>
+                </div>
+            </div>
         </div>
+
 
         <div class="footer container-fluid bg-light">
             <div class="row">
@@ -386,7 +398,7 @@
                 </div>
                 <div id="footer-middle" class="col footer-text-m text-truncate">
                     <span class="hoverTitle" id="status"></span>
-                    <span class="" id="waypointStatus"></span>
+                    <span id="waypointStatus"></span>
                 </div>
                 <div class="col footer-text-r ">
                     <span id="actxData">

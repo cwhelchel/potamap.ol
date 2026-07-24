@@ -41,29 +41,6 @@ const dynamicStyleFunction = function (feature) {
     })
 }
 
-/*
- * hook up the HTML elements needed for the waypoint layer.
- */
-
-// get popup dom stuff
-const container = document.getElementById('waypoint-popup');
-const content = document.getElementById('popup-content');
-const closer = document.getElementById('popup-closer');
-const waypointInput = document.getElementById('waypoint-input');
-
-// create the Overlay. This is exported below
-const waypoint_overlay = new Overlay({
-    element: container,
-    autoPan: true,
-    autoPanAnimation: { duration: 250 }
-});
-
-// hookup close popup button
-closer.onclick = function () {
-    waypoint_overlay.setPosition(undefined);
-    closer.blur();
-    return false;
-};
 
 /**
  * Waypoint Layer class. Handles loading, showing, adding, removing user defined
@@ -74,24 +51,54 @@ export class WaypointLayer {
     #vectorLayer;
     #vectorSource;
     #projection;
+    #editMode;
+    #featureToEdit;
+
+    /*
+    * hook up the HTML elements needed for the waypoint layer.
+    */
+    #addContainer = document.getElementById('waypoint-popup');
+    #addCloser = document.getElementById('popup-closer');
+    #addWaypointInput = document.getElementById('waypoint-input');
+    #addSaveBtn = document.getElementById('save-waypoint-btn');
+    #addOverlay = new Overlay({
+        element: this.#addContainer,
+        autoPan: true,
+        autoPanAnimation: { duration: 250 }
+    });
+    #editSaveBtn = document.getElementById('edit-waypoint-btn');
+    #editCloser = document.getElementById('edit-popup-closer');
+    #editContainer = document.getElementById('edit-waypoint-popup');
+    #editWaypointInput = document.getElementById('edit-waypoint-input');
+    #editOverlay = new Overlay({
+        element: this.#editContainer,
+        autoPan: true,
+        autoPanAnimation: { duration: 250 }
+    });
 
     /**
      * 
      * @param {*} title: str - title used for layer. 
      */
-    constructor({ title, saveBtn, mapProjection }) {
+    constructor({ title, mapProjection }) {
+        this.#editMode = false;
+        this.#projection = mapProjection;
+
         this.#vectorSource = new VectorSource();
         this.#vectorLayer = new VectorLayer({
             title: title,
             source: this.#vectorSource,
             style: dynamicStyleFunction
         });
-        this.#projection = mapProjection;
-
-        console.log(saveBtn);
-        saveBtn.addEventListener('click', this.saveBtnClick.bind(this), false);
 
         this.#initFromStorage();
+
+        // hook events for add/edit popups
+        this.#addCloser.addEventListener('click', this.#closePopup.bind(this), false);
+        this.#editCloser.addEventListener('click', this.#closeEditPopup.bind(this), false);
+
+        this.#addSaveBtn.addEventListener('click', this.#saveBtnClick.bind(this), false);
+        this.#editSaveBtn.addEventListener('click', this.#editSaveBtnClick.bind(this), false);
     }
 
     get vectorSource() {
@@ -106,6 +113,21 @@ export class WaypointLayer {
     }
     set vectorLayer(val) {
         return this.#vectorLayer = val;
+    }
+
+    get isEditMode() {
+        return this.#editMode;
+    }
+    set isEditMode(val) {
+        return this.#editMode = val;
+    }
+
+    get editOverlay() {
+        return this.#editOverlay;
+    }
+
+    get addOverlay() {
+        return this.#addOverlay;
     }
 
     /**
@@ -128,23 +150,34 @@ export class WaypointLayer {
         }
     }
 
+    showAddWaypoint(event) {
+        //waypoint_overlay.setPosition(evt.coordinate);
+        this.#addOverlay.setPosition(event.coordinate);
+        this.#addWaypointInput.focus();
+    }
+
     /**
      * Button click handler tied to the Save button on waypoint popup. Parses
      * coords of click and places waypoint marker.
      * 
      * @param {Event} event 
      */
-    saveBtnClick(event) {
+    #saveBtnClick(event) {
         event.preventDefault();
+
+        if (this.isEditMode) {
+            const textValue = this.#addWaypointInput.value;
+        }
 
         const text = $("#hidden-coordinates").val();
         const ll = text;
+        console.log(ll);
         const llArray = JSON.parse(ll);
         const clickedCoordinate = fromLonLat(llArray);
 
-        const textValue = waypointInput.value;
+        const textValue = this.#addWaypointInput.value;
 
-        // console.log('saveBtnClick', clickedCoordinate, textValue, text);
+        console.log('saveBtnClick', clickedCoordinate, textValue, text);
 
         if (textValue && clickedCoordinate) {
             // Create the waypoint feature
@@ -152,18 +185,54 @@ export class WaypointLayer {
                 geometry: new Point(clickedCoordinate),
                 name: textValue,
                 title: textValue,
-                type: "kml"
+                type: "kml_wp"
             });
 
             this.#vectorSource.addFeature(waypointFeature);
 
             // Hide popup after saving
-            waypoint_overlay.setPosition(undefined);
+           this.#addOverlay.setPosition(undefined);
 
             this.#saveLayerToLocalStorage();
 
-            waypointInput.value = "";
+            this.#addWaypointInput.value = "";
             $("#hidden-coordinates").val("");
+        }
+    }
+
+    #closePopup(event) {
+        this.#addOverlay.setPosition(undefined);
+        this.#addCloser.blur();
+        return false;
+    };
+
+    #closeEditPopup(event) {
+        this.#editOverlay.setPosition(undefined);
+        this.#editCloser.blur();
+        return false;
+    };
+
+    editFeature(evt, feature) {
+        console.log("in editFeature", evt.coordinate, feature, this.#editOverlay);
+        this.#editWaypointInput.value = feature.get('title');
+        this.#editOverlay.setPosition(evt.coordinate);
+        this.#editWaypointInput.focus();
+        this.#editWaypointInput.select();
+        this.#featureToEdit = feature;
+    }
+
+    #editSaveBtnClick(event) {
+        event.preventDefault();
+
+        console.log('edit save', event, this.#featureToEdit);
+        if (this.#featureToEdit) {
+            const newName = this.#editWaypointInput.value;
+            this.#featureToEdit.setProperties({ "name": newName, "title": newName });
+            this.#saveLayerToLocalStorage();
+
+            // Hide popup and clear inputs after saving
+            this.#editWaypointInput.value = "";
+            this.#editOverlay.setPosition(undefined);
         }
     }
 
@@ -192,7 +261,7 @@ export class WaypointLayer {
 
             if (features.length > 0) {
                 features.forEach((feat) => {
-                    feat.set('type', 'kml');
+                    feat.set('type', 'kml_wp');
                 });
 
                 // Add the new parsed features to the map source
@@ -223,5 +292,3 @@ export class WaypointLayer {
         localStorage.setItem('user_waypoints', kmlText);
     }
 }
-
-export { waypoint_overlay };
