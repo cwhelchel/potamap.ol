@@ -26,11 +26,12 @@ import { InfoControl } from './controls/InfoControl.js'
 import { TileLayerControl } from './controls/TileLayerControl.js';
 import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
 import { WaypointModeControl } from './controls/WaypointModeControl.js';
-import { getPopupContent, updateFooterLinks } from './MapClickHandler.ts'
+import { updateFooterLinks } from './MapClickHandler.ts'
 import { getSummitLocation, isSummit } from './SotaApi.js';
 import { KmlLayer } from './KmlLayer.js';
 import { WaypointLayer } from './WaypointLayer.js';
 import { toLonLat } from 'ol/proj';
+import PotamapPopup from './PotamapPopup.ts';
 
 
 const selectStyle = new Style({
@@ -126,17 +127,11 @@ const popup = new Overlay({
     positioning: 'bottom-center',
     stopEvent: false,
 });
-map.addOverlay(popup);
 
+const pmPopup = new PotamapPopup();
 
-let popover;
+map.addOverlay(pmPopup.getPopupOverlay());
 
-function disposePopover() {
-    if (popover) {
-        popover.dispose();
-        popover = undefined;
-    }
-}
 
 /**
  * Click handlers
@@ -144,6 +139,8 @@ function disposePopover() {
 
 // Handle default map click
 map.on('click', function (evt) {
+
+    const clicked = map.getFeaturesAtPixel(evt.pixel);
 
     // handle waypoint stuff b/c we'll stop the other popup
     const controlsArray = map.getControls().getArray();
@@ -155,7 +152,6 @@ map.on('click', function (evt) {
 
         console.log('testing for wp edit...');
 
-        const clicked = map.getFeaturesAtPixel(evt.pixel);
         for (const x of clicked) {
             if (x.get("type") === "kml_wp") {
                 isEditing = true;
@@ -173,29 +169,13 @@ map.on('click', function (evt) {
         return;
     }
 
-    let content = "";
-    let layerContent = "";
-
-    let clickedLayers = [];
-
+    // update the footer stuff
     map.forEachFeatureAtPixel(evt.pixel, function (x) {
-        clickedLayers.push(x);
-        updateFooterLinks(x);
+        updateFooterLinks(x); // REHOST
     });
 
-    content = getPopupContent(clickedLayers);
-
-    disposePopover();
-
-    popup.setPosition(evt.coordinate);
-    popover = new bootstrap.Popover(element, {
-        placement: 'top',
-        html: true,
-        content: content + layerContent,
-    });
-
-    popover.show();
-
+    // show main popup
+    pmPopup.showPopup(evt, clicked);
 });
 
 // handle right click
@@ -223,7 +203,9 @@ map.getViewport().addEventListener('contextmenu', function (event) {
 });
 
 // Close the popup when the map is moved
-map.on('movestart', disposePopover);
+map.on('movestart', function (event) {
+    pmPopup.hidePopup();
+});
 
 function clearLocLayerGroups() {
     for (let i = 0; i < groups.length; i++) {
