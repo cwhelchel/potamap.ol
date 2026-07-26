@@ -43,41 +43,52 @@
 }
 
 /* 
-    feature/shape onClick popover
+    feature/shape/layer onClick popup. see PotaMapPopup.ts
 */
 
-.popover-body {
-    --bs-popover-body-padding-x: 0.75rem;
-    --bs-popover-body-padding-y: 0.50rem;
+#pm-pota-title {
+    font-size: 0.79em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
-.shape-popover {
+.layers {
+    overflow-y: auto;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.layers-title {
+    text-align: center;
+    font-size: 0.75em;
+    margin-bottom: 1px;
+    text-decoration: underline;
+}
+
+.pm-shape-layer {
     font-size: 0.75em;
     background-color: lightgrey;
     width: 100%;
     border-radius: 5px;
 }
 
-.popover-body .popover-title {
-    font-size: 0.9em;
-    font-weight: 600;
+.pm-shape-layer .pm-shape-name {
     text-align: center;
-    margin-bottom: 5px;
-}
-
-.shape-popover .shape-name {
-    text-align: center;
-    font-size: 1.09em;
+    font-size: 0.95em;
     margin-bottom: 3px;
 }
 
-.shape-popover .shape-props {
+.pm-shape-layer .pm-shape-props {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-size: 0.875em;
 }
 
-.shape-popover .shape-prop {
+.pm-shape-layer .pm-shape-prop {
     margin: 0px 5px;
     padding: 0px 5px;
     border: 1px;
@@ -86,30 +97,6 @@
     color: rgba(var(--bs-secondary-rgb), 0.75);
 }
 
-.shape-popover .layer-badge {
-    background-color: rgba(var(--bs-success-rgb), 0.5);
-}
-
-.popover-body .layers {
-    overflow-y: auto;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.popover-body .layers-title {
-    text-align: center;
-    font-size: 0.75em;
-    margin-bottom: 1px;
-    text-decoration: underline;
-}
-
-
-.hoverTitle {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 
 /* 
     Main page footer 
@@ -138,6 +125,65 @@
     white-space: nowrap;
 }
 
+/* 
+* waypoint popup stuff 
+*/
+
+.ol-popup {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    min-width: 280px;
+}
+
+.ol-popup-compact {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.50rem;
+    padding-bottom: 0.50rem;
+}
+
+.ol-popup:after,
+.ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.ol-popup:after {
+    border-top-color: white;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+}
+
+.ol-popup:before {
+    border-top-color: #cccccc;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+}
+
+.ol-popup-closer {
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.ol-popup-closer:after {
+    content: "✖";
+}
+
 @media only screen and (max-width: 600px) {
     .footer {
         font-size: small;
@@ -160,7 +206,7 @@
     }
 }
 
-.layer-switcher > button {
+.layer-switcher>button {
     width: 38px !important;
     height: 38px !important;
 }
@@ -191,16 +237,22 @@
 
 .toggle-layer-control {
     left: .5em;
-    font-size: 1.0em;
+    font-size: 1.2em;
     min-width: 24px;
     background-color: var(--ol-background-color);
 }
 
 .zoom-pos-control {
     left: .5em;
-    font-size: 1.0em;
+    font-size: 1.2em;
     min-width: 24px;
     background-color: var(--ol-background-color);
+}
+
+.wp-mode-control {
+    left: .5em;
+    font-size: 1.2em;
+    min-width: 24px;
 }
 
 
@@ -229,7 +281,11 @@
     }
 
     .zoom-pos-control {
-        top: 145px;
+        top: 150px;
+    }
+
+    .wp-mode-control {
+        top: 200px;
     }
 
     .footer span {
@@ -242,10 +298,6 @@
 
     #autocompleteBottomInput {
         width: 300px;
-    }
-
-    .hoverTitle {
-        display: none;
     }
 }
 
@@ -274,7 +326,10 @@
         top: 110px;
     }
 
-    
+    .wp-mode-control {
+        top: 145px;
+    }
+
     #autocompleteBottomInput {
         width: 400px;
     }
@@ -303,6 +358,11 @@
     .zoom-pos-control {
         top: 110px;
     }
+
+    .wp-mode-control {
+        top: 145px;
+    }
+
 
     #autocompleteBottomInput {
         width: 500px;

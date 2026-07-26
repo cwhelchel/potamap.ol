@@ -1,16 +1,25 @@
 "use strict";
 
 import { Control } from 'ol/control.js';
+import XYZ from 'ol/source/XYZ.js';
+import TileLayer from 'ol/layer/Tile';
+
+const xyzSrc = new XYZ({
+    attributions: ['Powered by Esri',
+        'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
+    attributionsCollapsible: false,
+    url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    maxZoom: 23
+});
 
 export class TileLayerControl extends Control {
-    fn = null;
+    src_ = null;
 
     /**
-     * @param {Object} [opt_options] Control options.
+     * 
+     * @param {any} src: the initial OSM() tile source used when map created
      */
-    constructor(opt_options) {
-        const options = opt_options || {};
-
+    constructor({ src }) {
         const button = document.createElement('button');
         button.innerHTML = '🗺';
         button.title = 'Toggle Map Display';
@@ -24,16 +33,24 @@ export class TileLayerControl extends Control {
 
         super({
             element: element,
-            target: options.target,
+            target: undefined
         });
 
-        this.fn = opt_options;
+        this.src_ = src;
 
-        button.addEventListener('click', this.handleLayerSwitch.bind(this), false);
+        button.addEventListener('click', this.handleLayerSwitch2.bind(this), false);
     }
 
-    handleLayerSwitch() {
-        if (this.fn)
-            this.fn()
+    handleLayerSwitch2() {
+        const map = this.getMap();
+
+        const layer = map.getLayers().getArray().filter(function (l) {
+            return l instanceof TileLayer;
+        });
+
+        if (layer[0].getSource() == xyzSrc)
+            layer[0].setSource(this.src_);
+        else
+            layer[0].setSource(xyzSrc);
     }
 }

@@ -105,22 +105,19 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Welcome to POTAMAP.US</h5>
                     <span>
-                        Update - July 2026 🎇
+                        Update #2 - July 2026 🎇
                     </span>
                 </div>
                 <div class="modal-body">
                     <div class="release-notes">
                         <p>
-                            <strong>What's new</strong>: The search bar has been greatly improved! It now searches
-                            summits and will look for text anywhere in the park/summit title or reference identifier.
+                            <strong>What's new</strong>: Added KML route feature. Upload your kml
+                            road trip and see it alongside all the POTA map boundaries. Here's a 
+                            written guide: <a href="https://github.com/cwhelchel/potamap.ol/wiki/KML-Uploads-and-Waypoint-Mode" target="_blank">wiki</a>
+                            And below is a brief video guide.
                         </p>
                         <p>
-                            "Community" maps have been added to some states: CA,IL,IN,MI,MN,NE,NM,NY. There may be existing
-                            overlap with the default PAD-US data but it does add some boundaries for parks that didn't have boundary data.
-                            A big thanks to Marty N9EAT for these! 🎉
-                        </p>
-                        <p>
-                            A trail file has been added for US-3424 - Ice Age Floods National Geologic Trail. And the park update tool has been ran to update the POTA park list.
+                           <iframe style="width: 100%;" height="315" src="https://www.youtube.com/embed/GHq58msyoF0?si=Ai85WBKobocQuWK3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </p>
                     </div>
                     <button class="btn btn-link btn-sm" type="button" data-bs-toggle="collapse"
@@ -129,6 +126,26 @@
                     </button>
                     <div class="collapse" id="collapseChangelog"
                         style="overflow-y: scroll;max-height: 200px;font-size: smaller;">
+                        <div class="old-release-notes">
+                            <p>
+                                <strong>What's new</strong>: The search bar has been greatly improved! It now searches
+                                summits and will look for text anywhere in the park/summit title or reference
+                                identifier.
+                            </p>
+                            <p>
+                                "Community" maps have been added to some states: CA,IL,IN,MI,MN,NE,NM,NY. There may be
+                                existing
+                                overlap with the default PAD-US data but it does add some boundaries for parks that
+                                didn't
+                                have boundary data.
+                                A big thanks to Marty N9EAT for these! 🎉
+                            </p>
+                            <p>
+                                A trail file has been added for US-3424 - Ice Age Floods National Geologic Trail. And
+                                the
+                                park update tool has been ran to update the POTA park list.
+                            </p>
+                        </div>
                         <div class="old-release-notes">
                             <p>
                                 Update - April 2026 🌺
@@ -190,7 +207,7 @@
                     <p class="small text-secondary">
                         This site is freely usable by anyone and represents many hours of work to parse, filter, and
                         convert geospatial data. If you are so inclined you can click the button to show your support
-                        and feed my caffeine addiction. 👇 
+                        and feed my caffeine addiction. 👇
                         73 de <a href="https://www.qrz.com/db/N9FZ" target="_blank">N9FZ</a>
                     </p>
                     <div class="landing-bmc">
@@ -310,6 +327,37 @@
                                 aria-hidden="true" aria-label="file-upload-input" />
                         </li>
                         <li class="nav-item">
+                            <div class="btn-group">
+                                <button id="uploadKmlBtn" class="btn btn-secondary"
+                                    title="Upload KML and show it on map">
+                                    Upload KML
+                                </button>
+                                <input type="file" id="kmlFileUpload" accept=".kml" style="display:none;"
+                                    aria-hidden="true" aria-label="file-upload-input" />
+                                <button type="button"
+                                    class="btn btn-secondary dropdown-toggle dropdown-toggle-split me-1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a id="link-delete-uploads" class="dropdown-item" href="#">Delete Uploads</a>
+                                    </li>
+                                    <li>
+                                        <a id="link-delete-waypoints" class="dropdown-item" href="#">Delete
+                                            Waypoints</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a id="link-download-waypoints" class="dropdown-item" href="#">Download
+                                            Waypoints</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
                             <button title="Help / Info" class="btn btn-secondary btn-info-control"
                                 data-bs-toggle="modal" data-bs-target="#exampleModalCenter">❔</button>
                         </li>
@@ -319,43 +367,96 @@
         <div class="col">Test combobox</div>
         <div class="navbar-offset"></div>
         <div id="map" class="map">
-            <div id="popup" data-bs-html="true"></div>
+
         </div>
         <div class="row main-row">
         </div>
 
-        <div class="footer container-fluid bg-light">
-            <div class="row">
-                <div class="col footer-text-l  ">
-                    <span>
-                        <a href="https://pota.app" target="_blank" id="potaLink">POTA info</a>
-                        <span>/</span>
-                        <a href="https://pota.miraheze.org/" target="_blank" id="wikiLink">Wiki</a>
-                    </span>
+        <div style="display: none;">
+            <!-- embedded in hidden div so it does not render on first load -->
+            <div id="pm-popup" class="ol-popup ol-popup-compact">
+                <div id="pm-pota-title"></div>
+                <div>
+                    <span id="pm-other-layers-title" class="layers-title">other layers:</span>
+                    <div id="pm-other-layers" class="layers">
+                        <!--     These will be added by code
+                        <div class="pm-shape-layer">
+                            <div class="pm-shape-name"></div>
+                            <div class="pm-shape-props">
+                                <div class="pm-shape-prop"></div>
+                                ... <SNIP> ...
+                                <div class="pm-shape-prop"></div>
+                            </div> 
+                        </div>
+                        -->
+                    </div>
                 </div>
-                <div class="col footer-text-m text-truncate">
-                    <span class="hoverTitle" id="status"></span>
+            </div>
+            <div id="waypoint-popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content">
+                    <h6>Enter Waypoint Name:</h6>
+                    <form class="d-flex gap-1">
+                        <input type="text" class="form-control" aria-label="waypoint-name-input" id="waypoint-input"
+                            placeholder="Waypoint Name" />
+                        <button type="submit" class="btn btn-primary" id="save-waypoint-btn">Save</button>
+                    </form>
+                    <input type="text" id="hidden-coordinates" style="display: none;" aria-hidden="true" />
                 </div>
-                <div class="col footer-text-r ">
-                    <span id="actxData">
-                        Activation Data
-                    </span>
+            </div>
+            <div id="edit-waypoint-popup" class="ol-popup">
+                <a href="#" id="edit-popup-closer" class="ol-popup-closer"></a>
+                <div id="edit-popup-content">
+                    <h6>Edit Name:</h6>
+                    <form class="d-flex gap-1">
+                        <input type="text" class="form-control" aria-label="waypoint-name-input"
+                            id="edit-waypoint-input" placeholder="Waypoint Name" />
+                        <button type="submit" class="btn btn-primary" id="edit-waypoint-btn">Save</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="https://unpkg.com/ol-layerswitcher@4.1.1"></script>
-        <script type="module" src="./main.js"></script>
-        <script data-goatcounter="https://krinkle.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-        <script>
-            // Add event listeners for the menu options
-            document.getElementById('uploadBtn').addEventListener('click', () => {
-                document.getElementById('fileUpload').click();
-            });
-        </script>
+    <div class="footer container-fluid bg-light">
+        <div class="row">
+            <div class="col footer-text-l  ">
+                <span>
+                    <a href="https://pota.app" target="_blank" id="potaLink">POTA info</a>
+                    <span>/</span>
+                    <a href="https://pota.miraheze.org/" target="_blank" id="wikiLink">Wiki</a>
+                </span>
+            </div>
+            <div id="footer-middle" class="col footer-text-m text-truncate">
+                <span class="hoverTitle" id="status"></span>
+                <span id="waypointStatus"></span>
+            </div>
+            <div class="col footer-text-r ">
+                <span id="actxData">
+                    Activation Data
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://unpkg.com/ol-layerswitcher@4.1.1"></script>
+    <script type="module" src="./main.js"></script>
+    <script data-goatcounter="https://krinkle.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <script>
+        // Add event listeners for the menu options
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            document.getElementById('fileUpload').click();
+        });
+
+        // Add event listeners for the menu options
+        document.getElementById('uploadKmlBtn').addEventListener('click', () => {
+            document.getElementById('kmlFileUpload').click();
+        });
+    </script>
 </body>
 
 </html>

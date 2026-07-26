@@ -3,12 +3,15 @@
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
-import XYZ from 'ol/source/XYZ.js';
 import LayerGroup from 'ol/layer/Group'
 import Overlay from 'ol/Overlay.js';
 import { fromLonLat } from 'ol/proj.js';
-import { Style, Stroke, Fill } from 'ol/style.js';
+import { Style, Stroke, Fill, Icon } from 'ol/style.js';
 import { defaults as defaultControls } from 'ol/control.js';
+
+import KML from 'ol/format/KML.js'
+import VectorLayer from 'ol/layer/Vector.js';
+import VectorSource from 'ol/source/Vector.js';
 
 import LayerSwitcher from 'ol-layerswitcher';
 import Autocomplete from 'bootstrap5-autocomplete'
@@ -20,11 +23,15 @@ import { currentPosition, getGeolocationLayer } from './getGeolocationLayer.js';
 import { handleActxUpload } from './ActivationData.js';
 
 import { InfoControl } from './controls/InfoControl.js'
-//import { BugReportControl } from './controls/BugReportControl.js';
 import { TileLayerControl } from './controls/TileLayerControl.js';
 import { ZoomToPosControl } from './controls/ZoomToPosControl.js';
-import { getPopupContent, updateFooterLinks } from './MapClickHandler.ts'
+import { WaypointModeControl } from './controls/WaypointModeControl.js';
+import { updateFooterLinks } from './MapClickHandler.ts'
 import { getSummitLocation, isSummit } from './SotaApi.js';
+import { KmlLayer } from './KmlLayer.js';
+import { WaypointLayer } from './WaypointLayer.js';
+import { toLonLat } from 'ol/proj';
+import PotamapPopup from './PotamapPopup.ts';
 
 
 const selectStyle = new Style({
@@ -54,8 +61,17 @@ let groups = initLayers();
 
 let allGroup = new LayerGroup({
     layers: [],
-    title: 'All'
+    title: 'All',
+    fold: 'open',
 });
+
+// this group is for showing uploaded KML and also for any user added waypoints
+let uploadGroup = new LayerGroup({
+    layers: [],
+    title: 'Uploads',
+    fold: 'open'
+});
+
 
 // add our created groups into a single top level group
 for (let i = 0; i < groups.length; i++) {
@@ -67,14 +83,6 @@ const view = new View({
     zoom: 2
 })
 
-const xyzSrc = new XYZ({
-    attributions: ['Powered by Esri',
-        'Source: Esri, DigitalGlobe, GeoEye, Earthstar Geographics, CNES/Airbus DS, USDA, USGS, AeroGRID, IGN, and the GIS User Community'],
-    attributionsCollapsible: false,
-    url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    maxZoom: 23
-});
-
 const osmSrc = new OSM();
 
 const tileLayer = new TileLayer({
@@ -83,15 +91,19 @@ const tileLayer = new TileLayer({
 
 const map = new Map({
     target: document.getElementById('map'),
-    layers: [tileLayer, allGroup],
+    layers: [tileLayer, allGroup, uploadGroup],
     title: 'Map',
     type: 'base',
     view: view,
-    controls: defaultControls().extend([new TileLayerControl(handleLayerSwitchCallback), new ZoomToPosControl(zoomToPosition)])
+    controls: defaultControls().extend([
+        new TileLayerControl({ src: osmSrc }),
+        new ZoomToPosControl(),
+        new WaypointModeControl()])
 });
 
 // add layer and source for GPS position
 const geolocLayer = getGeolocationLayer(view.getProjection());
+let waypointLayer = null;
 
 map.addLayer(geolocLayer);
 
@@ -115,53 +127,85 @@ const popup = new Overlay({
     positioning: 'bottom-center',
     stopEvent: false,
 });
-map.addOverlay(popup);
 
-let popover;
+const pmPopup = new PotamapPopup();
 
-function disposePopover() {
-    if (popover) {
-        popover.dispose();
-        popover = undefined;
-    }
-}
+map.addOverlay(pmPopup.getPopupOverlay());
 
-function handleLayerSwitchCallback() {
-    if (tileLayer.getSource() == xyzSrc)
-        tileLayer.setSource(osmSrc);
-    else
-        tileLayer.setSource(xyzSrc);
-}
 
-// display popup on click
+/**
+ * Click handlers
+ */
+
+// Handle default map click
 map.on('click', function (evt) {
-    let content = "";
-    let layerContent = "";
 
-    let clickedLayers = [];
+    const clicked = map.getFeaturesAtPixel(evt.pixel);
 
+    // handle waypoint stuff b/c we'll stop the other popup
+    const controlsArray = map.getControls().getArray();
+    const wpModeCtrl = controlsArray.find(ctl => ctl instanceof WaypointModeControl);
+
+    if (wpModeCtrl && wpModeCtrl.waypointModeEnabled) {
+
+        let isEditing = false;
+
+        console.log('testing for wp edit...');
+
+        for (const x of clicked) {
+            if (x.get("type") === "kml_wp") {
+                isEditing = true;
+                console.log("is wp, editing", x);
+                waypointLayer.editFeature(evt, x);
+                break;
+            }
+        }
+
+        if (!isEditing) {
+            const ll = toLonLat(evt.coordinate);
+            $("#hidden-coordinates").val(JSON.stringify(ll));
+            waypointLayer.showAddWaypoint(evt);
+        }
+        return;
+    }
+
+    // update the footer stuff
     map.forEachFeatureAtPixel(evt.pixel, function (x) {
-        clickedLayers.push(x);
-        updateFooterLinks(x);
+        updateFooterLinks(x); // REHOST
     });
 
-    content = getPopupContent(clickedLayers);
+    // show main popup
+    pmPopup.showPopup(evt, clicked);
+});
 
-    disposePopover();
+// handle right click
+map.getViewport().addEventListener('contextmenu', function (event) {
+    // Prevent the default browser context menu from opening
+    event.preventDefault();
 
-    popup.setPosition(evt.coordinate);
-    popover = new bootstrap.Popover(element, {
-        placement: 'top',
-        html: true,
-        content: content + layerContent,
-    });
+    const controlsArray = map.getControls().getArray();
+    const wpModeCtrl = controlsArray.find(ctl => ctl instanceof WaypointModeControl);
 
-    popover.show();
+    // if were in waypoint edit mode...
+    if (wpModeCtrl && wpModeCtrl.waypointModeEnabled) {
+        const pixel = map.getEventPixel(event);
+        const coordinate = map.getCoordinateFromPixel(pixel);
 
+        const feature = map.forEachFeatureAtPixel(pixel, function (feature) {
+            return feature;
+        });
+
+        //console.log('Removing:', feature, feature.getProperties());
+        if (feature && feature.getProperties().type == "kml_wp") {
+            waypointLayer.removeWaypoint(feature);
+        }
+    }
 });
 
 // Close the popup when the map is moved
-map.on('movestart', disposePopover);
+map.on('movestart', function (event) {
+    pmPopup.hidePopup();
+});
 
 function clearLocLayerGroups() {
     for (let i = 0; i < groups.length; i++) {
@@ -200,8 +244,18 @@ $(document).ready(function () {
         showLocLayerGroup(x);
     }
 
+    initKmlLayersFromStorage()
+
+    // add waypoint layer for user waypoints
+    const wl = new WaypointLayer({ title: 'Waypoints', mapProjection: view.getProjection() });
+    uploadGroup.getLayers().push(wl.vectorLayer);
+    map.addOverlay(wl.editOverlay);
+    map.addOverlay(wl.addOverlay);
+
+    waypointLayer = wl;
+
     // roll/bump this number up to force a display of the landing modal info box
-    const expectedLanding = 6;
+    const expectedLanding = 7;
 
     if (localStorage.getItem('showLanding') === null) {
         showLandingModal();
@@ -252,15 +306,6 @@ function zoomToLocation(locId) {
     let lon = StaticData.data[locId].lon;
     let zoom = StaticData.data[locId].zoom;
     map.getView().animate({ zoom: zoom, center: fromLonLat([lon, lat]) });
-}
-
-function zoomToPosition() {
-    const coordinates = currentPosition;
-    if (coordinates !== undefined && coordinates !== null) {
-        let zoom = 10;
-        let c = coordinates;
-        map.getView().animate({ zoom: zoom, center: c });
-    }
 }
 
 function scrollToLayGroupInPanel(locId) {
@@ -324,6 +369,8 @@ map.on('pointermove', function (e) {
 
             if (type === 'trail')
                 f.setStyle(trailSelectStyle);
+            else if (type && type.startsWith('kml'))
+                f.setStyle(oldStyle);
             else
                 f.setStyle(selectStyle);
             map.render();
@@ -347,7 +394,73 @@ async function handleFileUpload(event) {
     window.location.reload();
 }
 
+
 document.getElementById('fileUpload').addEventListener('change', handleFileUpload);
+
+async function handleKmlFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const newLayer = new KmlLayer({ title: file.name });
+
+    uploadGroup.getLayers().push(newLayer.vectorLayer);
+
+    KmlLayer.handleKmlUpload(file, map, newLayer.vectorSource);
+}
+
+function initKmlLayersFromStorage() {
+    const search = 'kml_';
+    const values = Object.keys(localStorage)
+        .filter((key) => key.startsWith(search))
+        .map((key) => { return { "name": key, "value": localStorage[key] } });
+
+    values.forEach((x) => {
+        const title = x.name.substring(4);
+        const newLayer = new KmlLayer({ title: title, data: x.value, projection: map.getView().getProjection() });
+        uploadGroup.getLayers().push(newLayer.vectorLayer);
+    });
+}
+
+document.getElementById('kmlFileUpload').addEventListener('change', handleKmlFileUpload);
+
+// Add event listeners for the menu options
+document.getElementById('link-delete-uploads').addEventListener('click', () => {
+    console.log('deleting all uploads');
+
+    const search = 'kml_';
+    const values = Object.keys(localStorage)
+        .filter((key) => key.startsWith(search))
+        .map((key) => key);
+
+    values.forEach((item) => { localStorage.removeItem(item) });
+
+    window.location.reload();
+});
+document.getElementById('link-delete-waypoints').addEventListener('click', () => {
+    console.log(waypointLayer);
+    waypointLayer.clear();
+});
+
+document.getElementById('link-download-waypoints').addEventListener('click', () => {
+    console.log('download waypoints');
+
+    const data = localStorage.getItem('user_waypoints');
+
+    // create blob and a temp link
+    const blob = new Blob([data], { type: "application/vnd.google-earth.kml+xml" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "user_waypoints.kml";
+
+    document.body.appendChild(link);
+    link.click();
+
+    // remove temp link
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+});
+
 
 Autocomplete.init("#autocompleteBottomInput", {
     valueField: "v",
