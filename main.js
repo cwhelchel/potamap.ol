@@ -255,7 +255,7 @@ $(document).ready(function () {
     waypointLayer = wl;
 
     // roll/bump this number up to force a display of the landing modal info box
-    const expectedLanding = 6;
+    const expectedLanding = 7;
 
     if (localStorage.getItem('showLanding') === null) {
         showLandingModal();
