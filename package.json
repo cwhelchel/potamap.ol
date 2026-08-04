@@ -9,7 +9,7 @@
   "devDependencies": {
     "@types/bootstrap": "^5.2.11",
     "@types/jquery": "^4.0.1",
-    "vite": "^8.1.5"
+    "vite": "^8.2.0"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
