@@ -32,6 +32,8 @@ import { KmlLayer } from './KmlLayer.js';
 import { WaypointLayer } from './WaypointLayer.js';
 import { toLonLat } from 'ol/proj';
 import PotamapPopup from './PotamapPopup.ts';
+import PotamapLanding from './PotamapLanding.ts';
+import QueryParams from './QueryParams.ts';
 
 
 const selectStyle = new Style({
@@ -237,14 +239,24 @@ function showLocLayerGroup(inVal) {
 }
 
 $(document).ready(function () {
-    if (localStorage.getItem('locSelectVal') !== undefined) {
-        const x = localStorage.getItem('locSelectVal');
-        //console.log(x);
-        $('#locSelect').val(x);
-        showLocLayerGroup(x);
+
+    const params = new QueryParams(window.location.search);
+
+    if (params.selectedState) {
+        const qp = params.selectedState;
+        console.log(qp);
+        $('#locSelect').val(qp);
+        showLocLayerGroup(qp);
+    } else {
+        if (localStorage.getItem('locSelectVal') !== undefined) {
+            const x = localStorage.getItem('locSelectVal');
+            //console.log(x);
+            $('#locSelect').val(x);
+            showLocLayerGroup(x);
+        }
     }
 
-    initKmlLayersFromStorage()
+    initKmlLayersFromStorage();
 
     // add waypoint layer for user waypoints
     const wl = new WaypointLayer({ title: 'Waypoints', mapProjection: view.getProjection() });
@@ -254,24 +266,9 @@ $(document).ready(function () {
 
     waypointLayer = wl;
 
-    // roll/bump this number up to force a display of the landing modal info box
-    const expectedLanding = 7;
-
-    if (localStorage.getItem('showLanding') === null) {
-        showLandingModal();
-    } else {
-        const storedVal = localStorage.getItem('showLanding');
-        if (storedVal < expectedLanding) {
-            showLandingModal();
-        }
-    }
-
-    function showLandingModal() {
-        const myModalEl = document.getElementById('landingModal');
-        const myModal = new bootstrap.Modal(myModalEl);
-        myModal.toggle();
-        localStorage.setItem('showLanding', expectedLanding);
-    }
+    // show the landing modal dialog if needed
+    const landing = new PotamapLanding();
+    landing.initializeAndShow();
 });
 
 $('#parkBtn').click(function () {
