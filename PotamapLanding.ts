@@ -3,7 +3,7 @@ import { Modal } from "bootstrap";
 export default class PotamapLanding {
 
     // roll/bump this number up to force a display of the landing modal info box
-    private expectedLanding = 7;
+    private expectedLanding = 8;
 
     constructor() {
     }
