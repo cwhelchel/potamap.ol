@@ -16,6 +16,6 @@
     "bootstrap5-autocomplete": "^1.1.42",
     "ol": "^10.10.0",
     "ol-layerswitcher": "^4.1.2",
-    "papaparse": "^5.5.4"
+    "papaparse": "^5.7.0"
   }
 }
