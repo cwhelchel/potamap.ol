@@ -29,7 +29,8 @@ jobs:
       - name: Checkout main repo
         uses: actions/checkout@v4
         with:
-          path: dist
+          path: src
+          token: ${{ secrets.WORKFLOW_PAT }} # needed for commits
 
       - name: Checkout potamap park updater repo
         uses: actions/checkout@v4
@@ -49,52 +50,29 @@ jobs:
 
       - name: Run generator
         working-directory: park_updater
-        # env:
-        #   OUTPUT_DIR: ${{ github.workspace }}/data # <-- where the site expects output
         run: |
           ls -la
-          python run.py
+          python run.py -o src/public/data
+
+      - name: Commit and push changes
+        working-directory: src
+        run: |
+          ls -la
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git diff
+          git add .
+          git status
 
       - name: Archive main source
         uses: actions/upload-artifact@v4
         with:
-          name: dist-folder
+          name: src-folder
           path: |
-            dist
+            src
       - name: Archive tool artifacts
         uses: actions/upload-artifact@v4
         with:
           name: park_updater-folder
           path: |
             park_updater
-
-
-
-  # # Single deploy job since we're just deploying
-  # deploy:
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Set up Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 22
-  #         cache: "npm"
-  #     - name: Install dependencies
-  #       run: npm install
-  #     - name: Build
-  #       run: npm run build
-  #     - name: Setup Pages
-  #       uses: actions/configure-pages@v4
-  #     - name: Upload artifact
-  #       uses: actions/upload-pages-artifact@v3
-  #       with:
-  #         # Upload dist repository
-  #         path: "./dist"
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4
