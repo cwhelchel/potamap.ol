@@ -11,11 +11,8 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # Allow one concurrent deployment
 concurrency:
@@ -48,7 +45,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r park_updater/requirements.txt
 
-      - name: Run generator
+      # Run the custom update tool and put the files in the src tree for commit
+      - name: Run potamap_park_updater
         working-directory: park_updater
         run: |
           ls -la
@@ -60,9 +58,10 @@ jobs:
           ls -la
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git diff
           git add .
           git status
+          git commit -m "chore: POTAMAP UPDATE TOOL [$(date -u +'%Y-%m-%d %H:%M UTC')]"
+          git push
 
       - name: Archive main source
         uses: actions/upload-artifact@v4
@@ -70,9 +69,10 @@ jobs:
           name: src-folder
           path: |
             src
-      - name: Archive tool artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: park_updater-folder
-          path: |
-            park_updater
+
+      # - name: Archive tool artifacts
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: park_updater-folder
+      #     path: |
+      #       park_updater
