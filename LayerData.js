@@ -667,6 +667,7 @@ export default class LocData {
                 { title: 'PAD-US Fee', file: 'PADUS3_0Fee_StateWI.geojson' },
                 { title: 'PAD-US Des', file: 'PADUS3_0Designation_StateWI.geojson' },
                 { title: 'Parks', file: 'parks-US-WI.geojson' },
+                { title: "Summits W9/WI ", file: "W9--WI.geojson" },
             ],
             'US-WV': [
                 { title: 'Counties', file: 'counties.geojson' },
