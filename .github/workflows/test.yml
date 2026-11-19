@@ -63,12 +63,12 @@ jobs:
           git commit -m "chore: POTAMAP UPDATE TOOL [$(date -u +'%Y-%m-%d %H:%M UTC')]"
           git push
 
-      - name: Archive main source
-        uses: actions/upload-artifact@v4
-        with:
-          name: src-folder
-          path: |
-            src
+      # - name: Archive main source
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: src-folder
+      #     path: |
+      #       src
 
       # - name: Archive tool artifacts
       #   uses: actions/upload-artifact@v4
