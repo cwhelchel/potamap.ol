@@ -1,0 +1,15 @@
+name: Updater for potamap
+on:
+  # Runs on pushes targeting the default branch
+  # push:
+  #   branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  temp:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo “Hello world” # <-- Also important, don’t do anything in this action.
