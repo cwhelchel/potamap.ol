@@ -52,7 +52,7 @@ jobs:
         working-directory: park_updater
         run: |
           ls -la
-          python run.py -o src/public/data
+          python run.py -o ../src/public/data
 
       - name: Commit and push changes
         working-directory: src
